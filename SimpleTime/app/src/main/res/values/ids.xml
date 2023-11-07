@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="image_logo" type="id" />
+    <item name="text_simpletime" type="id" />
+    <item name="btn_login" type="id" />
+    <item name="btn_createAcc" type="id" />
+    <item name="name" type="id" />
+    <item name="editTextTextPersonName" type="id" />
+    <item name="password" type="id" />
+    <item name="editTextTextPassword" type="id" />
+    <item name="btn_forgotPass" type="id" />
+    <item name="btn_forgotUsername" type="id" />
+</resources>

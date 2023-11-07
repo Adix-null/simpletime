@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/popup_save_video"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    tools:context=".ActivityRatePopup">
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="433dp"
+        android:layout_height="195dp"
+        android:layout_marginTop="662dp"
+        android:scaleY="7.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/filledbutton" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="329dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="512dp"
+        android:background="@drawable/purplefilled"
+        android:fontFamily="@font/tauri"
+        android:text="Save video to your device"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="329dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="612dp"
+        android:background="@drawable/purplefilled"
+        android:fontFamily="@font/tauri"
+        android:text="Save video to your account"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+<!--    <Button-->
+<!--        android:id="@+id/button3"-->
+<!--        android:layout_width="60dp"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:background="@android:drawable/ic_menu_close_clear_cancel"-->
+<!--        tools:layout_editor_absoluteX="421dp"-->
+<!--        tools:layout_editor_absoluteY="453dp" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-simpletime-staging-163812-authRole",
+      "UnauthRoleArn": "arn:aws:iam::155352936255:role/amplify-simpletime-staging-163812-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::155352936255:role/amplify-simpletime-staging-163812-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-simpletime-staging-163812-deployment",
+      "UnauthRoleName": "amplify-simpletime-staging-163812-unauthRole",
+      "StackName": "amplify-simpletime-staging-163812",
+      "StackId": "arn:aws:cloudformation:eu-west-2:155352936255:stack/amplify-simpletime-staging-163812/d0965f61-9d6b-11ec-a70e-029d630f3d88",
+      "AmplifyAppId": "d3qkx9gjnlz5n0"
+    },
+    "categories": {
+      "auth": {
+        "SimpleTime": {}
+      }
+    }
+  }
+}

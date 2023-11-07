@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundimage"
+    tools:context=".ActivityReport">
+
+    <TextView
+        android:id="@+id/report_textName"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="48dp"
+        android:fontFamily="@font/poppins_medium"
+        android:gravity="top"
+
+        android:text="@string/report"
+        android:textAppearance="@style/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/report_editReport"
+        android:layout_width="330dp"
+        android:layout_height="495dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/reportrectangle"
+        app:layout_constraintEnd_toEndOf="@+id/report_btnBack"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/report_textName"
+        app:layout_constraintTop_toBottomOf="@+id/report_textName" />
+
+    <Button
+        android:id="@+id/report_btnSubmit"
+        style="@style/log_in"
+        android:layout_width="115dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/reportsubmit"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingTop="2dp"
+        android:text="@string/submit"
+        android:textAppearance="@style/log_in"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="@+id/report_editReport"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/report_editReport"
+        app:layout_constraintTop_toBottomOf="@+id/report_editReport" />
+
+
+    <RadioGroup
+        android:id="@+id/report_radioGroup"
+        android:layout_width="268dp"
+        android:layout_height="441dp"
+        app:layout_constraintBottom_toBottomOf="@+id/report_editReport"
+        app:layout_constraintEnd_toEndOf="@+id/report_editReport"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toStartOf="@+id/report_editReport"
+        app:layout_constraintTop_toTopOf="@+id/report_editReport"
+        app:layout_constraintVertical_bias="0.407">
+
+        <RadioButton
+            android:id="@+id/report_option1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Harmful or dangerous content"
+            app:layout_constraintEnd_toEndOf="@+id/report_radioGroup"
+            app:layout_constraintHorizontal_bias="0."
+            app:layout_constraintStart_toStartOf="@+id/report_radioGroup"
+            app:layout_constraintTop_toTopOf="@+id/report_radioGroup"
+            tools:ignore="TouchTargetSizeCheck"
+            android:buttonTint="@color/main_purple_dark"/>
+
+        <RadioButton
+            android:id="@+id/report_option2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Violent or repulsive content"
+            app:layout_constraintEnd_toEndOf="@+id/report_option1"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/report_option1"
+            app:layout_constraintTop_toBottomOf="@+id/report_option1"
+            tools:ignore="TouchTargetSizeCheck"
+            android:buttonTint="@color/main_purple_dark"/>
+
+
+        <RadioButton
+            android:id="@+id/report_option3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="Sexual content"
+            app:layout_constraintEnd_toEndOf="@+id/report_option2"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/report_option2"
+            app:layout_constraintTop_toBottomOf="@+id/report_option2"
+            tools:ignore="TouchTargetSizeCheck"
+            android:buttonTint="@color/main_purple_dark"/>
+
+        <RadioButton
+            android:id="@+id/report_option4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Spam or misleading"
+            app:layout_constraintEnd_toEndOf="@+id/report_option3"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/report_option3"
+            app:layout_constraintTop_toBottomOf="@+id/report_option3"
+            tools:ignore="TouchTargetSizeCheck"
+            android:buttonTint="@color/main_purple_dark"/>
+
+        <RadioButton
+            android:id="@+id/report_option5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="32dp"
+            android:text="Hateful or abusive content"
+            app:layout_constraintEnd_toEndOf="@+id/report_option4"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/report_option4"
+            app:layout_constraintTop_toBottomOf="@+id/report_option4"
+            tools:ignore="TouchTargetSizeCheck"
+            android:buttonTint="@color/main_purple_dark"/>
+
+        <RadioButton
+            android:id="@+id/report_option6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Infringes my rights"
+            app:layout_constraintEnd_toEndOf="@+id/report_option5"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/report_option5"
+            app:layout_constraintTop_toBottomOf="@+id/report_option5"
+            tools:ignore="TouchTargetSizeCheck"
+            android:buttonTint="@color/main_purple_dark"/>
+
+        <RadioButton
+            android:id="@+id/report_option7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Other"
+            app:layout_constraintEnd_toEndOf="@+id/report_option6"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/report_option6"
+            app:layout_constraintTop_toBottomOf="@+id/report_option6"
+            tools:ignore="TouchTargetSizeCheck"
+            android:buttonTint="@color/main_purple_dark"/>
+
+    </RadioGroup>
+
+    <ImageView
+        android:id="@+id/report_btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/messagearrow" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

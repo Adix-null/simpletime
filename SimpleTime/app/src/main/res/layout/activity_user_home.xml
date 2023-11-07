@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:theme="@style/Theme.SimpleTime.NoActionBar"
+    tools:context=".ActivityUserHome"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-14dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/userHome_sidebar"
+        app:layout_constraintTop_toBottomOf="@+id/userHome_btnSearch"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/userHome_btnMood"
+                style="@style/log_in"
+                android:layout_width="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_height="120dp"
+                android:background="@drawable/bl_2"
+                android:elevation="4dp"
+
+                android:fontFamily="@font/nunito"
+                android:gravity="start"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:text="@string/official"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/userHome_btnMoodFollowing"
+                style="@style/log_in"
+                android:layout_width="167dp"
+                android:layout_height="252dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bl_3"
+                android:elevation="4dp"
+
+                android:fontFamily="@font/nunito"
+                android:gravity="start"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:text="@string/following"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/userHome_btnMood"
+                app:layout_constraintTop_toBottomOf="@+id/userHome_btnMood" />
+
+
+            <Button
+                android:id="@+id/userHome_btnMoodDailytop"
+                style="@style/log_in"
+                android:layout_width="167dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bl_1"
+                android:elevation="4dp"
+
+                android:fontFamily="@font/nunito"
+                android:gravity="start"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:text="@string/dailytop"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/userHome_btnMoodFollowing"
+                app:layout_constraintTop_toBottomOf="@+id/userHome_btnMood" />
+
+            <Button
+                android:id="@+id/userHome_btnWeeklytop"
+                style="@style/log_in"
+                android:layout_width="167dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bl_1"
+                android:elevation="4dp"
+
+                android:fontFamily="@font/nunito"
+                android:gravity="start"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:text="@string/weeklytop"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="@+id/userHome_btnMoodDailytop"
+                app:layout_constraintStart_toStartOf="@+id/userHome_btnMoodDailytop"
+                app:layout_constraintTop_toBottomOf="@+id/userHome_btnMoodDailytop" />
+
+            <Button
+                android:id="@+id/userHome_btnOfficial"
+                style="@style/log_in"
+                android:layout_width="match_parent"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bl_2"
+                android:elevation="4dp"
+
+                android:fontFamily="@font/nunito"
+                android:gravity="start"
+                android:paddingStart="16dp"
+                android:paddingTop="16dp"
+                android:text="@string/general"
+                android:textAlignment="viewStart"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userHome_btnWeeklytop" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/userHome_sidebar"
+        android:layout_width="match_parent"
+        android:layout_height="111dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/nav_bottom" />
+
+    <TextView
+        android:id="@+id/userHome_categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="47dp"
+        android:text="@string/categories"
+        android:textAppearance="@style/categories"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/userHome_btnSearch"
+        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/searchbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonHome"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/home_light"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/userHome_sidebar" />
+    <TextView
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:text="Home"
+        android:textAppearance="@style/navbar_links"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHome"
+        app:layout_constraintStart_toStartOf="@+id/buttonHome"
+        app:layout_constraintTop_toBottomOf="@+id/buttonHome" />
+
+    <Button
+        android:id="@+id/buttonSaved"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/upload_light"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:layout_marginStart="91dp"
+        app:layout_constraintStart_toStartOf="@+id/buttonHome"
+        app:layout_constraintTop_toTopOf="@+id/userHome_sidebar" />
+    <TextView
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:text="Saved"
+        android:textAppearance="@style/navbar_links"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSaved"
+        app:layout_constraintStart_toStartOf="@+id/buttonSaved"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSaved" />
+
+    <Button
+        android:id="@+id/buttonChat"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/comment_light"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:layout_marginStart="91dp"
+        app:layout_constraintStart_toStartOf="@+id/buttonSaved"
+        app:layout_constraintTop_toTopOf="@+id/userHome_sidebar" />
+    <TextView
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:text="Chat"
+        android:textAppearance="@style/navbar_links"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/buttonChat"
+        app:layout_constraintStart_toStartOf="@+id/buttonChat"
+        app:layout_constraintTop_toBottomOf="@+id/buttonChat" />
+
+    <Button
+        android:id="@+id/buttonUpload"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/add_square_light"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:layout_marginStart="91dp"
+        app:layout_constraintStart_toStartOf="@+id/buttonChat"
+        app:layout_constraintTop_toTopOf="@+id/userHome_sidebar" />
+    <TextView
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:text="Upload"
+        android:textAppearance="@style/navbar_links"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/buttonUpload"
+        app:layout_constraintStart_toStartOf="@+id/buttonUpload"
+        app:layout_constraintTop_toBottomOf="@+id/buttonUpload" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/button50"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginLeft="330dp"
+        android:src="@drawable/usericon"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/button15"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/notifications"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/button16"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/podcast"
+        app:layout_constraintEnd_toEndOf="@+id/button15"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/button15"
+        app:layout_constraintTop_toBottomOf="@+id/button15" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

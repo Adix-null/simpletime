@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/drawable-v24/filledbutton.xml" value="0.138" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.138" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/drawable-v24/strokebutton.xml" value="0.138" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/drawable-v24/strokebuttonbold.xml" value="0.138" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/drawable/ic_launcher_background.xml" value="0.138" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/drawable/smallbutton.xml" value="0.138" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/font/poppins_medium.xml" value="0.25555555555555554" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/font/poppins_semibold.xml" value="0.25555555555555554" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/font/roboto.xml" value="0.25555555555555554" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/font/tauri.xml" value="0.25555555555555554" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/layout/activity_first_fragment.xml" value="0.14918946301925026" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/layout/activity_kazkas.xml" value="0.14918946301925026" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/layout/activity_main.xml" value="0.14918946301925026" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/layout/activity_user_control_java.xml" value="0.17831813576494426" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/layout/content_main.xml" value="0.17831813576494426" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/layout/fragment_first.xml" value="0.25" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/layout/fragment_second.xml" value="0.358695652173913" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.138" />
+        <entry key="..\:/SimpleTime/SimpleTime/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.138" />
+        <entry key="..\:/Users/Margar/Desktop/SimpleTime/SimpleTime/app/src/main/res/layout/activity_save_video.xml" value="0.33" />
+        <entry key="..\:/Users/Margar/Desktop/SimpleTime/SimpleTime/app/src/main/res/layout/activity_video_page.xml" value="0.28125" />
+        <entry key="..\:/Users/Margar/Desktop/SimpleTime/SimpleTime/app/src/main/res/menu/ratepopup.xml" value="0.11614583333333334" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/drawable-v24/filledbutton.xml" value="0.1485" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1485" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/drawable/circlebutton.xml" value="0.1" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1485" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/drawable/progress_animation.xml" value="0.1" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/drawable/smallbuttonfilled.xml" value="0.296" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/drawable/strokebuttonsmall.xml" value="0.325" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/drawable/strokebuttonvertical.xml" value="0.325" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_chatroom.xml" value="0.3179347826086957" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_donation.xml" value="0.17426545086119555" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_first_fragment.xml" value="0.17426545086119555" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_forgot_password.xml" value="0.33" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_loading_screen.xml" value="0.2" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_rate_popup.xml" value="0.35833333333333334" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_reg.xml" value="0.1" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_registration.xml" value="0.3179347826086957" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_user_control_java.xml" value="0.3179347826086957" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_user_home.xml" value="0.22" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_user_profile.xml" value="0.26153846153846155" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_video_page.xml" value="0.5" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/activity_video_player.xml" value="0.3179347826086957" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/content_main.xml" value="0.1" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/fragment_first.xml" value="1.0" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/fragment_first2.xml" value="0.3179347826086957" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/fragment_second.xml" value="0.2672239108409321" />
+        <entry key="..\:/Users/PC/Documents/SimpleTime_ANTRAS/SimpleTime/app/src/main/res/layout/fragment_second2.xml" value="0.3179347826086957" />
+        <HEAD>
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/drawable-v24/filledbutton.xml" value="0.44" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.44" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/drawable-v24/strokebutton.xml" value="0.44" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/drawable-v24/strokebuttonbold.xml" value="0.44" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/drawable/ic_launcher_background.xml" value="0.44" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/drawable/progress_animation.xml" value="0.44" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/drawable/smallbutton.xml" value="0.4735" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/drawable/smallbuttonfilled.xml" value="0.4735" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/drawable/strokebuttonsmall.xml" value="0.44" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/drawable/strokebuttonvertical.xml" value="0.44" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_chatroom.xml" value="0.4420692603676785" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_creators_profile1.xml" value="0.25" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_creators_profile2.xml" value="0.33" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_donation.xml" value="0.2160468031759298" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_first_fragment.xml" value="0.4420692603676785" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_loading_screen.xml" value="0.4420692603676785" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_main.xml" value="0.4420692603676785" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_rate_popup.xml" value="0.2160468031759298" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_registration.xml" value="0.4420692603676785" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_report.xml" value="0.4420692603676785" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_save_video.xml" value="0.15477293790546803" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_user_control_java.xml" value="0.4420692603676785" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_user_home.xml" value="0.25609234715690465" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_user_profile.xml" value="0.4420692603676785" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_video_page.xml" value="0.2160468031759298" />
+          <entry key="..\:/Users/Ugnius/Documents/GitHub/SimpleTime/SimpleTime/app/src/main/res/layout/activity_video_player.xml" value="0.4420692603676785" />
+          <entry key="..\:/Users/PC/Documents/SimpleTime_NAUJAS/SimpleTime/app/src/main/res/layout/activity_user_profile.xml" value="0.46743095362167797" />
+        </HEAD>
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Embedded JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

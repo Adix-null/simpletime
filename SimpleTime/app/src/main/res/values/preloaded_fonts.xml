@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/poppins_medium_loc</item>
+        <item>@font/poppins_semibold</item>
+        <item>@font/nunito</item>
+        <item>@font/roboto</item>
+        <item>@font/tauri</item>
+    </array>
+</resources>

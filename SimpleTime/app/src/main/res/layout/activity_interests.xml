@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    tools:context=".ActivityInterests"
+    android:theme="@style/Theme.SimpleTime.NoActionBar">
+
+    <TextView
+        android:id="@+id/interests_1"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingTop="4dp"
+        android:text="Interests"
+        android:textAppearance="@style/med_text"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/interests_2"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingTop="4dp"
+        android:text="Pick your interests"
+        android:textAppearance="@style/big_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/interests_1" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/continue_interests"
+        app:layout_constraintTop_toBottomOf="@+id/interests_2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button45"
+                android:layout_width="172dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/gray_back"
+                android:text="Category 1"
+                android:textAppearance="@style/big_text"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/button65"
+                android:layout_width="172dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="7dp"
+                android:background="@drawable/gray_back"
+                android:text="Category 2"
+                android:textAppearance="@style/big_text"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/button45"
+                app:layout_constraintTop_toTopOf="@+id/button45" />
+
+            <Button
+                android:id="@+id/button95"
+                android:layout_width="172dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/gray_back"
+                android:text="Category 3"
+                android:textAppearance="@style/big_text"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button45" />
+
+            <Button
+                android:layout_width="172dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="7dp"
+                android:background="@drawable/gray_back"
+                android:text="Category 4"
+                android:textAppearance="@style/big_text"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/button45"
+                app:layout_constraintTop_toTopOf="@+id/button95" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+    <Button
+        android:id="@+id/continue_interests"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/back_blue"
+        android:text="@string/cont"
+        android:textAppearance="@style/categories_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

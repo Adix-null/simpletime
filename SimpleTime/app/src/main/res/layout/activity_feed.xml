@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundimage"
+    tools:context=".ActivityFeed">
+
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/title3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/frameLay"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <FrameLayout
+        android:id="@+id/frameLay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title3">
+
+        <Button
+            android:id="@+id/pauseBut"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/videoFeed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:resize_mode="zoom"
+            app:use_controller="false">
+
+            <ProgressBar
+                android:id="@+id/progressBar3"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        </com.google.android.exoplayer2.ui.PlayerView>
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/pauseIndicator"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:alpha="0.0"
+        android:src="@drawable/resumearrow"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLay"
+        app:layout_constraintEnd_toEndOf="@+id/frameLay"
+        app:layout_constraintStart_toStartOf="@+id/frameLay"
+        app:layout_constraintTop_toTopOf="@+id/frameLay" />
+
+    <TextView
+        android:id="@+id/videopage_description"
+        android:layout_width="273dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="12dp"
+        android:paddingTop="4dp"
+        android:text="Description"
+        android:textAppearance="@style/categories"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/videopage_title2"
+        android:layout_width="272dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="8dp"
+        android:paddingLeft="12dp"
+        android:paddingTop="4dp"
+        android:text="Title"
+        android:textAppearance="@style/categories"
+        app:layout_constraintBottom_toTopOf="@+id/videopage_description"
+        app:layout_constraintEnd_toEndOf="@+id/videopage_description"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/videopage_description" />
+
+    <ImageButton
+        android:id="@+id/imageButton17"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@null"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/uploaderPicture2"
+        app:layout_constraintStart_toStartOf="@+id/uploaderPicture2"
+        app:srcCompat="@drawable/message"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton16"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="-5dp"
+        android:background="@null"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton17"
+        app:layout_constraintEnd_toEndOf="@+id/uploaderPicture2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/uploaderPicture2"
+        app:srcCompat="@drawable/comment"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/reportButton"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@null"
+        android:scaleX="1"
+        android:scaleY="1"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton16"
+        app:layout_constraintEnd_toEndOf="@+id/uploaderPicture2"
+        app:layout_constraintHorizontal_bias="0.558"
+        app:layout_constraintStart_toStartOf="@+id/uploaderPicture2"
+        app:srcCompat="@drawable/new_report"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageView5"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="12dp"
+        android:background="@null"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:src="@drawable/fullpodcast"
+        app:layout_constraintBottom_toTopOf="@+id/uploaderPicture2"
+        app:layout_constraintEnd_toEndOf="@+id/uploaderPicture2"
+        app:layout_constraintStart_toStartOf="@+id/uploaderPicture2" />
+
+    <ImageButton
+        android:id="@+id/uploaderPicture2"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@null"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:src="@drawable/user_blank"
+        android:layout_centerInParent="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/videopage_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/videopage_description"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:visibility="invisible"
+        android:id="@+id/backButton"
+        android:layout_width="96dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="32dp"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintStart_toEndOf="@+id/categoryView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backarrow"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/imageButton13"
+        android:layout_width="47dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="164dp"
+        android:background="@null"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/reportButton"
+        app:layout_constraintEnd_toEndOf="@+id/backButton"
+        app:layout_constraintHorizontal_bias="0.714"
+        app:layout_constraintStart_toStartOf="@+id/backButton"
+        app:layout_constraintTop_toBottomOf="@+id/backButton"
+        app:srcCompat="@android:drawable/ic_media_ff" />
+
+    <TextView
+        android:visibility="invisible"
+        android:id="@+id/categoryView"
+        android:text="Category"
+        android:textColor="#FFFFFF"
+        android:textSize="23sp"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/filledbutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

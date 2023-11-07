@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light">
+        <activity
+            android:name=".ActivityEvents"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityNotifications"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityMessages"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityMyProfile"
+            android:exported="false" />
+        <activity
+            android:name=".ReportOtherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityFeed"
+            android:exported="false" />
+        <activity
+            android:name=".VideoPlayerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityThumbnailAudio"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityComments"
+            android:exported="false" />
+        <activity
+            android:name=".CreatorsProfile2"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityPager"
+            android:exported="false"/>
+        <activity
+            android:name=".CreatorsProfile1"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityUserProfile"
+            android:exported="false" />
+        <activity
+            android:name=".ActivitySaveVideo"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityDonation"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityRatePopup"
+            android:exported="false"
+            android:theme="@style/Theme.SimpleTime.RatePopup" />
+        <activity
+            android:name=".ActivityReport"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityChatroom"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityVideoPage"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityFullscreen"
+            android:screenOrientation="landscape"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityUserHome"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityLoadingScreen"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".uploadVideo"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityVideoPlayer"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityRegistration"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_main">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="simpletimelogin.page.link/N8fh"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

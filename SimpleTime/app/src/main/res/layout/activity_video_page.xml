@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ActivityVideoPage"
+    tools:layout_editor_absoluteX="32dp"
+    tools:layout_editor_absoluteY="0dp">
+
+
+    <TextView
+        android:id="@+id/videopage_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="12dp"
+        android:paddingTop="4dp"
+        android:text="Title"
+        android:textAppearance="@style/simpletime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/uploaderPicture"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:src="@drawable/user_blank"
+        app:layout_constraintStart_toStartOf="@+id/videoPage_description"
+        app:layout_constraintTop_toBottomOf="@+id/podcast_slider"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/videoPage_uploaderName"
+        android:layout_width="wrap_content"
+        android:layout_height="42dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="@string/lorem"
+        android:textAppearance="@style/navbar_links"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/uploaderPicture"
+        app:layout_constraintTop_toTopOf="@+id/uploaderPicture" />
+
+    <TextView
+        android:id="@+id/videoPage_rating"
+        android:layout_width="50dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="12dp"
+        android:gravity="start|center"
+        android:text="4.7"
+        android:textAppearance="@style/med_text"
+        app:layout_constraintStart_toEndOf="@+id/videoPage_viewCount"
+        app:layout_constraintTop_toBottomOf="@+id/videoPage_uploaderName" />
+
+    <TextView
+        android:id="@+id/videoPage_viewCount"
+        android:layout_width="wrap_content"
+        android:minWidth="100dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:text="7355608 views  |"
+        android:textAppearance="@style/med_text"
+        app:layout_constraintBottom_toBottomOf="@+id/videoPage_rating"
+        app:layout_constraintStart_toStartOf="@+id/videoPage_uploaderName"
+        app:layout_constraintTop_toTopOf="@+id/videoPage_rating" />
+
+    <TextView
+        android:id="@+id/videoPage_description"
+        android:layout_width="match_parent"
+        android:layout_height="92dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:elevation="4dp"
+        android:gravity="top"
+        android:text="@string/lorem100"
+        android:textAppearance="@style/navbar_links"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploaderPicture" />
+
+    <ImageView
+        android:id="@+id/videoPage_footer"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/footer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/videoPage_description"
+        app:layout_constraintStart_toStartOf="@+id/videoPage_description" />
+
+    <Button
+        android:id="@+id/star_upload"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_margin="20dp"
+        android:text="@string/upload"
+        android:background="@drawable/back_blue"
+        android:textAppearance="@style/categories_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/videoPage_footer"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageView
+        android:id="@+id/videoPage_rating_container"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/rating_container"
+        app:layout_constraintEnd_toEndOf="@+id/videoPage_description"
+        app:layout_constraintStart_toStartOf="@+id/videoPage_description"
+        app:layout_constraintTop_toBottomOf="@+id/videoPage_description"
+        />
+
+    <ImageButton
+        android:id="@+id/PopUp1"
+        android:layout_width="45dp"
+        android:layout_height="49dp"
+        android:layout_margin="40dp"
+        android:elevation="1000dp"
+        android:background="@drawable/new_blank_star"
+        app:layout_constraintStart_toStartOf="@+id/videoPage_rating_container"
+        app:layout_constraintTop_toTopOf="@+id/videoPage_rating_container"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/PopUp2"
+        android:layout_width="45dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/new_blank_star"
+        app:layout_constraintStart_toEndOf="@+id/PopUp1"
+        app:layout_constraintTop_toTopOf="@+id/PopUp1"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/PopUp3"
+        android:layout_width="45dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/new_blank_star"
+        app:layout_constraintStart_toEndOf="@+id/PopUp2"
+        app:layout_constraintTop_toTopOf="@+id/PopUp2"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/PopUp4"
+        android:layout_width="45dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/new_blank_star"
+        app:layout_constraintStart_toEndOf="@+id/PopUp3"
+        app:layout_constraintTop_toTopOf="@+id/PopUp2"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:id="@+id/PopUp5"
+        android:layout_width="45dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/new_blank_star"
+        app:layout_constraintStart_toEndOf="@+id/PopUp4"
+        app:layout_constraintTop_toTopOf="@+id/PopUp4"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/ReportButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/report"
+        android:layout_margin="15dp"
+        android:elevation="5dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="@+id/frameLayout"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:visibility="invisible"
+        android:id="@+id/imageButton11"
+        android:layout_width="52dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:background="@null"
+        android:scaleX="1.75"
+        android:scaleY="1.75"
+        app:layout_constraintStart_toStartOf="@+id/videoPage_footer"
+        app:layout_constraintTop_toTopOf="@+id/videoPage_footer"
+        app:srcCompat="@drawable/maskgroup"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:visibility="invisible"
+        android:id="@+id/imageButton14"
+        android:layout_width="52dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@null"
+        android:scaleX="1.75"
+        android:scaleY="1.75"
+        app:layout_constraintStart_toEndOf="@+id/imageButton11"
+        app:layout_constraintTop_toTopOf="@+id/videoPage_footer"
+        app:srcCompat="@drawable/sraide"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:visibility="invisible"
+        android:id="@+id/imageButton15"
+        android:layout_width="60dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@null"
+        android:scaleX="2"
+        android:scaleY="2"
+        app:layout_constraintStart_toEndOf="@+id/imageButton14"
+        app:layout_constraintTop_toTopOf="@+id/videoPage_footer"
+        app:srcCompat="@drawable/messagearrow"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:visibility="invisible"
+        android:id="@+id/imageButton19"
+        android:layout_width="55dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@null"
+        android:scaleX="1.75"
+        android:scaleY="1.75"
+        app:layout_constraintStart_toEndOf="@+id/imageButton15"
+        app:layout_constraintTop_toTopOf="@+id/videoPage_footer"
+        app:srcCompat="@drawable/savebutton"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <ImageButton
+        android:visibility="invisible"
+        android:id="@+id/imageButton18"
+        android:layout_width="52dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:background="@null"
+        android:scaleX="1.75"
+        android:scaleY="1.75"
+        app:layout_constraintStart_toEndOf="@+id/imageButton19"
+        app:layout_constraintTop_toTopOf="@+id/videoPage_footer"
+        app:srcCompat="@drawable/donatebutton"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/Rating"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/new_star"
+        app:layout_constraintBottom_toBottomOf="@+id/videoPage_rating"
+        app:layout_constraintEnd_toEndOf="@+id/videoPage_rating"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/videoPage_rating"
+        app:layout_constraintTop_toTopOf="@+id/videoPage_rating"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <ImageView
+        android:id="@+id/fullVideo"
+        android:layout_width="36dp"
+        android:layout_height="32dp"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
+        app:layout_constraintBottom_toTopOf="@+id/uploaderPicture"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+        app:layout_constraintStart_toEndOf="@+id/videoPage_uploaderName"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:srcCompat="@drawable/fullscreen" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/title2"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <ImageView
+        android:id="@+id/pauseImg"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:alpha="0"
+        android:translationZ="2dp"
+        android:src="@drawable/resumearrow"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="@+id/frameLayout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/videopage_title">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/thumbnail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/thm1"
+            android:padding="3dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/black"
+            android:adjustViewBounds="true"
+            app:shapeAppearanceOverlay="@style/squircle"/>
+
+        <ImageView
+            android:id="@+id/pauseImgPodcast"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:alpha="0"
+            android:src="@drawable/resumearrow"
+            android:translationZ="2dp"
+            app:layout_constraintBottom_toBottomOf="@+id/thumbnail"
+            app:layout_constraintEnd_toEndOf="@+id/thumbnail"
+            app:layout_constraintStart_toStartOf="@+id/thumbnail"
+            app:layout_constraintTop_toTopOf="@+id/thumbnail" />
+
+        <Button
+            android:id="@+id/pauseButPodcast"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <!-- <Button
+             android:visibility="invisible"
+             android:id="@+id/pauseBut"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:alpha="0"
+
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent" />
+
+         <com.google.android.exoplayer2.ui.PlayerView
+             android:visibility="invisible"
+             android:id="@+id/video_view2"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             app:resize_mode="zoom"
+             app:use_controller="false">
+
+             <ProgressBar
+                 android:id="@+id/progressBar2"
+                 style="?android:attr/progressBarStyle"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:visibility="invisible"
+                 app:layout_constraintBottom_toBottomOf="parent" />
+
+
+         </com.google.android.exoplayer2.ui.PlayerView>
+ -->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <SeekBar
+        android:id="@+id/podcast_slider"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/uploaderPicture"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+        app:layout_constraintEnd_toStartOf="@+id/fullVideo"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

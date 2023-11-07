@@ -1,0 +1,10 @@
+{
+  "resourceName": "s3simpletimestorage5c64f62e",
+  "bucketName": "simpletime-storage-5c64f62e",
+  "policyUUID": "b17f437b",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE"
+  ]
+}

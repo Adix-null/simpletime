@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<font-family xmlns:app="http://schemas.android.com/apk/res-auto"
+        app:fontProviderAuthority="com.google.android.gms.fonts"
+        app:fontProviderPackage="com.google.android.gms"
+        app:fontProviderQuery="name=Poppins&amp;weight=600"
+        app:fontProviderCerts="@array/com_google_android_gms_fonts_certs">
+</font-family>-->
+<font-family xmlns:app="http://schemas.android.com/apk/res-auto">
+    <font
+        app:fontStyle="normal"
+        app:fontWeight="600"
+        app:font="@font/poppins_semibold_loc"/>
+    <font
+        app:fontStyle="italic"
+        app:fontWeight="600"
+        app:font="@font/poppins_semibolditalic_loc"/>
+
+</font-family>

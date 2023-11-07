@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundimage"
+    tools:context=".ActivityMyProfile">
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="333dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="39dp"
+        android:text="My Profile"
+        android:textAlignment="center"
+        android:textColor="@color/main_purple_light"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/uploadVideoTitle"
+        android:layout_width="248dp"
+        android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/strokebutton"
+        android:hint="Title"
+        android:inputType="text"
+        android:paddingStart="19dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        tools:ignore="RtlSymmetry" />
+
+    <Button
+        android:id="@+id/uploadPodcast"
+        style="@style/log_in"
+        android:layout_width="248dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/descriptionrectangle"
+        android:elevation="4dp"
+
+        android:fontFamily="@font/poppins_medium"
+        android:text="Podcast"
+        android:textAlignment="center"
+        android:textAppearance="@style/log_in"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadVideoTitle" />
+
+    <Button
+        android:id="@+id/uploadThumbnail"
+        style="@style/log_in"
+        android:layout_width="248dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/descriptionrectangle"
+        android:elevation="4dp"
+
+        android:fontFamily="@font/poppins_medium"
+        android:text="Thumbnail"
+        android:textAlignment="center"
+        android:textAppearance="@style/log_in"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadPodcast" />
+
+    <Button
+        android:id="@+id/uploadVideo"
+        style="@style/log_in"
+        android:layout_width="248dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/descriptionrectangle"
+        android:elevation="4dp"
+
+        android:fontFamily="@font/poppins_medium"
+        android:text="Short video"
+        android:textAlignment="center"
+        android:textAppearance="@style/log_in"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadThumbnail" />
+
+    <Button
+        android:id="@+id/uploadAll"
+        style="@style/log_in"
+        android:layout_width="248dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/descriptionrectangle"
+        android:elevation="4dp"
+
+        android:fontFamily="@font/poppins_medium"
+        android:text="Upload"
+        android:textAlignment="center"
+        android:textAppearance="@style/log_in"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="true"
+    android:fadeScrollbars="false"
+    android:scrollbarSize="4dp"
+    android:scrollbarThumbVertical="@color/main_purple_light"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/backgroundimage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ActivityUserProfile">
+
+
+        <Button
+            android:id="@+id/userProfile_editAge"
+            android:layout_width="295dp"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/strokebutton"
+            android:fontFamily="@font/poppins_medium"
+            android:onClick="openDatePicker"
+            android:textAppearance="@style/back"
+            app:backgroundTint="@null"
+            android:paddingStart="19dp"
+            android:text="pick date"
+            app:layout_constraintEnd_toEndOf="@+id/userProfile_age"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/userProfile_age"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile_age"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/userProfile_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Date Of Birth"
+            android:textAppearance="@style/categories_white"
+            app:layout_constraintEnd_toEndOf="@+id/userProfile_editSurname"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/userProfile_editSurname"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile_editSurname" />
+
+        <EditText
+            android:id="@+id/userProfile_editSurname"
+            android:layout_width="295dp"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/strokebutton"
+            android:hint="Enter your surname"
+            android:paddingStart="19dp"
+            app:layout_constraintEnd_toEndOf="@+id/userProfile_surname"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/userProfile_surname"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile_surname"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/userProfile_surname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Surname"
+            android:textAppearance="@style/categories_white"
+            app:layout_constraintEnd_toEndOf="@+id/userProfile_editName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/userProfile_editName"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile_editName" />
+
+        <EditText
+            android:id="@+id/userProfile_editName"
+            android:layout_width="295dp"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/strokebutton"
+            android:hint="Enter your name"
+            android:paddingStart="19dp"
+            app:layout_constraintEnd_toEndOf="@+id/userProfile_name"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/userProfile_name"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile_name"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/userProfile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Name"
+            android:textAppearance="@style/categories_white"
+            app:layout_constraintEnd_toEndOf="@+id/userProfile_editEmail"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/userProfile_editEmail"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile_editEmail" />
+
+        <Button
+            android:id="@+id/userProfile_btnSave"
+            style="@style/log_in"
+            android:layout_width="96dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="56dp"
+            android:background="@drawable/smallbutton"
+            android:elevation="4dp"
+            android:fontFamily="@font/poppins_medium"
+            android:onClick="update_profile"
+            android:text="@string/save"
+            android:textAppearance="@style/back"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/userProfile_editAge"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/userProfile_editAge"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile_editAge"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/userProfile_btnBack"
+            style="@style/log_in"
+            android:layout_width="96dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="56dp"
+            android:background="@drawable/smallbutton"
+            android:elevation="4dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/back"
+            android:textAppearance="@style/back"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/userProfile_editAge"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/userProfile_editAge"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile_editAge"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+            android:id="@+id/userProfile_editEmail"
+            android:layout_width="295dp"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/strokebutton"
+            android:hint="Enter your email"
+            android:paddingStart="19dp"
+            app:layout_constraintEnd_toEndOf="@+id/userProfile_email"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/userProfile_email"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile_email"
+            tools:ignore="RtlSymmetry" />
+
+        <TextView
+            android:id="@+id/userProfile_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Email"
+            android:textAppearance="@style/categories_white"
+            app:layout_constraintEnd_toEndOf="@+id/userProfile_editUsername"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/userProfile_editUsername"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile_editUsername" />
+
+        <TextView
+            android:id="@+id/userProfile_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Username"
+            android:textAppearance="@style/categories_white"
+            app:layout_constraintStart_toStartOf="@+id/userProfile_changePicture"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile_changePicture" />
+
+        <EditText
+            android:id="@+id/userProfile_editUsername"
+            android:layout_width="295dp"
+            android:layout_height="55dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/strokebutton"
+            android:hint="Enter your username"
+            android:paddingStart="19dp"
+            app:layout_constraintEnd_toEndOf="@+id/userProfile_username"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/userProfile_username"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile_username"
+            tools:ignore="RtlSymmetry" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userProfile_profilePicture"
+            android:layout_width="151dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="56dp"
+            android:src="@drawable/usericon"
+            app:civ_border_color="@color/main_purple_light"
+            app:civ_border_width="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/userProfile_changePicture"
+            android:layout_width="300dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:text="Change profile picture"
+            android:textAppearance="@style/categories_white"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/userProfile_profilePicture"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="@+id/userProfile_profilePicture"
+            app:layout_constraintTop_toBottomOf="@+id/userProfile_profilePicture" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
+

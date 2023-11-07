@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">SimpleTime</string>
+    <string name="title_activity_main">SimpleTime</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="cont">Continue</string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="log_in">Log in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="back">Back</string>
+    <string name="save">Save</string>
+    <string name="forgot_pass">Forgot your password?</string>
+    <string name="forgot_username">Forgot username?</string>
+    <string name="buttons">Buttons</string>
+    <string name="button">Button</string>
+    <string name="password">Password</string>
+    <string name="name">Name</string>
+    <string name="simpletime">SimpleTime</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_email">Email address</string>
+    <string name="create_account">Create an account</string>
+    <string name="email">Email</string>
+    <string name="submit">Submit</string>
+    <string name="upload">Upload</string>
+    <string name="mood">Mood</string>
+    <string name="general">General</string>
+    <string name="following">Following</string>
+    <string name="dailytop">Daily Top</string>
+    <string name="weeklytop">Weekly Top</string>
+    <string name="official">Officials</string>
+    <string name="categories">Categories</string>
+    <string name="usergreet">Hello</string>
+    <string name="report">Report</string>
+    <string name="lorem">Lorem ipsum dolor sit amet</string>
+    <string name="lorem100">Sed a nisl eu mi volutpat euismod. Vestibulum commodo et enim nec dapibus. Integer pharetra nunc elit, eget ullamcorper enim volutpat id. Duis aliquet purus tellus, dictum rutrum elit ullamcorper in. Nullam eros augue, rhoncus nec accumsan ac, lacinia sit amet augue.
+    </string>
+    <string name="lorem1k">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vehicula lectus lorem, et feugiat lorem laoreet in. Fusce gravida bibendum mollis. Mauris tincidunt malesuada metus, in porttitor ipsum varius id. Pellentesque ultricies aliquet risus tincidunt suscipit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam lobortis, ipsum at blandit gravida, lacus lorem luctus felis, vitae ornare nibh quam eu lorem. In hendrerit ex vel porta porta. Vivamus lacinia quam ac aliquet bibendum. Suspendisse odio velit, convallis vitae ex eget, consectetur scelerisque quam. Quisque eget pulvinar sapien. Morbi vitae nibh efficitur, condimentum metus sit amet, rutrum elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec interdum, dui tincidunt convallis laoreet, arcu risus vulputate justo, eu condimentum nunc purus ac erat. Proin lacinia quam vitae porttitor ultrices. Fusce dictum eu nunc at ultricies.
+
+Aliquam venenatis augue leo, mattis posuere erat faucibus egestas. Phasellus ultrices fermentum faucibus. Aenean dapibus dolor nisl, sit amet pharetra dui pharetra gravida. Vestibulum porta at tortor eu venenatis. Quisque cursus mauris non nunc finibus consequat. Vestibulum id libero sit amet turpis efficitur interdum. Suspendisse et nulla ut lorem lobortis lobortis. Morbi volutpat metus in condimentum ultricies. Donec auctor in ipsum a facilisis. Nulla magna elit, placerat a purus id, scelerisque fermentum nulla.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus elit dui, tristique vitae tellus a, pulvinar fringilla urna. Aliquam blandit ante eu leo aliquam, eget condimentum velit sagittis. Vivamus facilisis fermentum nunc vel lacinia. Aenean rutrum sit amet tellus sed suscipit. Cras vehicula elementum pellentesque. Curabitur sapien velit, accumsan in consectetur ac, volutpat non purus. Donec libero nisl, ultricies vel consequat at, dictum et lacus. Cras vehicula nulla leo, et vestibulum enim convallis non. Praesent placerat nisl vel neque venenatis, ornare suscipit velit congue. Duis gravida purus vitae elementum maximus.
+
+Ut et risus pulvinar, hendrerit magna ac, convallis leo. Nulla facilisi. Donec facilisis molestie felis, in imperdiet lacus. Donec fermentum id lacus et rhoncus. Maecenas sed lobortis magna. Etiam mauris felis, tempus eget pharetra id, hendrerit eu tortor. Suspendisse lacinia eros eget eros pharetra, id vehicula sapien convallis. Proin nulla ex, porttitor ac justo sed, fermentum blandit lacus. Donec luctus non eros ac semper.
+
+Duis sodales leo ut purus pellentesque, non semper augue aliquet. Etiam laoreet diam a magna dapibus, pharetra rutrum velit convallis. Aliquam eu tincidunt lectus, non dictum dolor. Morbi dignissim nisi in pretium egestas. Cras porttitor ex vitae arcu commodo, suscipit tristique ex laoreet. Integer dignissim, orci eu sollicitudin tristique, lectus ipsum eleifend dui, vel fringilla neque nulla quis sem. Duis ultricies tellus eu mi mattis, eget gravida nisl finibus.</string>
+    <string name="media_url_mp4">https://storage.googleapis.com/exoplayer-test-media-0/BigBuckBunny_320x180.mp4</string>
+    <string name="myTestMp4">"https://download.blender.org/demo/movies/BBB/bbb_sunflower_1080p_30fps_normal.mp4"</string>
+    <string name="web_client_id">948781517568-jvi8gjk5vdr0obilved8os3qv4abn63a.apps.googleusercontent.com</string>
+</resources>
