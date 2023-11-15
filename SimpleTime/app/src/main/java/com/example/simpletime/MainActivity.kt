@@ -4,11 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Spannable
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.auth.api.identity.BeginSignInRequest
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -17,16 +14,12 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.auth.ktx.actionCodeSettings
 import kotlinx.android.synthetic.main.activity_login.*
-import java.util.Objects
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.text.style.UnderlineSpan
 import android.widget.Button
-import androidx.appcompat.app.AppCompatDelegate
 
 class MainActivity : AppCompatActivity() {
 
@@ -43,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
-        var gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.web_client_id))
             .requestEmail().build()
 
@@ -52,13 +45,13 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.login_btnCreateAcc)
         val text = "Don't have an account? Create one"
         val spannable = SpannableString(text)
-        spannable.setSpan(ForegroundColorSpan(resources.getColor(R.color.lightblue)), 23, 33, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        spannable.setSpan(ForegroundColorSpan(resources.getColor(R.color.light_blue)), 23, 33, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         spannable.setSpan(UnderlineSpan(), 23, 33, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         button.text = spannable
 
         login_btnCreateAcc.setOnClickListener{
             val intent = Intent(this, ActivityRegistration::class.java);
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
 
         login_btnLogin.setOnClickListener{
@@ -71,17 +64,17 @@ class MainActivity : AppCompatActivity() {
 
         login_btnForgotPassword.setOnClickListener{
             val intent = Intent(this, ActivityForgotPassword::class.java);
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
-        login_btnForgotUsername.setOnClickListener{
+        /*login_btnForgotUsername.setOnClickListener{
             val intent = Intent(this, ActivityFeed::class.java)
-            startActivity(intent)
-        }
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
+        }*/
     }
 
     fun login(view: View) {
        /* val intent= Intent(this,ActivityUserHome::class.java)
-        startActivity(intent)*/
+        startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)*/
 
             //UNCOMMENT AFTER DEBUGGING
 
@@ -93,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             auth.signInWithEmailAndPassword(email,password).addOnCompleteListener { task ->
                 if(task.isSuccessful){
                     val intent= Intent(this,ActivityUserHome::class.java)
-                    startActivity(intent)
+                    startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
                     finish()
                 }
                 else{
@@ -119,11 +112,8 @@ class MainActivity : AppCompatActivity() {
         var cred: AuthCredential = GoogleAuthProvider.getCredential(idToken, null)
         auth.signInWithCredential(cred).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                /*var user: FirebaseUser? = auth.currentUser
-            var map: HashMap<String, Object>
-            map.put("name", user.displayName)*/
                 val intent = Intent(this, ActivityUserHome::class.java)
-                startActivity(intent)
+                startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
                 finish()
             }
         }.addOnFailureListener {
@@ -138,6 +128,7 @@ class MainActivity : AppCompatActivity() {
         startActivityForResult(GSIC.signInIntent, RC_SIGN_IN)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 

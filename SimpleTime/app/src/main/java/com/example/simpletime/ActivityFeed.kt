@@ -74,15 +74,15 @@ class ActivityFeed : AppCompatActivity(), Player.Listener {
         backButton.setOnClickListener {
             player3.release()
             val intent = Intent(this, ActivityUserHome::class.java);
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         reportButton.setOnClickListener {
             val intent = Intent(this, ActivityReport::class.java);
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         imageButton16.setOnClickListener {
             val intent = Intent(this, ActivityComments::class.java);
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
     }
 

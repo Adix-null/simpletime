@@ -21,14 +21,14 @@ class ReportOtherActivity : AppCompatActivity() {
 
         reportOther_btnBack.setOnClickListener{
             val intent = Intent(this, ActivityReport::class.java);
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
 
         reportOther_btnSubmit.setOnClickListener{
             if (!reportOther_editReport.text.toString().equals("")){
                 docRef.update("reportsOther", FieldValue.arrayUnion(reportOther_editReport.text.toString()))
                 val intent = Intent(this, ActivityVideoPage::class.java);
-                startActivity(intent)
+                startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
             }
             else{
                 Toast.makeText(

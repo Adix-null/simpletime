@@ -13,7 +13,7 @@ class ActivityDonation : AppCompatActivity() {
 
         imageButton8.setOnClickListener {
             val intent = Intent(this, ActivityVideoPage::class.java);
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
     }
 }

@@ -4,6 +4,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -101,10 +102,10 @@ class VideoPagerAdapter(
         holderList.add(hold)
         holder.itemView.categoryView.text = extras?.getString("sort")
         holder.itemView.backButton.setOnClickListener{
-            /*player3.release()
+            player3.release()
             val intent = Intent(pagerContext, ActivityUserHome::class.java)
-            pagerContext.startActivity(intent)*/
-            for(i in 0 until plList.size){
+            pagerContext.startActivity(intent);//overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
+            /*for(i in 0 until plList.size){
                 print("$i: ")
                 if(plList[i].isPlaying){
                     print("PLAYING")
@@ -116,26 +117,26 @@ class VideoPagerAdapter(
                     print("NEITHER")
                 }
                 println("")
-            }
+            }*/
         }
         holder.itemView.imageView5.setOnClickListener{
             if(loadedInfo){
                 player3.pause()
                 val intent = Intent(pagerContext, ActivityVideoPage::class.java)
-                pagerContext.startActivity(intent)
+                pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
             }
         }
         holder.itemView.uploaderPicture2.setOnClickListener{
-            val intent = Intent(pagerContext, CreatorsProfile2::class.java);
-            pagerContext.startActivity(intent)
+            val intent = Intent(pagerContext, CreatorsProfile2::class.java)
+            pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         holder.itemView.reportButton.setOnClickListener {
             val intent = Intent(pagerContext, ActivityReport::class.java)
-            pagerContext.startActivity(intent)
+            pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         holder.itemView.imageButton16.setOnClickListener {
             val intent = Intent(pagerContext, ActivityComments::class.java)
-            pagerContext.startActivity(intent)
+            pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         holder.itemView.pauseBut.setOnClickListener {
             try{

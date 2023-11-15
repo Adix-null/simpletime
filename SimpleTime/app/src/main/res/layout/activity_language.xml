@@ -8,9 +8,48 @@
     tools:context=".ActivityLanguage"
     android:theme="@style/Theme.SimpleTime.NoActionBar">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/step1_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_continue" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/step1_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_continue" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/step1_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_option" />
+
+    </LinearLayout>
+
     <TextView
-        android:id="@+id/interests_1"
-        android:layout_width="272dp"
+        android:id="@+id/language_1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="12dp"
         android:paddingTop="4dp"
@@ -18,39 +57,84 @@
         android:textAppearance="@style/med_text"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <Button
-        android:id="@+id/button145"
-        android:layout_width="172dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="80dp"
-        android:text="Lithuanian"
+    <TextView
+        android:id="@+id/language_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingLeft="12dp"
+        android:paddingTop="4dp"
+        android:text="Select languages that you understand"
         android:textAppearance="@style/big_text"
-        android:textColor="@color/black"
-        android:background="@drawable/gray_back"
+        app:layout_constraintEnd_toStartOf="@+id/language_back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/language_1" />
 
     <Button
-        android:id="@+id/button165"
-        android:layout_width="172dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="7dp"
-        android:text="English"
-        android:textAppearance="@style/big_text"
-        android:textColor="@color/black"
-        android:background="@drawable/gray_back"
-        app:layout_constraintStart_toEndOf="@+id/button145"
-        app:layout_constraintTop_toTopOf="@+id/button145" />
+        android:id="@+id/language_back"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/back_arrow"
+        android:textAppearance="@style/categories_white"
+        app:layout_constraintBottom_toBottomOf="@+id/language_1"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+        app:layout_constraintTop_toTopOf="@+id/language_1" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/continue_language"
+        app:layout_constraintTop_toBottomOf="@+id/language_2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/buttonL1_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Lithuanian" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/buttonL2_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="English" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 
     <Button
+        android:visibility="invisible"
         android:id="@+id/continue_language"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:layout_margin="20dp"
-        android:background="@drawable/back_blue"
+        android:background="@drawable/round_corner_continue"
         android:text="@string/cont"
         android:textAppearance="@style/categories_white"
         app:layout_constraintBottom_toBottomOf="parent"

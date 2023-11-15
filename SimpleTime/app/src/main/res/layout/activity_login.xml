@@ -7,10 +7,6 @@
     android:background="@color/white"
     tools:context=".ActivityLogin">
 
-    <!--  Logo image view  -->
-
-    <!--  SimpleTime text view  -->
-
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/login_imageLogo"
         android:layout_width="70dp"
@@ -49,8 +45,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="300dp"
-        android:background="@drawable/back_wh"
-        android:fontFamily="@font/nunito"
+        android:background="@drawable/round_corner_form"
+        android:fontFamily="@font/inter_medium"
         android:hint="@string/hint_email"
         android:inputType="textEmailAddress"
         android:paddingStart="19dp"
@@ -83,8 +79,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="360dp"
-        android:background="@drawable/back_wh"
-        android:fontFamily="@font/nunito"
+        android:background="@drawable/round_corner_form"
+        android:fontFamily="@font/inter_medium"
         android:hint="@string/hint_password"
         android:inputType="textPassword"
         android:paddingStart="19dp"
@@ -137,15 +133,17 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_marginTop="237dp"
-        android:fontFamily="@font/nunito"
+        android:fontFamily="@font/inter_medium"
         android:gravity="center_horizontal|top"
         android:text="@string/log_in"
+        android:textStyle="bold"
         android:textAppearance="@style/simpletime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="TextContrastCheck" />
+
 
     <Button
         android:id="@+id/login_btnLogin"
@@ -154,11 +152,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_height="46dp"
-        android:background="@drawable/login_blue"
+        android:background="@drawable/round_corner_continue"
         android:layout_marginTop="468dp"
         android:elevation="4dp"
-        android:fontFamily="@font/nunito"
+        android:fontFamily="@font/inter_medium"
         android:text="@string/log_in"
+        android:textStyle="bold"
         android:textAppearance="@style/log_in"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -186,7 +185,7 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/google_signin"
         android:elevation="4dp"
-        android:fontFamily="@font/nunito"
+        android:fontFamily="@font/inter_medium"
         android:textAppearance="@style/log_in"
         android:textColor="#999999"
         android:textSize="17sp"

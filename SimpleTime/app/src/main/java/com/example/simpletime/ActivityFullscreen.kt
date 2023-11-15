@@ -86,7 +86,7 @@ class ActivityFullscreen: AppCompatActivity(), Player.Listener  {
         backToVideoPage.setOnClickListener{
             player4.pause()
             val intent = Intent(this, ActivityVideoPage::class.java)
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
     }
 

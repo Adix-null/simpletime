@@ -24,8 +24,10 @@
     <string name="hint_password">Password</string>
     <string name="hint_email">Email address</string>
     <string name="create_account">Create an account</string>
+    <string name="recover_account">Account recovery</string>
     <string name="email">Email</string>
     <string name="submit">Submit</string>
+    <string name="subscribe">Subscribe</string>
     <string name="upload">Upload</string>
     <string name="mood">Mood</string>
     <string name="general">General</string>
@@ -36,7 +38,7 @@
     <string name="categories">Categories</string>
     <string name="usergreet">Hello</string>
     <string name="report">Report</string>
-    <string name="lorem">Lorem ipsum dolor sit amet</string>
+    <string name="lorem">Lorem ipsum</string>
     <string name="lorem100">Sed a nisl eu mi volutpat euismod. Vestibulum commodo et enim nec dapibus. Integer pharetra nunc elit, eget ullamcorper enim volutpat id. Duis aliquet purus tellus, dictum rutrum elit ullamcorper in. Nullam eros augue, rhoncus nec accumsan ac, lacinia sit amet augue.
     </string>
     <string name="lorem1k">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vehicula lectus lorem, et feugiat lorem laoreet in. Fusce gravida bibendum mollis. Mauris tincidunt malesuada metus, in porttitor ipsum varius id. Pellentesque ultricies aliquet risus tincidunt suscipit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam lobortis, ipsum at blandit gravida, lacus lorem luctus felis, vitae ornare nibh quam eu lorem. In hendrerit ex vel porta porta. Vivamus lacinia quam ac aliquet bibendum. Suspendisse odio velit, convallis vitae ex eget, consectetur scelerisque quam. Quisque eget pulvinar sapien. Morbi vitae nibh efficitur, condimentum metus sit amet, rutrum elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec interdum, dui tincidunt convallis laoreet, arcu risus vulputate justo, eu condimentum nunc purus ac erat. Proin lacinia quam vitae porttitor ultrices. Fusce dictum eu nunc at ultricies.
@@ -51,4 +53,6 @@ Duis sodales leo ut purus pellentesque, non semper augue aliquet. Etiam laoreet 
     <string name="media_url_mp4">https://storage.googleapis.com/exoplayer-test-media-0/BigBuckBunny_320x180.mp4</string>
     <string name="myTestMp4">"https://download.blender.org/demo/movies/BBB/bbb_sunflower_1080p_30fps_normal.mp4"</string>
     <string name="web_client_id">948781517568-jvi8gjk5vdr0obilved8os3qv4abn63a.apps.googleusercontent.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

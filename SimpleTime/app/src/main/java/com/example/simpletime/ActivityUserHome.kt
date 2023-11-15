@@ -36,60 +36,60 @@ class ActivityUserHome : AppCompatActivity() {
         /*FirebaseAuth.getInstance().signOut()
         val intent = Intent(this, MainActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        startActivity(intent)*/
+        startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)*/
 
 
         userHome_btnMood.setOnClickListener{
             sortType = "mood"
             val intent = Intent(this, ActivityPager::class.java)
             intent.putExtra("sort", sortType)
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         userHome_btnMoodFollowing.setOnClickListener {
             //4 debugging
             sortType = "mood"
             val intent = Intent(this, ActivityPager::class.java);
             intent.putExtra("sort", sortType)
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
             /*sortType = "following"
             val intent = Intent(this, ActivityFeed::class.java)
             intent.putExtra("sort", sortType)
-            startActivity(intent)*/
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)*/
         }
         userHome_btnOfficial.setOnClickListener {
             sortType = ""
             val intent = Intent(this, ActivityPager::class.java);
             intent.putExtra("sort", sortType)
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         userHome_btnMoodDailytop.setOnClickListener{
             sortType = "dailytop"
             val intent = Intent(this, ActivityPager::class.java)
             intent.putExtra("sort", sortType)
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         userHome_btnWeeklytop.setOnClickListener{
             sortType = "weeklytop"
             val intent = Intent(this, ActivityPager::class.java)
             intent.putExtra("sort", sortType)
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         button50.setOnClickListener{
                 val intent = Intent(this, ActivityMyProfile::class.java);
-                startActivity(intent)
+                startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
             }
-        buttonChat.setOnClickListener{
+        /*buttonChat.setOnClickListener{
                 val intent = Intent(this, ActivityMessages::class.java);
-                startActivity(intent)
+                startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
             }
         button15.setOnClickListener{
                 val intent = Intent(this, ActivityNotifications::class.java);
-                startActivity(intent)
+                startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
             }
         button16.setOnClickListener{
                 val intent = Intent(this, ActivityEvents::class.java);
-                startActivity(intent)
-            }
+                startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
+            }*/
     }
 }
 

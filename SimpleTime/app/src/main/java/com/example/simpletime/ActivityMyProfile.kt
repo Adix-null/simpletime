@@ -39,12 +39,14 @@ import java.sql.DriverManager
 import java.sql.Statement
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.firebase.auth.FirebaseAuth
 
 //import com.arthenica.mobileffmpeg.FFmpeg
 
 class ActivityMyProfile : AppCompatActivity() {
 
     val storage = FirebaseStorage.getInstance()
+    private var auth: FirebaseAuth = FirebaseAuth.getInstance()
     lateinit var storageRef: StorageReference
     var maxSizeMB: Int = 1000
 
@@ -133,10 +135,8 @@ class ActivityMyProfile : AppCompatActivity() {
 
     private fun uploadToMySQL(h: String) {
 
-        val account = GoogleSignIn.getLastSignedInAccount(this)
+        val account = auth.currentUser
         val currentDate = Date()
-
-        account?.idToken
 
         val datetimelong = "${currentDate.year}-${currentDate.month}-${currentDate.day} ${currentDate.hours}-${currentDate.minutes}-${currentDate.seconds}"
         val msq = MySqlCon()
@@ -146,13 +146,12 @@ class ActivityMyProfile : AppCompatActivity() {
             try {
                 val statement: Statement = connection.createStatement()
 
-                //need to hash google account id token because it's 1100 characters long
-                val uidhash = createHash(account?.idToken!!, "SHA-256").substring(0, 16)
+                val uid = account?.uid!!.substring(0, 16)
 
                 val query = "INSERT into posts(id, user_uid_hash, views, title, description)\n" +
                         "values (\n" +
                         "\"$h\", " +
-                        "\"" + uidhash + "\", " +
+                        "\"" + uid + "\", " +
                         0 + ", " +
                         //datetimelong + ", " +
                         "\"" + (uploadVideoTitle.text?.toString() ?: "untitled") + "\", " +

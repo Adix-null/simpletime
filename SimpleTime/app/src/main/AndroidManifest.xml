@@ -90,6 +90,15 @@
             android:exported="false" />
         <activity
             android:name=".ActivityRegistration"
+            android:exported="false"/>
+        <activity
+            android:name=".ActivityInterests"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityLanguage"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityAgreement"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

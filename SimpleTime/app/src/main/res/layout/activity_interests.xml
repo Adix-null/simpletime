@@ -8,9 +8,49 @@
     tools:context=".ActivityInterests"
     android:theme="@style/Theme.SimpleTime.NoActionBar">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/step1_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_continue" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/step1_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_option" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/step1_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_option" />
+
+    </LinearLayout>
+
+
     <TextView
         android:id="@+id/interests_1"
-        android:layout_width="272dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingLeft="12dp"
         android:paddingTop="4dp"
@@ -18,88 +58,208 @@
         android:textAppearance="@style/med_text"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
         android:id="@+id/interests_2"
-        android:layout_width="272dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingLeft="12dp"
         android:paddingTop="4dp"
         android:text="Pick your interests"
         android:textAppearance="@style/big_text"
+        app:layout_constraintEnd_toStartOf="@+id/interests_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/interests_1" />
 
+    <Button
+        android:id="@+id/interests_back"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/back_arrow"
+        android:textAppearance="@style/categories_white"
+        app:layout_constraintBottom_toBottomOf="@+id/interests_1"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+        app:layout_constraintTop_toTopOf="@+id/interests_1" />
+
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/continue_interests"
         app:layout_constraintTop_toBottomOf="@+id/interests_2">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp">
 
-            <Button
-                android:id="@+id/button45"
-                android:layout_width="172dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/gray_back"
-                android:text="Category 1"
-                android:textAppearance="@style/big_text"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button65"
-                android:layout_width="172dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="7dp"
-                android:background="@drawable/gray_back"
-                android:text="Category 2"
-                android:textAppearance="@style/big_text"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@+id/button45"
-                app:layout_constraintTop_toTopOf="@+id/button45" />
+                <Button
+                    android:id="@+id/button1_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 1" />
 
-            <Button
-                android:id="@+id/button95"
-                android:layout_width="172dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="7dp"
-                android:background="@drawable/gray_back"
-                android:text="Category 3"
-                android:textAppearance="@style/big_text"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button45" />
+                <Button
+                    android:id="@+id/button1_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 3" />
 
-            <Button
-                android:layout_width="172dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="7dp"
-                android:background="@drawable/gray_back"
-                android:text="Category 4"
-                android:textAppearance="@style/big_text"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@+id/button45"
-                app:layout_constraintTop_toTopOf="@+id/button95" />
+                <Button
+                    android:id="@+id/button1_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 5" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <Button
+                    android:id="@+id/button1_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 7" />
+
+                <Button
+                    android:id="@+id/button1_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 9" />
+
+                <Button
+                    android:id="@+id/button1_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 11" />
+
+                <Button
+                    android:id="@+id/button1_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 13" />
+
+                <Button
+                    android:id="@+id/button1_8"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 15" />
+
+                <Button
+                    android:id="@+id/button1_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 17" />
+                <Button
+                    android:id="@+id/button1_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 19" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button2_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 2"/>
+
+                <Button
+                    android:id="@+id/button2_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 4" />
+
+                <Button
+                    android:id="@+id/button2_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 6" />
+
+                <Button
+                    android:id="@+id/button2_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 8" />
+
+                <Button
+                    android:id="@+id/button2_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 10" />
+
+                <Button
+                    android:id="@+id/button2_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 12" />
+
+                <Button
+                    android:id="@+id/button2_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 14" />
+
+                <Button
+                    android:id="@+id/button2_8"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 16" />
+
+                <Button
+                    android:id="@+id/button2_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 18" />
+                <Button
+                    android:id="@+id/button2_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    style="@style/option"
+                    android:text="Category 20" />
+
+            </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
 
     <Button
+        android:visibility="invisible"
         android:id="@+id/continue_interests"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:layout_margin="20dp"
-        android:background="@drawable/back_blue"
+        android:background="@drawable/round_corner_continue"
         android:text="@string/cont"
         android:textAppearance="@style/categories_white"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -37,7 +37,7 @@
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-library/1.3/4785a3c21320980282f9f33d0d1264a69040538f/hamcrest-library-1.3.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.hamcrest/hamcrest-core/1.3/42a25dc3219429f0e5d060061f71acb49bf010a0/hamcrest-core-1.3.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/e3852b755adf8f94b0c0d6b479632e7f/transformed/core-1.4.0-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/80313ede2dc377734e64f1865a6a9474/transformed/material-1.4.0-beta01-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/90b64e4c0198ec7ed8a2df9a580f2b2e/transformed/material-1.4.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/2f3ff58924f42aa9cc20d62617c24d1c/transformed/appcompat-1.4.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/f54bea88dcaa5a869843704a2b1f0aba/transformed/play-services-auth-20.7.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/65fd78af228c3c792b29d456fc64407d/transformed/firebase-storage-ktx-20.0.1-api.jar</arg>
@@ -88,17 +88,17 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/ba80db0fc1f4dcb3ee9040b905ccdebd/transformed/legacy-support-core-ui-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/59bee5ca6950c4ad5c68e3bb0b9bcfb8/transformed/legacy-support-core-utils-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/a08617cf6e0e23103ec23a96a43cb4f3/transformed/loader-1.0.0-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/10ffee94c003c53b725867ee7a8a43e4/transformed/coordinatorlayout-1.1.0-api.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/transforms-3/6387b3fdbd1eea17ecb8926e268a3271/transformed/transition-1.2.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/3bd5db612c5831daf35c207c031a6d14/transformed/vectordrawable-animated-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/e8ed9f63a9f3477084709acfaa1beae0/transformed/vectordrawable-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/fe36fba04c168d553aa17e17c1673eef/transformed/slidingpanelayout-1.2.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/8f469b78efbd9b9e69e88623f6be0f7d/transformed/drawerlayout-1.1.1-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/10ffee94c003c53b725867ee7a8a43e4/transformed/coordinatorlayout-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/98ebaa9b8b8a5f96199b5412e78a6217/transformed/viewpager-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/d290c1375fe1465d177ea9540fa69bda/transformed/customview-1.1.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/244607ed9f362f6fb315368dfb7cc9a9/transformed/exoplayer-2.17.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/27c023984f89699b083159af9a52e0d9/transformed/exoplayer-ui-2.17.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/83ddb6bae93b28a222af6a602fbf760b/transformed/media-1.4.3-api.jar</arg>
-                <arg>$USER_HOME$/.gradle/caches/transforms-3/6387b3fdbd1eea17ecb8926e268a3271/transformed/transition-1.2.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/91dc9652ce65de478e3acceec0b6d11a/transformed/swiperefreshlayout-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/7163ab35abceb9d7ccb362ce0bdc91d2/transformed/asynclayoutinflater-1.0.0-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/144375ddcde47b420aca00dc9fc786b8/transformed/core-1.7.0-api.jar</arg>
@@ -339,7 +339,7 @@
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.navigation:navigation-common-ktx:2.4.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.navigation:navigation-ui-ktx:2.4.2@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.navigation:navigation-ui:2.4.2@aar" level="project" />
-    <orderEntry type="library" scope="TEST" name="Gradle: com.google.android.material:material:1.4.0-beta01@aar" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.google.android.material:material:1.4.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.cardview:cardview:1.0.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.coordinatorlayout:coordinatorlayout:1.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: androidx.dynamicanimation:dynamicanimation:1.0.0@aar" level="project" />

@@ -133,12 +133,12 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
         ReportButton.setOnClickListener {
             audiopl.release()
             val intent = Intent(this, ActivityReport::class.java);
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         imageButton11.setOnClickListener {
             audiopl.release()
             val intent = Intent(this, ActivityComments::class.java);
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
 
         for(s in 0..4){
@@ -150,7 +150,7 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
         imageButton18.setOnClickListener{
             audiopl.release()
             val intent = Intent(this, ActivityDonation::class.java)
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         imageButton19.setOnClickListener{
             val popup = PopupMenu(this, imageButton19)
@@ -166,7 +166,7 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
             //val intent = Intent(this, ActivityFullscreen::class.java)
             audiopl.release()
             val intent = Intent(this, ActivityThumbnailAudio::class.java)
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
     }
 

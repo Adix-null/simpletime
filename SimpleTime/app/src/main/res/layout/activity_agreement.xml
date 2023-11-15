@@ -8,6 +8,44 @@
     tools:context=".ActivityAgreement"
     android:theme="@style/Theme.SimpleTime.NoActionBar">
 
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/step1_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_continue" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/step1_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_continue" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/step1_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/round_corner_continue" />
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/interests_1"
         android:layout_width="272dp"
@@ -18,24 +56,37 @@
         android:textAppearance="@style/med_text"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
         android:id="@+id/interests_2"
-        android:layout_width="272dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingLeft="12dp"
         android:paddingTop="4dp"
-        android:text="Read the rules"
+        android:text="Read the rules and guidelines"
         android:textAppearance="@style/big_text"
+        app:layout_constraintEnd_toStartOf="@+id/agreement_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/interests_1" />
 
+    <Button
+        android:id="@+id/agreement_back"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/back_arrow"
+        android:textAppearance="@style/categories_white"
+        app:layout_constraintBottom_toBottomOf="@+id/interests_1"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView3"
+        app:layout_constraintTop_toTopOf="@+id/interests_1" />
+
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/continue_interests"
+        app:layout_constraintBottom_toTopOf="@+id/continue_agreement"
         app:layout_constraintTop_toBottomOf="@+id/interests_2">
 
         <TextView
@@ -43,19 +94,19 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:textAppearance="@style/med_text"
-            android:text="@string/lorem1k"/>
+            android:text="@string/lorem1k"
+            android:textAppearance="@style/med_text" />
 
     </ScrollView>
 
 
     <Button
-        android:id="@+id/continue_interests"
+        android:id="@+id/continue_agreement"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:layout_margin="20dp"
-        android:background="@drawable/back_blue"
-        android:text="@string/cont"
+        android:background="@drawable/round_corner_continue"
+        android:text="Agree and finish registration"
         android:textAppearance="@style/categories_white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

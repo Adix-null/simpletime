@@ -14,7 +14,7 @@
         android:id="@+id/videopage_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="40dp"
         android:layout_marginTop="15dp"
         android:paddingLeft="12dp"
@@ -26,8 +26,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/uploaderPicture"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginTop="16dp"
         android:background="@null"
         android:scaleX="1"
@@ -39,18 +39,31 @@
 
     <TextView
         android:id="@+id/videoPage_uploaderName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginStart="12dp"
-        android:layout_marginEnd="20dp"
-        android:gravity="center"
+        android:layout_marginEnd="15dp"
+        android:gravity="center|start"
         android:text="@string/lorem"
         android:textAppearance="@style/navbar_links"
         android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/subscribe"
         app:layout_constraintStart_toEndOf="@+id/uploaderPicture"
         app:layout_constraintTop_toTopOf="@+id/uploaderPicture" />
 
+    <Button
+        android:id="@+id/subscribe"
+        android:layout_width="75dp"
+        android:layout_height="22dp"
+        android:background="@drawable/round_corner_transparent"
+        android:text="@string/subscribe"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="@+id/videoPage_uploaderName"
+        app:layout_constraintEnd_toEndOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="@+id/videoPage_uploaderName" />
+
     <TextView
+        android:visibility="invisible"
         android:id="@+id/videoPage_rating"
         android:layout_width="50dp"
         android:layout_height="42dp"
@@ -88,28 +101,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uploaderPicture" />
 
-    <ImageView
-        android:id="@+id/videoPage_footer"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/footer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/videoPage_description"
-        app:layout_constraintStart_toStartOf="@+id/videoPage_description" />
 
     <Button
+        android:visibility="invisible"
         android:id="@+id/star_upload"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:layout_margin="20dp"
         android:text="@string/upload"
-        android:background="@drawable/back_blue"
+        android:background="@drawable/round_corner_continue"
         android:textAppearance="@style/categories_white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/videoPage_footer"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageView
+        android:visibility="invisible"
         android:id="@+id/videoPage_rating_container"
         android:layout_width="match_parent"
         android:layout_height="165dp"
@@ -122,7 +129,9 @@
         app:layout_constraintTop_toBottomOf="@+id/videoPage_description"
         />
 
+
     <ImageButton
+        android:visibility="invisible"
         android:id="@+id/PopUp1"
         android:layout_width="45dp"
         android:layout_height="49dp"
@@ -134,6 +143,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:visibility="invisible"
         android:id="@+id/PopUp2"
         android:layout_width="45dp"
         android:layout_height="49dp"
@@ -144,6 +154,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:visibility="invisible"
         android:id="@+id/PopUp3"
         android:layout_width="45dp"
         android:layout_height="49dp"
@@ -154,6 +165,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:visibility="invisible"
         android:id="@+id/PopUp4"
         android:layout_width="45dp"
         android:layout_height="49dp"
@@ -164,6 +176,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:visibility="invisible"
         android:id="@+id/PopUp5"
         android:layout_width="45dp"
         android:layout_height="49dp"
@@ -257,11 +270,12 @@
         android:scaleX="1.75"
         android:scaleY="1.75"
         app:layout_constraintStart_toEndOf="@+id/imageButton19"
-        app:layout_constraintTop_toTopOf="@+id/videoPage_footer"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/donatebutton"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
+        android:visibility="invisible"
         android:id="@+id/Rating"
         android:layout_width="24dp"
         android:layout_height="24dp"
@@ -275,15 +289,13 @@
 
     <ImageView
         android:id="@+id/fullVideo"
-        android:layout_width="36dp"
-        android:layout_height="32dp"
-        android:scaleX="1.5"
-        android:scaleY="1.5"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        app:flow_horizontalBias="0.0"
         app:layout_constraintBottom_toTopOf="@+id/uploaderPicture"
         app:layout_constraintEnd_toEndOf="@+id/frameLayout"
-        app:layout_constraintStart_toEndOf="@+id/videoPage_uploaderName"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout"
-        app:srcCompat="@drawable/fullscreen" />
+        app:srcCompat="@drawable/out_light" />
 
 
 
@@ -390,6 +402,14 @@
          </com.google.android.exoplayer2.ui.PlayerView>
  -->
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <fragment
+        android:id="@+id/bottomfrag_home"
+        android:name="com.example.simpletime.bottom_navbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_bottom_navbar"
+        />
 
     <SeekBar
         android:id="@+id/podcast_slider"

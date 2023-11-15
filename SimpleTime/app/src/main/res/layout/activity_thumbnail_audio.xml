@@ -20,10 +20,11 @@
         android:paddingTop="10dp"
         android:text="Title"
         android:textAppearance="@style/categories"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/podcast_slider_full"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/videopage_creatorFull"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,28 +59,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/videopage_creatorFull" />
 
+
     <TextView
         android:id="@+id/videopage_ProgressFull"
-        android:layout_width="274dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:paddingTop="10dp"
         android:text="10:00/42:00"
-        android:textSize="14sp"
         android:textAppearance="@style/categories"
-        app:layout_constraintBottom_toTopOf="@+id/podcast_slider_full"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <SeekBar
         android:id="@+id/podcast_slider_full"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/thumbnailFull"
-        app:layout_constraintEnd_toEndOf="@+id/thumbnailFull"
+        app:layout_constraintEnd_toStartOf="@+id/videopage_ProgressFull"
         app:layout_constraintStart_toStartOf="@+id/thumbnailFull" />
 
     <ImageButton
+        android:visibility="gone"
         android:id="@+id/pauseButPodcastFullManual"
         android:layout_width="48dp"
         android:layout_height="0dp"

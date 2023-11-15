@@ -75,33 +75,39 @@
 
     <TextView
         android:id="@+id/videopage_description"
-        android:layout_width="273dp"
+        android:layout_width="237dp"
         android:layout_height="44dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="10dp"
+        android:layout_margin="20dp"
+        android:fontFamily="@font/inter_medium"
         android:paddingLeft="12dp"
         android:paddingTop="4dp"
         android:text="Description"
-        android:textAppearance="@style/categories"
+        android:textColor="@color/full_white"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/uploaderPicture2"
+        app:layout_constraintTop_toBottomOf="@+id/videopage_title2" />
 
     <TextView
         android:id="@+id/videopage_title2"
-        android:layout_width="272dp"
+        android:layout_width="237dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/inter_bold"
         android:paddingLeft="12dp"
         android:paddingTop="4dp"
+        android:shadowDx="5"
+        android:shadowDy="2"
         android:text="Title"
-        android:textAppearance="@style/categories"
-        app:layout_constraintBottom_toTopOf="@+id/videopage_description"
+        android:textColor="@color/full_white"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="@+id/videopage_description"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/videopage_description" />
+        app:layout_constraintStart_toStartOf="@+id/videopage_description"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton17" />
 
     <ImageButton
+        android:visibility="invisible"
         android:id="@+id/imageButton17"
         android:layout_width="64dp"
         android:layout_height="64dp"
@@ -115,6 +121,7 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
+        android:visibility="invisible"
         android:id="@+id/imageButton16"
         android:layout_width="64dp"
         android:layout_height="64dp"
@@ -132,50 +139,52 @@
 
     <ImageButton
         android:id="@+id/reportButton"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@null"
-        android:scaleX="1"
-        android:scaleY="1"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton16"
-        app:layout_constraintEnd_toEndOf="@+id/uploaderPicture2"
-        app:layout_constraintHorizontal_bias="0.558"
-        app:layout_constraintStart_toStartOf="@+id/uploaderPicture2"
-        app:srcCompat="@drawable/new_report"
+        android:layout_width="37dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/report"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/back_arrow"
+        android:backgroundTint="@color/full_white"
+        app:layout_constraintBottom_toBottomOf="@+id/reportButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/reportButton" />
 
     <ImageButton
         android:id="@+id/imageView5"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:scaleX="1"
-        android:scaleY="1"
-        android:src="@drawable/fullpodcast"
-        app:layout_constraintBottom_toTopOf="@+id/uploaderPicture2"
-        app:layout_constraintEnd_toEndOf="@+id/uploaderPicture2"
-        app:layout_constraintStart_toStartOf="@+id/uploaderPicture2" />
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@drawable/play_full"
+        app:layout_constraintBottom_toBottomOf="@+id/uploaderPicture2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/videopage_title2" />
 
     <ImageButton
         android:id="@+id/uploaderPicture2"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
         android:background="@null"
+        android:scaleType="fitXY"
         android:scaleX="1"
         android:scaleY="1"
         android:src="@drawable/user_blank"
-        android:layout_centerInParent="true"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="@+id/videopage_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/videopage_description"
+        android:layout_margin="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:visibility="invisible"
-        android:id="@+id/backButton"
+        android:visibility="gone"
+        android:id="@+id/backButtonOld"
         android:layout_width="96dp"
         android:layout_height="55dp"
         android:layout_marginTop="32dp"
@@ -195,14 +204,14 @@
         android:background="@null"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/reportButton"
-        app:layout_constraintEnd_toEndOf="@+id/backButton"
+        app:layout_constraintEnd_toEndOf="@+id/backButtonOld"
         app:layout_constraintHorizontal_bias="0.714"
-        app:layout_constraintStart_toStartOf="@+id/backButton"
-        app:layout_constraintTop_toBottomOf="@+id/backButton"
+        app:layout_constraintStart_toStartOf="@+id/backButtonOld"
+        app:layout_constraintTop_toBottomOf="@+id/backButtonOld"
         app:srcCompat="@android:drawable/ic_media_ff" />
 
     <TextView
-        android:visibility="invisible"
+        android:visibility="gone"
         android:id="@+id/categoryView"
         android:text="Category"
         android:textColor="#FFFFFF"
