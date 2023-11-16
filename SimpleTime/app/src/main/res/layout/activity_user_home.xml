@@ -82,279 +82,432 @@
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:src="@drawable/usericon" />
+                    android:src="@drawable/userblank" />
             </LinearLayout>
 
         </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp">
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Categories"
-                    android:textAppearance="@style/title" />
+                    android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/category_background" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Categories"
+                        android:textAppearance="@style/title" />
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/category_background" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/category_background" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/category_background" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/category_background" />
-
-
-            </LinearLayout>
-
-        </ScrollView>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="Creators"
-                    android:textAppearance="@style/title" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Top rated creators"
-                    android:textAppearance="@style/subtitle" />
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp">
+                    <Button
+                        android:id="@+id/userHome_btnMood"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/category_background"
+                        android:text="General"
+                        android:textAppearance="@style/subtitle"
+                        android:textColor="@color/dark_gray"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="100dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:orientation="vertical">
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="1.0"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/category_background_half" />
 
-                            <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/usericon" />
-
-                            <TextView
-                                style="@style/navbar_links"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1.0"
-                                android:text="Name of creator" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="100dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/usericon" />
-
-                            <TextView
-                                style="@style/navbar_links"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1.0"
-                                android:text="Name of creator" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="100dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/usericon" />
-
-                            <TextView
-                                style="@style/navbar_links"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1.0"
-                                android:text="Name of creator" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="100dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/usericon" />
-
-                            <TextView
-                                style="@style/navbar_links"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1.0"
-                                android:text="Name of creator" />
-
-                        </LinearLayout>
-
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="1.0"
+                            android:background="@drawable/category_background_half" />
 
                     </LinearLayout>
-                </HorizontalScrollView>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Our recommended creators"
-                    android:textAppearance="@style/subtitle" />
-
-
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
 
-                        <LinearLayout
-                            android:layout_width="100dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:orientation="vertical">
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="1.0"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/category_background_half" />
 
-                            <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/usericon" />
-
-                            <TextView
-                                style="@style/navbar_links"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1.0"
-                                android:text="Name of creator" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="100dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/usericon" />
-
-                            <TextView
-                                style="@style/navbar_links"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1.0"
-                                android:text="Name of creator" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="100dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/usericon" />
-
-                            <TextView
-                                style="@style/navbar_links"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1.0"
-                                android:text="Name of creator" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="100dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="5dp"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:src="@drawable/usericon" />
-
-                            <TextView
-                                style="@style/navbar_links"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1.0"
-                                android:text="Name of creator" />
-
-                        </LinearLayout>
-
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_weight="1.0"
+                            android:background="@drawable/category_background_half" />
 
                     </LinearLayout>
-                </HorizontalScrollView>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/category_background" />
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Creators"
+                        android:textAppearance="@style/title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Top rated creators"
+                        android:textAppearance="@style/subtitle" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="5dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/userblank" />
+
+                                <TextView
+                                    style="@style/navbar_links"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.0"
+                                    android:text="Name of creator" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="5dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/userblank" />
+
+                                <TextView
+                                    style="@style/navbar_links"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.0"
+                                    android:text="Name of creator" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="5dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/userblank" />
+
+                                <TextView
+                                    style="@style/navbar_links"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.0"
+                                    android:text="Name of creator" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="5dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/userblank" />
+
+                                <TextView
+                                    style="@style/navbar_links"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.0"
+                                    android:text="Name of creator" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Our recommended creators"
+                        android:textAppearance="@style/subtitle" />
+
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="5dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/userblank" />
+
+                                <TextView
+                                    style="@style/navbar_links"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.0"
+                                    android:text="Name of creator" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="5dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/userblank" />
+
+                                <TextView
+                                    style="@style/navbar_links"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.0"
+                                    android:text="Name of creator" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="5dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/userblank" />
+
+                                <TextView
+                                    style="@style/navbar_links"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.0"
+                                    android:text="Name of creator" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="100dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="5dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="100dp"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/userblank" />
+
+                                <TextView
+                                    style="@style/navbar_links"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.0"
+                                    android:text="Name of creator" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Content"
+                        android:textAppearance="@style/title" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Weekly best content"
+                        android:textAppearance="@style/subtitle" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="5dp"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:layout_width="180dp"
+                                    android:layout_height="100dp"
+                                    android:background="@drawable/video_blank" />
+
+                                <TextView
+                                    style="@style/navbar_links"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.0"
+                                    android:text="Story of SimpleTime" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="5dp"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:layout_width="180dp"
+                                    android:layout_height="100dp"
+                                    android:background="@drawable/video_blank" />
+
+                                <TextView
+                                    style="@style/navbar_links"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.0"
+                                    android:text="Story of SimpleTime" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Worth your time"
+                        android:textAppearance="@style/subtitle" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent">
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="5dp"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:layout_width="180dp"
+                                    android:layout_height="100dp"
+                                    android:background="@drawable/video_blank" />
+
+                                <TextView
+                                    style="@style/navbar_links"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.0"
+                                    android:text="Story of SimpleTime" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="180dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="5dp"
+                                android:orientation="vertical">
+
+                                <Button
+                                    android:layout_width="180dp"
+                                    android:layout_height="100dp"
+                                    android:background="@drawable/video_blank" />
+
+                                <TextView
+                                    style="@style/navbar_links"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.0"
+                                    android:text="Story of SimpleTime" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -373,7 +526,7 @@
                 android:layout_height="wrap_content">
 
                 <Button
-                    android:id="@+id/userHome_btnMood"
+                    android:id="@+id/userHome_btnMood2"
                     style="@style/log_in"
                     android:layout_width="match_parent"
                     android:layout_height="120dp"
@@ -410,8 +563,8 @@
                     android:text="@string/following"
                     android:textAlignment="viewStart"
                     android:textColor="@color/white"
-                    app:layout_constraintStart_toStartOf="@+id/userHome_btnMood"
-                    app:layout_constraintTop_toBottomOf="@+id/userHome_btnMood" />
+                    app:layout_constraintStart_toStartOf="@+id/userHome_btnMood2"
+                    app:layout_constraintTop_toBottomOf="@+id/userHome_btnMood2" />
 
 
                 <Button
@@ -433,7 +586,7 @@
                     android:textColor="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/userHome_btnMoodFollowing"
-                    app:layout_constraintTop_toBottomOf="@+id/userHome_btnMood" />
+                    app:layout_constraintTop_toBottomOf="@+id/userHome_btnMood2" />
 
                 <Button
                     android:id="@+id/userHome_btnWeeklytop"

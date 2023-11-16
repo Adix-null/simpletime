@@ -19,7 +19,7 @@
         android:paddingLeft="12dp"
         android:paddingTop="10dp"
         android:text="Title"
-        android:textAppearance="@style/categories"
+        android:textAppearance="@style/categories_white"
         app:layout_constraintBottom_toTopOf="@+id/podcast_slider_full"
         app:layout_constraintStart_toStartOf="parent"/>
 
