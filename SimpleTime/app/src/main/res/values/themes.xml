@@ -136,6 +136,12 @@
         <item name="android:textColor">@color/dark_gray</item>
     </style>
 
+    <style name="category_title_home">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:textColor">@color/dark_gray</item>
+    </style>
+
     <style name="categories_white">
         <item name="android:textSize">25sp</item>
         <item name="android:fontFamily">@font/inter_var</item>

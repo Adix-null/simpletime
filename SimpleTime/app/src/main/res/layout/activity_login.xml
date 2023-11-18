@@ -7,220 +7,131 @@
     android:background="@color/white"
     tools:context=".ActivityLogin">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/login_imageLogo"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="100dp"
-        android:src="@drawable/logo_app_n"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="ImageContrastCheck" />
-
-
-    <TextView
-        android:visibility="invisible"
-        android:id="@+id/login_textName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="268dp"
-        android:fontFamily="@font/roboto"
-        android:gravity="top"
-        android:text="@string/name"
-        android:textAppearance="@style/name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.16"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/login_enterName"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="300dp"
-        android:background="@drawable/round_corner_form"
-        android:fontFamily="@font/inter_medium"
-        android:hint="@string/hint_email"
-        android:inputType="textEmailAddress"
-        android:paddingStart="19dp"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlSymmetry" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:visibility="invisible"
-        android:id="@+id/login_textPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="372dp"
-        android:gravity="top"
-        android:text="@string/password"
-        android:textAppearance="@style/password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
 
-    <EditText
-        android:id="@+id/login_enterPassword"
-        android:layout_width="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_height="50dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="360dp"
-        android:background="@drawable/round_corner_form"
-        android:fontFamily="@font/inter_medium"
-        android:hint="@string/hint_password"
-        android:inputType="textPassword"
-        android:paddingStart="19dp"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="RtlSymmetry" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/login_imageLogo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="100dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/logo_app_f"
+                tools:ignore="ImageContrastCheck" />
 
-    <Button
-        android:id="@+id/login_btnForgotPassword"
-        style="@style/forgot_pass"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="422dp"
-        android:layout_marginLeft="20dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="@string/forgot_pass"
-        android:textAppearance="@style/forgot_pass"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/login_textSimpletime"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="60dp"
+                android:gravity="center_horizontal|top"
+                android:text="@string/log_in"
+                android:textAppearance="@style/title" />
 
-    <Button
-        android:visibility="invisible"
-        android:id="@+id/login_btnForgotUsername"
-        style="@style/forgot_pass"
-        android:layout_width="158dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="464dp"
-        android:fontFamily="@font/poppins_medium"
-        android:text="@string/forgot_username"
-        android:textAppearance="@style/forgot_pass"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.774"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <EditText
+                android:id="@+id/login_enterName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_corner_form"
+                android:fontFamily="@font/inter_medium"
+                android:hint="@string/hint_email"
+                android:inputType="textEmailAddress"
+                android:paddingStart="19dp"
+                android:textSize="15sp"
+                tools:ignore="RtlSymmetry"/>
 
-    <TextView
-        android:id="@+id/login_textSimpletime"
-        android:layout_width="260dp"
-        android:layout_height="51dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="237dp"
-        android:fontFamily="@font/inter_medium"
-        android:gravity="center_horizontal|top"
-        android:text="@string/log_in"
-        android:textStyle="bold"
-        android:textAppearance="@style/simpletime"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck" />
+            <EditText
+                android:id="@+id/login_enterPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_corner_form"
+                android:fontFamily="@font/inter_medium"
+                android:hint="@string/hint_password"
+                android:inputType="textPassword"
+                android:paddingStart="19dp"
+                android:textSize="15sp"
+                tools:ignore="RtlSymmetry" />
+
+            <Button
+                android:id="@+id/login_btnForgotPassword"
+                style="@style/forgot_pass"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/forgot_pass"
+                android:textAppearance="@style/forgot_pass"
+                app:backgroundTint="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-    <Button
-        android:id="@+id/login_btnLogin"
-        style="@style/log_in"
-        android:layout_width="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_height="46dp"
-        android:background="@drawable/round_corner_continue"
-        android:layout_marginTop="468dp"
-        android:elevation="4dp"
-        android:fontFamily="@font/inter_medium"
-        android:text="@string/log_in"
-        android:textStyle="bold"
-        android:textAppearance="@style/log_in"
-        android:textColor="@color/white"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/login_btnLogin"
+                style="@style/log_in"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:background="@drawable/round_corner_continue"
+                android:layout_marginTop="20dp"
+                android:elevation="4dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/log_in"
+                android:textStyle="bold"
+                android:textAppearance="@style/log_in"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="544dp"
-        android:src="@drawable/_or_"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="30dp"
+                android:src="@drawable/_or_"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
 
-    <Button
-        android:id="@+id/login_btnGoogle"
-        android:layout_width="match_parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_height="46dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/google_signin"
-        android:elevation="4dp"
-        android:fontFamily="@font/inter_medium"
-        android:textAppearance="@style/log_in"
-        android:textColor="#999999"
-        android:textSize="17sp"
-        app:backgroundTint="@null"
-        android:layout_marginTop="593dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+            <Button
+                android:id="@+id/login_btnGoogle"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/google_signin"
+                android:elevation="4dp"
+                android:fontFamily="@font/inter_medium"
+                android:textAppearance="@style/log_in"
+                android:textColor="#999999"
+                android:textSize="17sp"
+                app:backgroundTint="@null"/>
 
-    <Button
-        android:id="@+id/login_btnCreateAcc"
-        style="@style/forgot_pass"
-        android:layout_width="wrap_content"
-        android:layout_height="20dp"
-        android:text="Don't have an account? Create one"
-        android:layout_marginTop="670dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/login_btnCreateAcc"
+                style="@style/forgot_pass"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="Don't have an account? Create one"
+                android:layout_marginTop="20dp"/>
 
-    <!--  Log in button -->
-
-    <!--  Create an account button -->
-
-    <!--  Name text view  -->
-
-    <!--  Enter your name text input  -->
-
-    <!--  Password text view  -->
-
-    <!--  Enter your password text input  -->
-
-    <!--  Forgot password button  -->
-
-    <!--  Forgot username button  -->
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

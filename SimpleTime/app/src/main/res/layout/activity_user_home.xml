@@ -74,7 +74,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.0"
+                android:layout_weight="0.75"
                 android:orientation="vertical">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -109,14 +109,53 @@
                         android:text="Categories"
                         android:textAppearance="@style/title" />
 
-                    <Button
-                        android:id="@+id/userHome_btnMood"
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@drawable/category_background"
-                        android:text="General"
-                        android:textAppearance="@style/subtitle"
-                        android:textColor="@color/dark_gray"/>
+                        android:layout_height="50dp">
+
+                        <ImageButton
+                            android:id="@+id/cat_home_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/round_corner_option"
+                            android:backgroundTint="@color/light_gray"
+                            android:text="General"
+                            android:textAppearance="@style/subtitle"
+                            android:textColor="@color/dark_gray"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="Picks for you"
+                            android:paddingStart="5dp"
+                            android:textAppearance="@style/category_title_home"
+                            app:layout_constraintBottom_toBottomOf="@+id/cat_home_1"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/cat_logo_1_bcg"
+                            app:layout_constraintTop_toTopOf="@+id/cat_home_1" />
+
+                        <ImageView
+                            android:id="@+id/cat_logo_1_bcg"
+                            android:layout_width="70dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/round_corner_option"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/mid_blue" />
+
+                        <ImageView
+                            android:id="@+id/cat_logo_1"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/fingerprint"
+                            app:layout_constraintBottom_toBottomOf="@+id/cat_logo_1_bcg"
+                            app:layout_constraintEnd_toEndOf="@+id/cat_logo_1_bcg"
+                            app:layout_constraintStart_toStartOf="@+id/cat_logo_1_bcg"
+                            app:layout_constraintTop_toTopOf="@+id/cat_logo_1_bcg" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -124,18 +163,104 @@
                         android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
-                        <Button
-                            android:layout_width="match_parent"
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:layout_weight="1.0"
-                            android:layout_marginEnd="10dp"
-                            android:background="@drawable/category_background_half" />
+                            android:layout_marginEnd="5dp">
 
-                        <Button
-                            android:layout_width="match_parent"
+                            <ImageButton
+                                android:id="@+id/cat_home_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:background="@drawable/round_corner_option"
+                                android:backgroundTint="@color/light_gray"
+                                android:text="General"
+                                android:textAppearance="@style/subtitle"
+                                android:textColor="@color/dark_gray"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Podcasts"
+                                android:paddingStart="5dp"
+                                android:textAppearance="@style/category_title_home"
+                                app:layout_constraintBottom_toBottomOf="@+id/cat_home_2"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/cat_logo_2_bcg"
+                                app:layout_constraintTop_toTopOf="@+id/cat_home_2" />
+
+                            <ImageView
+                                android:id="@+id/cat_logo_2_bcg"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/round_corner_option"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:tint="@color/mid_blue" />
+
+                            <ImageView
+                                android:id="@+id/cat_logo_2"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/microphone"
+                                app:layout_constraintBottom_toBottomOf="@+id/cat_logo_2_bcg"
+                                app:layout_constraintEnd_toEndOf="@+id/cat_logo_2_bcg"
+                                app:layout_constraintStart_toStartOf="@+id/cat_logo_2_bcg"
+                                app:layout_constraintTop_toTopOf="@+id/cat_logo_2_bcg" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:layout_weight="1.0"
-                            android:background="@drawable/category_background_half" />
+                            android:layout_marginStart="5dp">
+
+                            <ImageButton
+                                android:id="@+id/cat_home_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:background="@drawable/round_corner_option"
+                                android:backgroundTint="@color/light_gray"
+                                android:text="General"
+                                android:textAppearance="@style/subtitle"
+                                android:textColor="@color/dark_gray"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Comedy"
+                                android:paddingStart="5dp"
+                                android:textAppearance="@style/category_title_home"
+                                app:layout_constraintBottom_toBottomOf="@+id/cat_home_3"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/cat_logo_3_bcg"
+                                app:layout_constraintTop_toTopOf="@+id/cat_home_3" />
+
+                            <ImageView
+                                android:id="@+id/cat_logo_3_bcg"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/round_corner_option"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:tint="@color/mid_blue" />
+
+                            <ImageView
+                                android:id="@+id/cat_logo_3"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/filmslate"
+                                app:layout_constraintBottom_toBottomOf="@+id/cat_logo_3_bcg"
+                                app:layout_constraintEnd_toEndOf="@+id/cat_logo_3_bcg"
+                                app:layout_constraintStart_toStartOf="@+id/cat_logo_3_bcg"
+                                app:layout_constraintTop_toTopOf="@+id/cat_logo_3_bcg" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </LinearLayout>
 
@@ -145,26 +270,156 @@
                         android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
-                        <Button
-                            android:layout_width="match_parent"
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:layout_weight="1.0"
-                            android:layout_marginEnd="10dp"
-                            android:background="@drawable/category_background_half" />
+                            android:layout_marginEnd="5dp">
 
-                        <Button
-                            android:layout_width="match_parent"
+                            <ImageButton
+                                android:id="@+id/cat_home_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:background="@drawable/round_corner_option"
+                                android:backgroundTint="@color/light_gray"
+                                android:text="General"
+                                android:textAppearance="@style/subtitle"
+                                android:textColor="@color/dark_gray"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Health &amp; Wellness"
+                                android:paddingStart="5dp"
+                                android:textAppearance="@style/category_title_home"
+                                app:layout_constraintBottom_toBottomOf="@+id/cat_home_4"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/cat_logo_4_bcg"
+                                app:layout_constraintTop_toTopOf="@+id/cat_home_4" />
+
+                            <ImageView
+                                android:id="@+id/cat_logo_4_bcg"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/round_corner_option"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:tint="@color/mid_blue" />
+
+                            <ImageView
+                                android:id="@+id/cat_logo_4"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/megaphone"
+                                app:layout_constraintBottom_toBottomOf="@+id/cat_logo_4_bcg"
+                                app:layout_constraintEnd_toEndOf="@+id/cat_logo_4_bcg"
+                                app:layout_constraintStart_toStartOf="@+id/cat_logo_4_bcg"
+                                app:layout_constraintTop_toTopOf="@+id/cat_logo_4_bcg" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
                             android:layout_height="50dp"
                             android:layout_weight="1.0"
-                            android:background="@drawable/category_background_half" />
+                            android:layout_marginStart="5dp">
+
+                            <ImageButton
+                                android:id="@+id/cat_home_5"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:background="@drawable/round_corner_option"
+                                android:backgroundTint="@color/light_gray"
+                                android:text="General"
+                                android:textAppearance="@style/subtitle"
+                                android:textColor="@color/dark_gray"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Education"
+                                android:paddingStart="5dp"
+                                android:textAppearance="@style/category_title_home"
+                                android:textColor="@color/dark_gray"
+                                app:layout_constraintBottom_toBottomOf="@+id/cat_home_5"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/cat_logo_5_bcg"
+                                app:layout_constraintTop_toTopOf="@+id/cat_home_5" />
+
+                            <ImageView
+                                android:id="@+id/cat_logo_5_bcg"
+                                android:layout_width="70dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/round_corner_option"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:tint="@color/mid_blue" />
+
+                            <ImageView
+                                android:id="@+id/cat_logo_5"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:src="@drawable/books"
+                                app:layout_constraintBottom_toBottomOf="@+id/cat_logo_5_bcg"
+                                app:layout_constraintEnd_toEndOf="@+id/cat_logo_5_bcg"
+                                app:layout_constraintStart_toStartOf="@+id/cat_logo_5_bcg"
+                                app:layout_constraintTop_toTopOf="@+id/cat_logo_5_bcg" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </LinearLayout>
 
-                    <Button
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@drawable/category_background" />
+                        android:layout_marginTop="10dp">
+
+                        <ImageButton
+                            android:id="@+id/cat_home_6"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:background="@drawable/round_corner_option"
+                            android:backgroundTint="@color/light_gray"
+                            android:text="General"
+                            android:textAppearance="@style/subtitle"
+                            android:textColor="@color/dark_gray"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="All podcasts"
+                            android:paddingStart="5dp"
+                            android:textAppearance="@style/category_title_home"
+                            app:layout_constraintBottom_toBottomOf="@+id/cat_home_6"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/cat_logo_6_bcg"
+                            app:layout_constraintTop_toTopOf="@+id/cat_home_6" />
+
+                        <ImageView
+                            android:id="@+id/cat_logo_6_bcg"
+                            android:layout_width="70dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/round_corner_option"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/mid_blue" />
+
+                        <ImageView
+                            android:id="@+id/cat_logo_6"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/microphone"
+                            app:layout_constraintBottom_toBottomOf="@+id/cat_logo_6_bcg"
+                            app:layout_constraintEnd_toEndOf="@+id/cat_logo_6_bcg"
+                            app:layout_constraintStart_toStartOf="@+id/cat_logo_6_bcg"
+                            app:layout_constraintTop_toTopOf="@+id/cat_logo_6_bcg" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

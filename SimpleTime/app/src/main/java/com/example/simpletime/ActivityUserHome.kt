@@ -39,7 +39,7 @@ class ActivityUserHome : AppCompatActivity() {
         startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)*/
 
 
-        userHome_btnMood.setOnClickListener{
+        cat_home_1.setOnClickListener{
             sortType = "mood"
             val intent = Intent(this, ActivityPager::class.java)
             intent.putExtra("sort", sortType)
