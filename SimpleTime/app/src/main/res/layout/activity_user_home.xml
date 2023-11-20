@@ -37,7 +37,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:layout_weight="5.0">
+                android:layout_weight="5.0"
+                android:scrollbars="none">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -48,25 +49,29 @@
                         style="@style/option"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="Ctg" />
+                        android:text="Ctg"
+                        android:textAppearance="@style/categories_widget_home"/>
 
                     <Button
                         style="@style/option"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="Ctg" />
+                        android:text="Ctg"
+                        android:textAppearance="@style/categories_widget_home"/>
 
                     <Button
                         style="@style/option"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="Ctg" />
+                        android:text="Ctg"
+                        android:textAppearance="@style/categories_widget_home"/>
 
                     <Button
                         style="@style/option"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="Ctg" />
+                        android:text="Ctg"
+                        android:textAppearance="@style/categories_widget_home"/>
 
                 </LinearLayout>
             </HorizontalScrollView>
@@ -90,7 +95,8 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp">
+            android:layout_margin="20dp"
+            android:scrollbars="none">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -446,7 +452,8 @@
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="120dp">
+                        android:layout_height="120dp"
+                        android:scrollbars="none">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -545,7 +552,8 @@
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="120dp">
+                        android:layout_height="120dp"
+                        android:scrollbars="none">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -658,7 +666,8 @@
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="120dp">
+                        android:layout_height="120dp"
+                        android:scrollbars="none">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -714,7 +723,8 @@
 
                     <HorizontalScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="120dp">
+                        android:layout_height="120dp"
+                        android:scrollbars="none">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -901,7 +911,7 @@
 
         <fragment
             android:id="@+id/bottomfrag_home"
-            android:name="com.example.simpletime.bottom_navbar"
+            android:name="com.example.simpletime.ActivityBottomNavbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/fragment_bottom_navbar" />

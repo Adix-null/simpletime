@@ -405,7 +405,7 @@
 
     <fragment
         android:id="@+id/bottomfrag_home"
-        android:name="com.example.simpletime.bottom_navbar"
+        android:name="com.example.simpletime.ActivityBottomNavbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_bottom_navbar"

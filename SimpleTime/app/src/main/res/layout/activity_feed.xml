@@ -75,9 +75,9 @@
 
     <TextView
         android:id="@+id/videopage_description"
-        android:layout_width="237dp"
+        android:layout_width="0dp"
         android:layout_height="44dp"
-        android:layout_margin="20dp"
+        android:layout_marginEnd="10dp"
         android:fontFamily="@font/inter_medium"
         android:paddingLeft="12dp"
         android:paddingTop="4dp"
@@ -85,14 +85,14 @@
         android:textColor="@color/full_white"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView5"
         app:layout_constraintStart_toEndOf="@+id/uploaderPicture2"
         app:layout_constraintTop_toBottomOf="@+id/videopage_title2" />
 
     <TextView
         android:id="@+id/videopage_title2"
-        android:layout_width="237dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
         android:fontFamily="@font/inter_bold"
         android:paddingLeft="12dp"
         android:paddingTop="4dp"
@@ -163,10 +163,10 @@
         android:id="@+id/imageView5"
         android:layout_width="52dp"
         android:layout_height="52dp"
+        android:layout_marginRight="10dp"
         android:background="@drawable/play_full"
         app:layout_constraintBottom_toBottomOf="@+id/uploaderPicture2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/videopage_title2" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
         android:id="@+id/uploaderPicture2"
@@ -177,7 +177,8 @@
         android:scaleX="1"
         android:scaleY="1"
         android:src="@drawable/user_blank"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />

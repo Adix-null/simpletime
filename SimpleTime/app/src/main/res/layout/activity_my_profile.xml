@@ -96,7 +96,7 @@
         style="@style/log_in"
         android:layout_width="248dp"
         android:layout_height="52dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/descriptionrectangle"
         android:elevation="4dp"
 
@@ -108,6 +108,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <fragment
+            android:id="@+id/bottomfrag_home"
+            android:name="com.example.simpletime.ActivityBottomNavbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_bottom_navbar" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
