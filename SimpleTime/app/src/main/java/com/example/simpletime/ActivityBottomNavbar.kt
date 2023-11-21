@@ -20,9 +20,9 @@ class ActivityBottomNavbar : Fragment() {
         val view = inflater.inflate(R.layout.fragment_bottom_navbar, container, false)
 
         val buttonList = listOf<Button>(view.findViewById(R.id.buttonHome), view.findViewById(R.id.buttonSaved), view.findViewById(R.id.buttonSearch), view.findViewById(R.id.buttonUpload))
-        val activityList = listOf(ActivityUserHome::class.java, ActivityComments::class.java, ActivityUserProfile::class.java, ActivityMyProfile::class.java)
-        val filledImageList = listOf(R.drawable.home_f, R.drawable.saved_f, R.drawable.search_glass_f, R.drawable.upload_f)
-        val blankImageList = listOf(R.drawable.home, R.drawable.saved, R.drawable.search_glass, R.drawable.upload)
+        val activityList = listOf(ActivityUserHome::class.java, ActivityComments::class.java, ActivityUserProfile::class.java, ActivityUpload::class.java)
+        val filledImageList = listOf(R.drawable.home_f, R.drawable.heart_f, R.drawable.bell_f, R.drawable.upload_f)
+        val blankImageList = listOf(R.drawable.home, R.drawable.heart, R.drawable.bell, R.drawable.upload)
 
         for (i in buttonList.indices){
             if(activity?.localClassName == activityList[i].simpleName){
@@ -36,10 +36,6 @@ class ActivityBottomNavbar : Fragment() {
                 buttonList[i].setBackgroundResource(blankImageList[i])
             }
         }
-
-
-
-
 
         return view
     }

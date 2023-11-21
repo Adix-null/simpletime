@@ -75,7 +75,7 @@ class ActivityUserHome : AppCompatActivity() {
             startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         button50.setOnClickListener{
-                val intent = Intent(this, ActivityMyProfile::class.java);
+                val intent = Intent(this, ActivityUserProfile::class.java);
                 startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
             }
         /*buttonChat.setOnClickListener{

@@ -17,8 +17,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.net.toUri
 import androidx.lifecycle.*
 import com.example.simpletime.VideoPagerAdapter.Companion.audioFile
+import com.example.simpletime.VideoPagerAdapter.Companion.descriptionI
 import com.example.simpletime.VideoPagerAdapter.Companion.thumbFile
+import com.example.simpletime.VideoPagerAdapter.Companion.titleI
+import com.example.simpletime.VideoPagerAdapter.Companion.usernameI
 import com.example.simpletime.VideoPagerAdapter.Companion.videoId
+import com.example.simpletime.VideoPagerAdapter.Companion.viewsI
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.MediaMetadata
 import com.google.android.exoplayer2.Player
@@ -28,11 +32,6 @@ import com.google.firebase.storage.FileDownloadTask
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_feed.*
-import kotlinx.android.synthetic.main.activity_feed.view.*
-import kotlinx.android.synthetic.main.activity_my_profile.*
-import kotlinx.android.synthetic.main.activity_pager.*
-import kotlinx.android.synthetic.main.activity_thumbnail_audio.*
 import kotlinx.android.synthetic.main.activity_video_page.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -68,39 +67,15 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
             PauseAnim(pauseImgPodcast, audiopl).animpause()
         }
 
-        try {
-            val msq = MySqlCon()
-            val connection = msq.connectToDatabase()
+        videopage_title.text = titleI
+        videoPage_uploaderName.text = usernameI
+        videoPage_viewCount.text = viewsI
+        videoPage_description.text = descriptionI
 
-            if (connection != null) {
-                try {
-                    val statement: Statement = connection.createStatement()
-
-                    val query = "SELECT * FROM posts where (id=\"$videoId\");"
-                    val resultSet: ResultSet = statement.executeQuery(query)
-
-                    while(resultSet.next()) {
-                        videopage_title.text = resultSet.getString("title")
-                        videoPage_uploaderName.text = resultSet.getString("username")
-                        videoPage_viewCount.text = resultSet.getInt("views").toString()
-                        videoPage_description.text = resultSet.getString("description")
-                    }
-
-                    statement.close()
-                    connection.close()
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-            } else {
-                println("couldn't establish connection to db")
-            }
-
-            thumbnail.setImageDrawable(Drawable.createFromPath(thumbFile.path))
-            audiopl = MediaPlayer.create(this, audioFile.toUri())
-            play()
-            audiopl.isLooping = true
-        }
-        catch (e: Exception){ println(e) }
+        thumbnail.setImageDrawable(Drawable.createFromPath(thumbFile.path))
+        audiopl = MediaPlayer.create(this, audioFile.toUri())
+        play()
+        audiopl.isLooping = true
 
         val viewModel = ViewModelProvider(this).get(ProgressViewModelvp::class.java)
 

@@ -90,7 +90,7 @@ public class ActivityUserProfile extends AppCompatActivity {
         profileEmail = findViewById(R.id.userProfile_editEmail);
         profileName = findViewById(R.id.userProfile_editName);
         profileSurname = findViewById(R.id.userProfile_editSurname);
-//        profileBirthdate = findViewById(R.id.userProfile_editAge);
+//      profileBirthdate = findViewById(R.id.userProfile_editAge);
         btnBack = findViewById(R.id.userProfile_btnBack);
         firebaseFirestore = FirebaseFirestore.getInstance();
         fAuth = FirebaseAuth.getInstance();
@@ -99,8 +99,8 @@ public class ActivityUserProfile extends AppCompatActivity {
         uid = fAuth.getCurrentUser().getUid();
 
 
-        getFirestoreVariables();
-        initDatePicker();
+        //getFirestoreVariables();
+        /*initDatePicker();
         dateButton = findViewById(R.id.userProfile_editAge);
 
 //        loadImagePlaceholder();
@@ -115,18 +115,16 @@ public class ActivityUserProfile extends AppCompatActivity {
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                choosePicture();
+                //choosePicture();
             }
         });
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                //finish();
             }
-        });
-
-
+        });*/
 
 //        showAllUserData();
     }

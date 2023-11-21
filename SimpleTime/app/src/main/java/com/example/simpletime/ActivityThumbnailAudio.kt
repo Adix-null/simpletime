@@ -16,6 +16,7 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.media.session.MediaSessionCompat
 import android.util.Log
 import android.view.View
 import android.view.animation.Animation
@@ -23,11 +24,14 @@ import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.net.toUri
 import androidx.lifecycle.*
 import kotlinx.android.synthetic.main.activity_thumbnail_audio.*
 import com.example.simpletime.VideoPagerAdapter.Companion.thumbnail_id
 import com.example.simpletime.VideoPagerAdapter.Companion.videoId
+import com.google.android.exoplayer2.offline.DownloadService.startForeground
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.protobuf.Empty
@@ -47,16 +51,19 @@ private lateinit var audioplf: MediaPlayer
 
 class ActivityThumbnailAudio : AppCompatActivity() {
 
+    lateinit var mediaSession: MediaSessionCompat
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
+        supportActionBar?.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_thumbnail_audio)
 
-        podcast_slider.thumb.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN)
-        podcast_slider.progressDrawable.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN)
+        podcast_slider_full.thumb.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN)
+        podcast_slider_full.progressDrawable.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN)
 
         try{
-            videopage_titleFull.text = VideoPagerAdapter.infojson.getString("title")
+            videopage_titleFull.text = VideoPagerAdapter.titleI
             thumbnailFull.setImageDrawable(Drawable.createFromPath(VideoPagerAdapter.thumbFile.path))
             audioplf = MediaPlayer.create(this, VideoPagerAdapter.audioFile.toUri())
             play()
@@ -64,19 +71,46 @@ class ActivityThumbnailAudio : AppCompatActivity() {
         }
         catch (e: Exception){ println(e) }
 
-        pauseButPodcastFullManual.setOnClickListener {
-            if (!audioplf.isPlaying) {
-                pauseButPodcastFullManual.setImageResource(R.drawable.pausebar)
-                audioplf.start()
-            } else {
-                pauseButPodcastFullManual.setImageResource(R.drawable.resumearrow)
-                audioplf.pause()
-            }
-        }
+        /*pauseButPodcastFullManual.setOnClickListener {
+            PauseAnim(pauseImgPodcastFull, audioplf).animpause()
+        }*/
 
         pauseButPodcastFull.setOnClickListener {
             PauseAnim(pauseImgPodcastFull, audioplf).animpause()
         }
+
+        mediaSession = MediaSessionCompat(this, "audiowidget")
+
+        /*val notification = NotificationCompat.Builder(this, "chanel")
+            .setContentTitle(VideoPagerAdapter.titleI)
+            .setContentText(VideoPagerAdapter.usernameI)
+            .setSmallIcon(R.drawable.logo_app_f)
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+            .setOnlyAlertOnce(true)
+            .setContentIntent(yourPendingIntent)
+            .setStyle(androidx.media.app.NotificationCompat.MediaStyle()
+                .setMediaSession(mediaSession.sessionToken)
+                .setShowActionsInCompactView(0, 1, 2) // adjust actions as needed
+                .setShowCancelButton(true)
+                //.setCancelButtonIntent(yourStopPendingIntent)
+            )
+            //.addAction(R.drawable.ic_previous, "Previous", yourPreviousPendingIntent)
+            //.addAction(R.drawable.ic_pause, "Pause", yourPausePendingIntent)
+            //.addAction(R.drawable.ic_next, "Next", yourNextPendingIntent)
+            .build()*/
+
+        val notification = NotificationCompat.Builder(this, "YourChannelId")
+            .setSmallIcon(R.drawable.logo_app_f)
+            .setContentTitle("Simple Notification")
+            .setContentText("This is a minimal notification.")
+            .setContentIntent(null)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .build()
+
+        //startForeground(this, notification)
+
+        val notificationManager = NotificationManagerCompat.from(this)
+        notificationManager.notify(1, notification)
 
         val viewModel = ViewModelProvider(this).get(ProgressViewModel::class.java)
 
@@ -105,8 +139,6 @@ class ActivityThumbnailAudio : AppCompatActivity() {
         }
     }
 
-
-
     fun play(){
         audioplf.start()
         audioplf.setOnCompletionListener {
@@ -127,15 +159,17 @@ class ActivityThumbnailAudio : AppCompatActivity() {
         ActivityVideoPage.callbackS.onSetupCallback()
         //ActivityVideoPage.player2.setMediaItem(VideoPagerAdapter.curMediaItem)
         audioplf.release()
+        mediaSession.release()
         return
     }
 }
 
-class PauseAnim(private var btn: ImageView, val mi: MediaPlayer){
+class PauseAnim(private var btn: ImageView, private val mi: MediaPlayer){
     var isPl: Boolean = false
     lateinit var animatorSet: AnimatorSet
 
     fun animpause() {
+        println("chekbrek")
         try {
             if (!mi.isPlaying) {
                 btn.setImageResource(R.drawable.resumearrow)

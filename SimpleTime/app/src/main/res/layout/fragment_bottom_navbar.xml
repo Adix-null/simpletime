@@ -49,13 +49,13 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="7dp"
-                android:background="@drawable/saved"
+                android:background="@drawable/heart"
                 android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Saved"
+                android:text="Liked"
                 android:textAppearance="@style/navbar_links"
                 android:textAlignment="center"
                 android:layout_gravity="center"/>
@@ -72,16 +72,14 @@
                 android:id="@+id/buttonSearch"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
-                android:scaleX="0.8"
-                android:scaleY="0.8"
                 android:layout_marginTop="7dp"
-                android:background="@drawable/search_glass"
+                android:background="@drawable/bell"
                 android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Search"
+                android:text="New"
                 android:textAppearance="@style/navbar_links"
                 android:textAlignment="center"
                 android:layout_gravity="center"/>

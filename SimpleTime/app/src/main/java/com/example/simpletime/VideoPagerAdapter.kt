@@ -21,6 +21,7 @@ import com.google.android.exoplayer2.ui.PlayerView
 import com.google.common.collect.ImmutableList
 import com.google.firebase.storage.*
 import kotlinx.android.synthetic.main.activity_feed.view.*
+import kotlinx.android.synthetic.main.activity_video_page.*
 import org.json.JSONObject
 import java.io.*
 import java.sql.ResultSet
@@ -49,9 +50,12 @@ class VideoPagerAdapter(
         var curMediaItemLinkList: MutableList<String> = mutableListOf()
 
         var videoId: String = ""
-        lateinit var infojson: JSONObject
         lateinit var thumbFile: File
         lateinit var audioFile: File
+        lateinit var titleI: String
+        lateinit var descriptionI: String
+        lateinit var viewsI: String
+        lateinit var usernameI: String
 
         //lateinit var curDocRef: String
         var curDocRefList: MutableList<String> = mutableListOf()
@@ -277,7 +281,8 @@ class VideoPagerAdapter(
                 val randomItem = itemList[random.nextInt(itemList.size)]
                 println("chose $randomItem")
 
-                videoId = randomItem
+                videoId = "4vx8LXiG"
+                //videoId = randomItem
                 updateVideoInfo()
                 if(!excludeVideo)
                 {
@@ -296,12 +301,32 @@ class VideoPagerAdapter(
                 try {
                     val statement: Statement = connection.createStatement()
 
-                    val query = "SELECT id, title, description FROM posts where (id=\"$videoId\");"
-                    val resultSet: ResultSet = statement.executeQuery(query)
+                    /*var query = "SELECT id, title, description FROM posts where (id=\"$videoId\");"
+                    var resultSet: ResultSet = statement.executeQuery(query)
 
                     while(resultSet.next()){
                         holder.itemView.videopage_title2.text = resultSet.getString("title")
                         holder.itemView.videopage_description.text = resultSet.getString("description")
+                    }
+*/
+                    var query = "SELECT id, title, user_uid_hash, views, description FROM posts WHERE (id=\"$videoId\");"
+                    var resultSet = statement.executeQuery(query)
+
+                    while(resultSet.next()) {
+                        titleI = resultSet.getString("title")
+                        usernameI = resultSet.getString("user_uid_hash")
+                        viewsI = resultSet.getInt("views").toString()
+                        descriptionI = resultSet.getString("description")
+
+                        holder.itemView.videopage_title2.text = titleI
+                        holder.itemView.videopage_description.text = descriptionI
+                    }
+
+                    query = "SELECT user_uid, username FROM users WHERE (user_uid=\"$usernameI\");"
+                    resultSet = statement.executeQuery(query)
+
+                    while(resultSet.next()) {
+                        usernameI = resultSet.getString("username")
                     }
 
                     statement.close()

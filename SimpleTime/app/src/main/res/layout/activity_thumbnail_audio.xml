@@ -57,7 +57,7 @@
         app:layout_constraintBottom_toTopOf="@+id/podcast_slider_full"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/videopage_creatorFull" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView

@@ -21,8 +21,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_agreement.*
-import kotlinx.android.synthetic.main.activity_language.*
-import kotlinx.android.synthetic.main.activity_my_profile.*
 import java.sql.Statement
 
 private lateinit var auth: FirebaseAuth
