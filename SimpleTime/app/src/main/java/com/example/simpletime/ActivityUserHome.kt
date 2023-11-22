@@ -1,8 +1,10 @@
 package com.example.simpletime
 
+import android.Manifest
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -18,26 +20,6 @@ class ActivityUserHome : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_home)
         var sortType = ""
-        /*val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection("users").document(user?.uid.toString())
-        docRef.get().addOnSuccessListener { document ->
-            if (document != null) {
-                val name = document.getString("username").toString()
-                userHome_userGreeting.text = "Greetings, $name"
-                Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-            } else {
-                Log.d(TAG, "No such document")
-            }
-        }
-        .addOnFailureListener { exception ->
-            Log.d(TAG, "get failed with ", exception)
-        }*/
-
-        /*FirebaseAuth.getInstance().signOut()
-        val intent = Intent(this, MainActivity::class.java)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)*/
-
 
         cat_home_1.setOnClickListener{
             sortType = "mood"

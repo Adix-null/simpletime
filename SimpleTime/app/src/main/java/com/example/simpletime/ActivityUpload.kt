@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.FirebaseApp
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.activity_upload.*
+import kotlinx.android.synthetic.main.activity_upload_notc_1.*
 import java.io.*
 import java.security.SecureRandom
 import java.util.Date
@@ -42,7 +42,7 @@ class ActivityUpload : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_upload)
+        setContentView(R.layout.activity_upload_notc_1)
 
         FirebaseApp.initializeApp(this)
 

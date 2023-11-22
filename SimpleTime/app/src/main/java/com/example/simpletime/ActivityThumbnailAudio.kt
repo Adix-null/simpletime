@@ -1,51 +1,31 @@
 package com.example.simpletime
 
+import android.Manifest
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.PorterDuff
-import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
-import android.media.Image
 import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
 import android.support.v4.media.session.MediaSessionCompat
-import android.util.Log
-import android.view.View
-import android.view.animation.Animation
 import android.widget.ImageView
 import android.widget.SeekBar
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
+import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import androidx.lifecycle.*
 import kotlinx.android.synthetic.main.activity_thumbnail_audio.*
-import com.example.simpletime.VideoPagerAdapter.Companion.thumbnail_id
-import com.example.simpletime.VideoPagerAdapter.Companion.videoId
-import com.google.android.exoplayer2.offline.DownloadService.startForeground
-import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.StorageReference
-import com.google.protobuf.Empty
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_thumbnail_audio.view.*
 import kotlinx.android.synthetic.main.activity_video_page.*
-import kotlin.math.abs
-import kotlin.random.Random
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.floor
-import kotlin.math.min
-import kotlin.math.round
 
 private lateinit var audioplf: MediaPlayer
 
@@ -71,46 +51,15 @@ class ActivityThumbnailAudio : AppCompatActivity() {
         }
         catch (e: Exception){ println(e) }
 
-        /*pauseButPodcastFullManual.setOnClickListener {
-            PauseAnim(pauseImgPodcastFull, audioplf).animpause()
-        }*/
-
         pauseButPodcastFull.setOnClickListener {
             PauseAnim(pauseImgPodcastFull, audioplf).animpause()
         }
 
-        mediaSession = MediaSessionCompat(this, "audiowidget")
+        //ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS), 0)
 
-        /*val notification = NotificationCompat.Builder(this, "chanel")
-            .setContentTitle(VideoPagerAdapter.titleI)
-            .setContentText(VideoPagerAdapter.usernameI)
-            .setSmallIcon(R.drawable.logo_app_f)
-            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-            .setOnlyAlertOnce(true)
-            .setContentIntent(yourPendingIntent)
-            .setStyle(androidx.media.app.NotificationCompat.MediaStyle()
-                .setMediaSession(mediaSession.sessionToken)
-                .setShowActionsInCompactView(0, 1, 2) // adjust actions as needed
-                .setShowCancelButton(true)
-                //.setCancelButtonIntent(yourStopPendingIntent)
-            )
-            //.addAction(R.drawable.ic_previous, "Previous", yourPreviousPendingIntent)
-            //.addAction(R.drawable.ic_pause, "Pause", yourPausePendingIntent)
-            //.addAction(R.drawable.ic_next, "Next", yourNextPendingIntent)
-            .build()*/
-
-        val notification = NotificationCompat.Builder(this, "YourChannelId")
-            .setSmallIcon(R.drawable.logo_app_f)
-            .setContentTitle("Simple Notification")
-            .setContentText("This is a minimal notification.")
-            .setContentIntent(null)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-            .build()
-
-        //startForeground(this, notification)
-
-        val notificationManager = NotificationManagerCompat.from(this)
-        notificationManager.notify(1, notification)
+        val intent = Intent(this, PodcastService::class.java)
+        intent.action = PodcastService.Actions.START.toString()
+        startService(intent)
 
         val viewModel = ViewModelProvider(this).get(ProgressViewModel::class.java)
 
