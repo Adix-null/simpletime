@@ -5,6 +5,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
+import kotlinx.android.synthetic.main.activity_podcast_service.view.*
 
 class RunningPodcast: Application() {
 
@@ -20,5 +21,6 @@ class RunningPodcast: Application() {
             val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
+
     }
 }

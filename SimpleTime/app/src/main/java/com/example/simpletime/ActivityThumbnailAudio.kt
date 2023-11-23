@@ -6,15 +6,20 @@ import android.animation.AnimatorListenerAdapter
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
 import android.annotation.SuppressLint
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
 import android.support.v4.media.session.MediaSessionCompat
 import android.widget.ImageView
 import android.widget.SeekBar
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
@@ -55,11 +60,29 @@ class ActivityThumbnailAudio : AppCompatActivity() {
             PauseAnim(pauseImgPodcastFull, audioplf).animpause()
         }
 
-        //ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS), 0)
+        if(Build.VERSION.SDK_INT > Build.VERSION_CODES.P) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.FOREGROUND_SERVICE),
+                0
+            )
+        }
 
         val intent = Intent(this, PodcastService::class.java)
         intent.action = PodcastService.Actions.START.toString()
         startService(intent)
+
+        val receiver = object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+                if (intent?.action == "PAUSE") {
+                    PauseAnim(pauseImgPodcastFull, audioplf).animpause()
+                }
+            }
+        }
+
+        val filter = IntentFilter("PAUSE")
+        registerReceiver(receiver, filter)
+
 
         val viewModel = ViewModelProvider(this).get(ProgressViewModel::class.java)
 
@@ -118,7 +141,6 @@ class PauseAnim(private var btn: ImageView, private val mi: MediaPlayer){
     lateinit var animatorSet: AnimatorSet
 
     fun animpause() {
-        println("chekbrek")
         try {
             if (!mi.isPlaying) {
                 btn.setImageResource(R.drawable.resumearrow)

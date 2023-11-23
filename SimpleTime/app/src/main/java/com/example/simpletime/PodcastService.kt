@@ -1,10 +1,13 @@
 package com.example.simpletime
 
+import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
-import android.graphics.BitmapFactory
 import android.os.IBinder
+import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
+import kotlinx.android.synthetic.main.activity_podcast_service.*
+
 
 class PodcastService: Service() {
 
@@ -16,8 +19,10 @@ class PodcastService: Service() {
         when(intent?.action){
             Actions.START.toString() -> start()
             Actions.STOP.toString() -> stop()
-            Actions.CANCEL.toString() -> cancel()
+            Actions.RESUME.toString() -> stop()
+            Actions.FF.toString() -> cancel()
         }
+
         return super.onStartCommand(intent, flags, startId)
     }
 
@@ -31,27 +36,31 @@ class PodcastService: Service() {
 
     private fun start(){
 
-        val bitmap = BitmapFactory.decodeResource(this.resources, R.drawable.player_back)
+        val notificationLayout = RemoteViews(this.packageName, R.layout.activity_podcast_service)
 
         val CHANNEL_ID = "running_channel"
 
+        val resumePendingIntent = PendingIntent.getBroadcast(this, 0, Intent("PAUSE"), 0)
+
+        notificationLayout.setOnClickPendingIntent(R.id.resume_30, resumePendingIntent)
+
+        /*println("oke")
+        resume_30.setBackgroundResource(if(a) R.drawable.pause_n else R.drawable.resume_n)
+        a = !a
+        val intent = Intent("PAUSE")
+        this.sendBroadcast(intent)*/
+
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.logo_app_s)
-                .setLargeIcon(bitmap)
-                .setStyle(NotificationCompat.BigPictureStyle().bigPicture(bitmap).bigLargeIcon(null))
-                .setContentTitle("Creators name")
-                .setContentText("full content name")
-                .addAction(R.drawable.rew_30, "Button 1", null)
-                .addAction(R.drawable.resume_n, "Button 2", null)
-                .addAction(R.drawable.ff_30, "Button 3", null)
-                /*.setPriority(androidx.core.app.NotificationCompat.PRIORITY_DEFAULT)
-                .setContentIntent(pendingIntent)
+                .setCustomContentView(notificationLayout)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                /*.setContentIntent(pendingIntent)
                 .setAutoCancel(true)*/
             .build()
         startForeground(1, notification)
     }
 
     enum class Actions{
-        START, STOP, CANCEL
+        START, STOP, RESUME, FF, REW
     }
 }

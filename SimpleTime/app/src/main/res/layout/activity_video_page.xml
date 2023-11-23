@@ -255,7 +255,7 @@
         android:scaleX="1.75"
         android:scaleY="1.75"
         app:layout_constraintStart_toEndOf="@+id/imageButton15"
-        app:layout_constraintTop_toTopOf="@+id/videoPage_footer"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/savebutton"
         tools:ignore="SpeakableTextPresentCheck" />
 
