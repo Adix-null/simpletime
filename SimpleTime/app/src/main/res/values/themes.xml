@@ -124,6 +124,12 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="big_text_b">
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="title">
         <item name="android:textSize">30sp</item>
         <item name="android:fontFamily">@font/inter_bold</item>
@@ -154,6 +160,11 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="apple">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textColor">@color/light_blue</item>
+    </style>
 
 
 

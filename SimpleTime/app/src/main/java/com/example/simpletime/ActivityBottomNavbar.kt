@@ -20,7 +20,7 @@ class ActivityBottomNavbar : Fragment() {
         val view = inflater.inflate(R.layout.fragment_bottom_navbar, container, false)
 
         val buttonList = listOf<Button>(view.findViewById(R.id.buttonHome), view.findViewById(R.id.buttonSaved), view.findViewById(R.id.buttonSearch), view.findViewById(R.id.buttonUpload))
-        val activityList = listOf(ActivityUserHome::class.java, ActivityComments::class.java, ActivityUserProfile::class.java, ActivityUpload::class.java)
+        val activityList = listOf(ActivityUserHome::class.java, ActivityComments::class.java, ActivityUserProfile::class.java, ActivityUploadNotC1::class.java)
         val filledImageList = listOf(R.drawable.home_f, R.drawable.heart_f, R.drawable.bell_f, R.drawable.upload_f)
         val blankImageList = listOf(R.drawable.home, R.drawable.heart, R.drawable.bell, R.drawable.upload)
 

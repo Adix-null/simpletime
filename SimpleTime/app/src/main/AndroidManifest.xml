@@ -23,7 +23,16 @@
             android:name=".ActivityMessages"
             android:exported="false" />
         <activity
-            android:name=".ActivityUpload"
+            android:name=".ActivityUploadNotC1"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityUploadNotC2"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityUpload1"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityUpload2"
             android:exported="false" />
         <activity
             android:name=".ReportOtherActivity"

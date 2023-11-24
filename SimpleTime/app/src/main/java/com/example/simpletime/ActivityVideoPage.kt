@@ -2,7 +2,10 @@ package com.example.simpletime
 
 //import com.example.simpletime.VideoPagerAdapter.Companion.curDocRef
 
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.media.MediaDataSource
@@ -32,6 +35,7 @@ import com.google.firebase.storage.FileDownloadTask
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_thumbnail_audio.*
 import kotlinx.android.synthetic.main.activity_video_page.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -93,6 +97,26 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
             }
         })
+
+        try {
+            val intent = Intent(this, PodcastService::class.java)
+            intent.action = PodcastService.Actions.START.toString()
+            startService(intent)
+
+            val receiver = object : BroadcastReceiver() {
+                override fun onReceive(context: Context?, intent: Intent?) {
+                    if (intent?.action == "PAUSE") {
+                        PauseAnim(pauseImgPodcastFull, audiopl).animpause()
+                    }
+                }
+            }
+
+            val filter = IntentFilter("PAUSE")
+            registerReceiver(receiver, filter)
+
+        }catch (e: Exception){
+            Toast.makeText(this, "Unable to make notif", Toast.LENGTH_SHORT).show()
+        }
 
         viewModel.startUpdatingPosition()
         viewModel.currentPosition.observe(this) { position ->

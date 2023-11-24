@@ -72,17 +72,6 @@ class ActivityThumbnailAudio : AppCompatActivity() {
         intent.action = PodcastService.Actions.START.toString()
         startService(intent)
 
-        val receiver = object : BroadcastReceiver() {
-            override fun onReceive(context: Context?, intent: Intent?) {
-                if (intent?.action == "PAUSE") {
-                    PauseAnim(pauseImgPodcastFull, audioplf).animpause()
-                }
-            }
-        }
-
-        val filter = IntentFilter("PAUSE")
-        registerReceiver(receiver, filter)
-
 
         val viewModel = ViewModelProvider(this).get(ProgressViewModel::class.java)
 
@@ -109,6 +98,12 @@ class ActivityThumbnailAudio : AppCompatActivity() {
                 timeInfo[1].toString() + ':' + (if (timeInfo[2] < 10) "0" else "") + timeInfo[2].toString() + ':' + (if (timeInfo[3] < 10) "0" else "") + timeInfo[3].toString() + '/' +
                 timeInfo[4].toString() + ':' + (if (timeInfo[5] < 10) "0" else "") + timeInfo[5].toString() + ':' + (if (timeInfo[6] < 10) "0" else "") + timeInfo[6].toString()
         }
+    }
+
+    fun changePlayerImage(){
+        val intent = Intent(this, PodcastService::class.java)
+        intent.action = PodcastService.Actions.PAUSE.toString()
+        startService(intent)
     }
 
     fun play(){

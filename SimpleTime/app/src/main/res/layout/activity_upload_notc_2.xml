@@ -5,23 +5,25 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
-    tools:context=".ActivityAgreement"
+    tools:context=".ActivityUploadNotC2"
     android:theme="@style/Theme.SimpleTime.NoActionBar">
 
     <TextView
         android:id="@+id/interests_1"
-        android:layout_width="272dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingLeft="12dp"
+        android:layout_margin="20dp"
+        android:paddingLeft="20dp"
         android:paddingTop="4dp"
         android:text="Creator's agreement"
-        android:textAppearance="@style/med_text"
+        android:textAppearance="@style/title"
         android:textSize="25sp"
+        app:layout_constraintEnd_toStartOf="@+id/back_aunc2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/agreement_back"
+        android:id="@+id/back_aunc2"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginEnd="10dp"
@@ -36,7 +38,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/continue_agreement"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/continue_aunc2"
         app:layout_constraintTop_toBottomOf="@+id/interests_1">
 
         <TextView
@@ -51,7 +54,7 @@
 
 
     <Button
-        android:id="@+id/continue_agreement"
+        android:id="@+id/continue_aunc2"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:layout_marginStart="20dp"

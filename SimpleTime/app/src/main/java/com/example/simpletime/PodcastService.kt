@@ -1,5 +1,6 @@
 package com.example.simpletime
 
+import android.app.Notification
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
@@ -20,6 +21,7 @@ class PodcastService: Service() {
             Actions.START.toString() -> start()
             Actions.STOP.toString() -> stop()
             Actions.RESUME.toString() -> stop()
+            Actions.PAUSE.toString() -> stop()
             Actions.FF.toString() -> cancel()
         }
 
@@ -38,29 +40,30 @@ class PodcastService: Service() {
 
         val notificationLayout = RemoteViews(this.packageName, R.layout.activity_podcast_service)
 
-        val CHANNEL_ID = "running_channel"
+        baseNotif(notificationLayout)
 
         val resumePendingIntent = PendingIntent.getBroadcast(this, 0, Intent("PAUSE"), 0)
 
         notificationLayout.setOnClickPendingIntent(R.id.resume_30, resumePendingIntent)
 
-        /*println("oke")
-        resume_30.setBackgroundResource(if(a) R.drawable.pause_n else R.drawable.resume_n)
-        a = !a
-        val intent = Intent("PAUSE")
-        this.sendBroadcast(intent)*/
+    }
+
+    private fun baseNotif(notificationLayout: RemoteViews){
+
+        val CHANNEL_ID = "running_channel"
 
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-                .setSmallIcon(R.drawable.logo_app_s)
-                .setCustomContentView(notificationLayout)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                /*.setContentIntent(pendingIntent)
-                .setAutoCancel(true)*/
+            .setSmallIcon(R.drawable.logo_app_s)
+            .setCustomContentView(notificationLayout)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            /*.setContentIntent(pendingIntent)
+            .setAutoCancel(true)*/
             .build()
         startForeground(1, notification)
+
     }
 
     enum class Actions{
-        START, STOP, RESUME, FF, REW
+        START, STOP, RESUME, PAUSE, FF, REW
     }
 }

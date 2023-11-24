@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ActivityUpload1">
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:paddingStart="20dp"
+        android:text="Upload content"
+        android:textAppearance="@style/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/back_au1"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/back_arrow"
+        android:textAppearance="@style/categories_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/continue_au1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingStart="30dp"
+                android:text="1. Upload and describe trailer"
+                android:textAppearance="@style/big_text_b" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="50dp"
+                android:text="Trailer is a short video of your content supposed to tell about what is your full video. That’s how people will find you, so make sure its catchy. And don’t forget to describe it!"
+                android:textAppearance="@style/med_text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingStart="30dp"
+                android:text="2. Upload and describe fullie"
+                android:textAppearance="@style/big_text_b" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="50dp"
+                android:text="Fullie is how we call photo and audio combination. Later on we will change it with standard videos but for now we can’t. Upload your cover video and audio track. Then describe it and name your fullie!"
+                android:textAppearance="@style/med_text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingStart="30dp"
+                android:text="3. Select topics"
+                android:textAppearance="@style/big_text_b" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="50dp"
+                android:text="As we don’t have fancy schmancy algorythms for now when uploading video you must select topics that you cover with your content so that we could deliver your content to users who are interested in the topics you cover."
+                android:textAppearance="@style/med_text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingStart="30dp"
+                android:text="4. Upload and describe fullie"
+                android:textAppearance="@style/big_text_b" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="50dp"
+                android:text="Our algorythms dont understand in which language your content is so yes, we wannt you to select language/s that you are communicating in so that your content could reach right audience."
+                android:textAppearance="@style/med_text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingStart="30dp"
+                android:text="5. Preview"
+                android:textAppearance="@style/big_text_b" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="50dp"
+                android:text="Last step. We will show you your content form user perspective. at first you will get to see trailer and once you click “PLAY” button you will be moved to fullie. If you are happy with the result click “upload” and that’s it, your content is uploaded!"
+                android:textAppearance="@style/med_text" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/continue_au1"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/round_corner_continue"
+        android:text="Continue"
+        android:textAppearance="@style/categories_white"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <fragment
+            android:id="@+id/bottomfrag_home"
+            android:name="com.example.simpletime.ActivityBottomNavbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_bottom_navbar" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

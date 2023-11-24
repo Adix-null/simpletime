@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ActivityUpload">
+    tools:context=".ActivityUploadNotC1">
 
     <Button
+        android:id="@+id/back_aunc1"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_margin="20dp"
@@ -50,6 +51,7 @@
             android:textAppearance="@style/subtitle"/>
 
         <Button
+            android:id="@+id/continue_aunc1"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
@@ -60,7 +62,6 @@
             android:paddingEnd="100dp"
             android:textAppearance="@style/categories_white"
             android:textSize="15sp"/>
-
 
     </LinearLayout>
 
