@@ -12,6 +12,7 @@
     <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
     <string name="back">Back</string>
+    <string name="done">Done</string>
     <string name="save">Save</string>
     <string name="forgot_pass">Forgot your password?</string>
     <string name="forgot_username">Forgot username?</string>

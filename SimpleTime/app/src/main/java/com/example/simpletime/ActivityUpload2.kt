@@ -16,8 +16,8 @@ class ActivityUpload2 : AppCompatActivity() {
         }
 
         continue_au2.setOnClickListener{
-            /*val intent = Intent(this, ActivityUpload2::class.java)
-            startActivity(intent)*/
+            val intent = Intent(this, ActivityInterestsUpload::class.java)
+            startActivity(intent)
         }
     }
 }

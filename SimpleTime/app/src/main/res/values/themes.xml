@@ -154,6 +154,12 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="small_text">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textColor">@color/dark_gray</item>
+    </style>
+
     <style name="categories_white">
         <item name="android:textSize">25sp</item>
         <item name="android:fontFamily">@font/inter_var</item>

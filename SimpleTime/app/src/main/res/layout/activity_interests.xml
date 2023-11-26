@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
-    tools:context=".ActivityInterests"
-    android:theme="@style/Theme.SimpleTime.NoActionBar">
+    tools:context=".ActivityInterests">
 
     <LinearLayout
         android:id="@+id/linearLayout"

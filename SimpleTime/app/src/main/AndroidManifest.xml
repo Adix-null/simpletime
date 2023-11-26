@@ -20,6 +20,12 @@
             android:name=".ActivityNotifications"
             android:exported="false" />
         <activity
+            android:name=".ActivityInterestsUpload"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityUploadProgress"
+            android:exported="false" />
+        <activity
             android:name=".ActivityMessages"
             android:exported="false" />
         <activity
