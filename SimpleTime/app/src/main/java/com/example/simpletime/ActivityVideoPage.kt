@@ -2,11 +2,14 @@ package com.example.simpletime
 
 //import com.example.simpletime.VideoPagerAdapter.Companion.curDocRef
 
+import android.app.PendingIntent
 import android.content.BroadcastReceiver
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.graphics.*
+import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.media.MediaDataSource
 import android.media.MediaExtractor
@@ -14,6 +17,7 @@ import android.media.MediaFormat
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
+import android.support.v4.media.session.MediaSessionCompat
 import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -44,9 +48,13 @@ import java.io.File
 import java.io.FileDescriptor
 import java.io.IOException
 import java.net.URI
-import java.sql.ResultSet
-import java.sql.Statement
-import java.util.*
+import android.media.AudioManager
+import android.support.v4.media.session.MediaControllerCompat
+import android.support.v4.media.session.PlaybackStateCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import androidx.media.session.MediaButtonReceiver
 import kotlin.math.round
 
 lateinit var audiopl: MediaPlayer
@@ -54,21 +62,43 @@ lateinit var audiopl: MediaPlayer
 class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPageSetupCallback {
 
     private val starIcons: MutableList<ImageButton> = mutableListOf()
+    lateinit var notificationBuilder: NotificationCompat.Builder
 
     companion object {
         lateinit var callbackS: ActivityVideoPageSetupCallback
     }
+
+
+    private val notifReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+
+            if (intent?.action == RemoteControlReceiver.ACTION_PAUSE) {
+                PauseAnim(pauseImgPodcast, audiopl).animpause()
+                buildNotification(true)
+            }
+
+            if (intent?.action == RemoteControlReceiver.ACTION_RESUME) {
+                PauseAnim(pauseImgPodcast, audiopl).animpause()
+                buildNotification(false)
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
         callbackS = this
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_page)
 
+        LocalBroadcastManager.getInstance(this).registerReceiver(notifReceiver, IntentFilter(RemoteControlReceiver.ACTION_PAUSE))
+        LocalBroadcastManager.getInstance(this).registerReceiver(notifReceiver, IntentFilter(RemoteControlReceiver.ACTION_RESUME))
+
         podcast_slider.thumb.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN)
         podcast_slider.progressDrawable.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN)
 
         pauseButPodcast.setOnClickListener{
             PauseAnim(pauseImgPodcast, audiopl).animpause()
+            buildNotification(audiopl.isPlaying)
         }
 
         videopage_title.text = titleI
@@ -87,6 +117,7 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if (fromUser) {
                     val newPosition = (progress * audiopl.duration / 100)
+
                     audiopl.seekTo(newPosition)
                 }
             }
@@ -98,29 +129,12 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
             }
         })
 
-        try {
-            val intent = Intent(this, PodcastService::class.java)
-            intent.action = PodcastService.Actions.START.toString()
-            startService(intent)
-
-            val receiver = object : BroadcastReceiver() {
-                override fun onReceive(context: Context?, intent: Intent?) {
-                    if (intent?.action == "PAUSE") {
-                        PauseAnim(pauseImgPodcastFull, audiopl).animpause()
-                    }
-                }
-            }
-
-            val filter = IntentFilter("PAUSE")
-            registerReceiver(receiver, filter)
-
-        }catch (e: Exception){
-            Toast.makeText(this, "Unable to make notif", Toast.LENGTH_SHORT).show()
-        }
+        buildNotification(true)
 
         viewModel.startUpdatingPosition()
         viewModel.currentPosition.observe(this) { position ->
             podcast_slider.progress = position
+            //notificationBuilder.setProgress(100, position, false)
         }
 
         starIcons.add(PopUp1)
@@ -131,18 +145,18 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
 
         ReportButton.setOnClickListener {
             audiopl.release()
-            val intent = Intent(this, ActivityReport::class.java);
+            val intent = Intent(this, ActivityReport::class.java)
             startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         imageButton11.setOnClickListener {
             audiopl.release()
-            val intent = Intent(this, ActivityComments::class.java);
+            val intent = Intent(this, ActivityComments::class.java)
             startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
 
         for(s in 0..4){
             starIcons[s].setOnClickListener {
-                displayStars(s+1/*, docRef*/)
+                displayStars(s+1)
             }
         }
 
@@ -169,6 +183,49 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
         }
     }
 
+    fun buildNotification(paused: Boolean ) {
+        val CHANNEL_ID = "running_channel"
+
+        val mediaButtonReceiver = ComponentName(this, RemoteControlReceiver::class.java)
+        val mediaSession = MediaSessionCompat(this, "tag", mediaButtonReceiver, null)
+
+        notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setContentTitle("Media Title")
+            .setContentText("Media Artist")
+            .setSmallIcon(R.drawable.logo_app_f)
+            .setLargeIcon((Drawable.createFromPath(thumbFile.path) as BitmapDrawable).bitmap)
+            .setStyle(androidx.media.app.NotificationCompat.MediaStyle()
+                .setMediaSession(mediaSession.sessionToken)
+                .setShowActionsInCompactView(0, 1, 2)
+                .setShowCancelButton(true)
+            )
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+
+        val intentR = Intent(this, RemoteControlReceiver::class.java)
+        intentR.action = if (paused) RemoteControlReceiver.ACTION_PAUSE else RemoteControlReceiver.ACTION_RESUME
+        intentR.putExtra("isplaying", true)
+
+        notificationBuilder.addAction(R.drawable.ic_media_rewind, "Rewind", null)
+        notificationBuilder.addAction(if (paused) R.drawable.ic_media_pause else R.drawable.ic_media_play, "Pause", PendingIntent.getBroadcast(
+            this,
+            0,
+            intentR,
+            0
+        ))
+        notificationBuilder.addAction(R.drawable.ic_media_ff, "Fast forward", null)
+
+        with(NotificationManagerCompat.from(this)) {
+            notify(1, notificationBuilder.build())
+        }
+
+        /*mediaSession.setCallback(object : MediaSessionCompat.Callback() {
+
+        })*/
+
+        mediaSession.isActive = true
+
+    }
+
     fun play(){
         audiopl.start()
         audiopl.setOnCompletionListener {
@@ -176,46 +233,10 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
         }
     }
 
-    /*private fun updateVideoInfo(vidname: String){
-        val docRef = db.collection("videos").document(vidname)
-        docRef.get().addOnSuccessListener { document ->
-            if (document != null) {
-                VideoPagerAdapter.curDocRefList.add(vidname)
-                Log.d(VideoPagerAdapter.TAG, "Pulled video for 1:" + vidname)
-                holder.itemView.videopage_title2.text = document.getString("title")
-                val uploaderPic = document.getString("uploaderID")
-                val profileRef = FireStorage.reference.child(
-                    "users/" + uploaderPic + "/profile.jpg"
-                )
-                profileRef.downloadUrl.addOnSuccessListener { uri ->
-                    Picasso.get().load(uri).into(holder.itemView.uploaderPicture2)
-                }
-            }
-        }
-    }
-*/
-    fun displayStars(stars: Int/*, docRef: DocumentReference*/){
+    fun displayStars(stars: Int){
         for(s in 0..4){
             starIcons[s].setBackgroundResource(if(stars > s) R.drawable.star else R.drawable.new_blank_star)
         }
-        /*docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null) {
-                    val currentRating = document.getDouble("rating")
-                    docRef.update("rating", document.getDouble("rating")?.plus(stars))
-                    docRef.update("timesRated", document.getDouble("timesRated")?.plus(1))
-                }
-            }*/
-
-        /*for(s in 0..4){
-            starIcons[s].setImageDrawable(null)
-        }*/
-    }
-
-    fun Double.round(decimals: Int): Double {
-        var multiplier = 1.0
-        repeat(decimals) { multiplier *= 10 }
-        return round(this * multiplier) / multiplier
     }
 
     override fun onSetupCallback() {
@@ -229,6 +250,7 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 if (fromUser) {
                     val newPosition = (progress * audiopl.duration / 100)
+                    //notificationBuilder.setProgress(100, progress, false)
                     audiopl.seekTo(newPosition)
                 }
             }
@@ -243,6 +265,7 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
         viewModel.startUpdatingPosition()
         viewModel.currentPosition.observe(this) { position ->
             podcast_slider.progress = position
+            //notificationBuilder.setProgress(100, position, false)
         }
     }
 
@@ -342,6 +365,7 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
 
     override fun onDestroy() {
         super.onDestroy()
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(notifReceiver)
         println("DESPOS")
         //Log.d(TAG, "onSaveInstanceState: " + player2.currentPosition)
     }
@@ -353,7 +377,7 @@ class ProgressViewModelvp : ViewModel() {
     private val _currentPosition = MutableLiveData<Int>()
     val currentPosition: LiveData<Int> get() = _currentPosition
 
-    fun updateCurrentPosition(position: Int) {
+    private fun updateCurrentPosition(position: Int) {
         _currentPosition.value = position
     }
 
