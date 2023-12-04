@@ -5,95 +5,64 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
-    tools:context=".ActivityLanguageUpload"
-    android:theme="@style/Theme.SimpleTime.NoActionBar">
+    tools:context=".ActivityUploadInterests">
 
     <TextView
-        android:id="@+id/language_1"
+        android:id="@+id/interests_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:paddingLeft="12dp"
         android:paddingTop="4dp"
-        android:text="Language"
+        android:text="Categories"
         android:textAppearance="@style/title"
-        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/language_2"
+        android:id="@+id/interests_2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingLeft="12dp"
         android:paddingTop="4dp"
-        android:text="In which language is this content (mainly)?"
+        android:text="Pick best categories for your content"
         android:textAppearance="@style/big_text"
-        app:layout_constraintEnd_toStartOf="@+id/language_upload_back"
+        app:layout_constraintEnd_toStartOf="@+id/interests_upload_back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/language_1" />
+        app:layout_constraintTop_toBottomOf="@+id/interests_1" />
 
     <Button
-        android:id="@+id/language_upload_back"
+        android:id="@+id/interests_upload_back"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/back_arrow"
         android:textAppearance="@style/categories_white"
-        app:layout_constraintBottom_toBottomOf="@+id/language_1"
+        app:layout_constraintBottom_toBottomOf="@+id/interests_1"
         app:layout_constraintEnd_toEndOf="@+id/scrollView2"
-        app:layout_constraintTop_toTopOf="@+id/language_1" />
+        app:layout_constraintTop_toTopOf="@+id/interests_1" />
 
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/continue_language_upload"
-        app:layout_constraintTop_toBottomOf="@+id/language_2">
+        app:layout_constraintBottom_toTopOf="@+id/continue_interests_upload"
+        app:layout_constraintTop_toBottomOf="@+id/interests_2">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/interestsUploadRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp">
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/buttonL1_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Lithuanian" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/buttonL2_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="English" />
-
-            </LinearLayout>
-        </LinearLayout>
     </ScrollView>
 
 
     <Button
-        android:visibility="invisible"
-        android:id="@+id/continue_language_upload"
+        android:id="@+id/continue_interests_upload"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:layout_margin="20dp"
@@ -102,6 +71,7 @@
         android:textAppearance="@style/categories_white"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
     <LinearLayout
         android:id="@+id/linearLayout3"

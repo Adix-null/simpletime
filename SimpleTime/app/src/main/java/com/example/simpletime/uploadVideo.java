@@ -61,13 +61,9 @@ public class uploadVideo extends AppCompatActivity {
 
         // initialise layout
         uploadv = findViewById(R.id.uploadv);
-        uploadv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Code for showing progressDialog while uploading
-                progressDialog = new ProgressDialog(uploadVideo.this);
-                choosevideo();
-            }
+        uploadv.setOnClickListener(v -> {
+            progressDialog = new ProgressDialog(uploadVideo.this);
+            choosevideo();
         });
         save = findViewById(R.id.upload_btnSave);
         save.setOnClickListener(new View.OnClickListener() {

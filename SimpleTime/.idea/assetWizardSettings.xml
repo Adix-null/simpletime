@@ -347,9 +347,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_media_pause" />
-                            <entry key="sourceFile" value="C:\Users\adoma\Downloads\dark theme updated (2)\iPhone 13\Component 62\Rectangle 18.svg" />
+                            <entry key="outputName" value="ic_media_skip_30" />
+                            <entry key="sourceFile" value="C:\Users\adoma\Documents\GitHub\simpletime\SimpleTime\app\src\main\res\drawable\Group 8726.svg" />
                           </map>
                         </option>
                       </PersistentState>

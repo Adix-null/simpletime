@@ -8,12 +8,16 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_feed.view.*
 import kotlinx.android.synthetic.main.activity_interests.*
+import java.sql.Statement
 
 class ActivityInterests : AppCompatActivity() {
 
     companion object {
-        var interests = arrayOfNulls<String>(20)
+        var interests: MutableList<Int> = mutableListOf()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,25 +25,50 @@ class ActivityInterests : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_interests)
 
-        val buttonList = listOf(button1_1, button1_2, button1_3, button1_4, button1_5, button1_6, button1_7, button1_8, button1_9, button1_10, button2_1, button2_2, button2_3, button2_4, button2_5, button2_6, button2_7, button2_8, button2_9, button2_10)
-        val categoryList = listOf("Podcasts", "Healthcare", "Startups", "Pitches", "Politics", "Economy", "News", "Business", "Comedy", "Interviews", "Finances", "Travelling", "Fashion", "Education", "Kids", "Innovation", "Vlogs", "History", "Math", "CompSci")
-        val selected = BooleanArray(categoryList.size) { false }
+        continue_interests.visibility = View.INVISIBLE
 
-        isInterestsEmpty()
+        val recyclerView: RecyclerView = findViewById(R.id.interestsRecyclerView)
 
-        for (b in buttonList.indices) {
-            buttonList[b].text = categoryList[b]
+        val titles = mutableListOf<String>()
+        val descriptions = mutableListOf<String>()
 
-            buttonList[b].setOnClickListener {
-                selected[b] = !selected[b]
-                ToggleButton(buttonList[b], selected[b], this).toggleButtonInterest()
+        try {
+            val msq = MySqlCon()
+            val connection = msq.connectToDatabase()
 
-                for (i in interests.indices) {
-                    interests[i] = if (selected[i]) categoryList[i] else null
+            if (connection != null) {
+                try {
+                    val statement: Statement = connection.createStatement()
+                    var query = "SELECT title, descr FROM categories;"
+                    var resultSet = statement.executeQuery(query)
+
+                    while(resultSet.next()) {
+                        titles.add(resultSet.getString("title"))
+                        descriptions.add(resultSet.getString("descr"))
+                    }
+
+                    statement.close()
+                    connection.close()
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
-                isInterestsEmpty()
+            } else {
+                println("couldn't establish connection to db")
             }
         }
+        catch (e: Exception){ println(e) }
+
+        val adapter = ListEntryAdapterSmall(titles, this){
+            n -> if (n in interests) {
+                interests.remove(n)
+            } else {
+                interests.add(n)
+            }
+
+            continue_interests.visibility = if(interests.size > 0) View.VISIBLE else View.INVISIBLE
+        }
+
+        recyclerView.adapter = adapter
 
         continue_interests.setOnClickListener {
             val intent = Intent(this, ActivityLanguage::class.java)
@@ -48,26 +77,17 @@ class ActivityInterests : AppCompatActivity() {
 
         interests_back.setOnClickListener{
             continue_interests.visibility = View.INVISIBLE
-            interests.fill(null)
+            //interests.fill(null)
             super.onBackPressed()
         }
     }
 
     override fun onBackPressed() {
         continue_interests.visibility = View.INVISIBLE
-        interests.fill(null)
+        //interests.fill(null)
         super.onBackPressed()
     }
 
-    private fun isInterestsEmpty() {
-        var k = false
-        for (i in interests) {
-            if (i != null) {
-                k = true
-            }
-        }
-        continue_interests.visibility = if (k) View.VISIBLE else View.INVISIBLE
-    }
 }
 class ToggleButton(private val button: Button, val toggle: Boolean, private val cont: Context) {
     fun toggleButtonInterest(){

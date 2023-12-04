@@ -281,8 +281,8 @@ class VideoPagerAdapter(
                 val randomItem = itemList[random.nextInt(itemList.size)]
                 println("chose $randomItem")
 
-                videoId = "4vx8LXiG"
-                //videoId = randomItem
+                //videoId = "4vx8LXiG"
+                videoId = randomItem
                 updateVideoInfo()
                 if(!excludeVideo)
                 {
@@ -300,15 +300,6 @@ class VideoPagerAdapter(
             if (connection != null) {
                 try {
                     val statement: Statement = connection.createStatement()
-
-                    /*var query = "SELECT id, title, description FROM posts where (id=\"$videoId\");"
-                    var resultSet: ResultSet = statement.executeQuery(query)
-
-                    while(resultSet.next()){
-                        holder.itemView.videopage_title2.text = resultSet.getString("title")
-                        holder.itemView.videopage_description.text = resultSet.getString("description")
-                    }
-*/
                     var query = "SELECT id, title, user_uid_hash, views, description FROM posts WHERE (id=\"$videoId\");"
                     var resultSet = statement.executeQuery(query)
 

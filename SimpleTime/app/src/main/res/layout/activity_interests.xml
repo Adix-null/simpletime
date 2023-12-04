@@ -89,171 +89,20 @@
         app:layout_constraintBottom_toTopOf="@+id/continue_interests"
         app:layout_constraintTop_toBottomOf="@+id/interests_2">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/interestsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp">
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            />
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/button1_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 1" />
-
-                <Button
-                    android:id="@+id/button1_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 3" />
-
-                <Button
-                    android:id="@+id/button1_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 5" />
-
-                <Button
-                    android:id="@+id/button1_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 7" />
-
-                <Button
-                    android:id="@+id/button1_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 9" />
-
-                <Button
-                    android:id="@+id/button1_6"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 11" />
-
-                <Button
-                    android:id="@+id/button1_7"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 13" />
-
-                <Button
-                    android:id="@+id/button1_8"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 15" />
-
-                <Button
-                    android:id="@+id/button1_9"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 17" />
-                <Button
-                    android:id="@+id/button1_10"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 19" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <Button
-                    android:id="@+id/button2_1"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 2"/>
-
-                <Button
-                    android:id="@+id/button2_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 4" />
-
-                <Button
-                    android:id="@+id/button2_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 6" />
-
-                <Button
-                    android:id="@+id/button2_4"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 8" />
-
-                <Button
-                    android:id="@+id/button2_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 10" />
-
-                <Button
-                    android:id="@+id/button2_6"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 12" />
-
-                <Button
-                    android:id="@+id/button2_7"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 14" />
-
-                <Button
-                    android:id="@+id/button2_8"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 16" />
-
-                <Button
-                    android:id="@+id/button2_9"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 18" />
-                <Button
-                    android:id="@+id/button2_10"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    style="@style/option"
-                    android:text="Category 20" />
-
-            </LinearLayout>
-        </LinearLayout>
     </ScrollView>
 
 
     <Button
-        android:visibility="invisible"
         android:id="@+id/continue_interests"
         android:layout_width="match_parent"
         android:layout_height="49dp"

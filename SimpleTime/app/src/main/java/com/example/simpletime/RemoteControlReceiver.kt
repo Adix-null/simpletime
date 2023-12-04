@@ -13,24 +13,36 @@ class RemoteControlReceiver : BroadcastReceiver() {
     companion object {
         const val ACTION_PAUSE = "com.simpletime.ACTION_PAUSE"
         const val ACTION_RESUME = "com.simpletime.ACTION_RESUME"
+        const val ACTION_SKIP = "com.simpletime.ACTION_SKIP"
+        const val ACTION_REWIND = "com.simpletime.ACTION_REWIND"
     }
 
     override fun onReceive(context: Context?, intent: Intent?) {
 
         val action = intent?.action
 
-        if (action == ACTION_PAUSE) {
+        lateinit var intentC: Intent
 
-            val pauseIntent = Intent(ACTION_RESUME)
-            pauseIntent.action = ACTION_RESUME
-            LocalBroadcastManager.getInstance(context!!).sendBroadcast(pauseIntent)
+        if (action == ACTION_PAUSE) {
+            intentC = Intent(ACTION_RESUME)
+            intentC.action = ACTION_RESUME
         }
 
         if (action == ACTION_RESUME) {
-
-            val pauseIntent = Intent(ACTION_PAUSE)
-            pauseIntent.action = ACTION_PAUSE
-            LocalBroadcastManager.getInstance(context!!).sendBroadcast(pauseIntent)
+            intentC = Intent(ACTION_PAUSE)
+            intentC.action = ACTION_PAUSE
         }
+
+        if (action == ACTION_SKIP) {
+            intentC = Intent(ACTION_SKIP)
+            intentC.action = ACTION_SKIP
+        }
+
+        if (action == ACTION_REWIND) {
+            intentC = Intent(ACTION_REWIND)
+            intentC.action = ACTION_REWIND
+        }
+
+        LocalBroadcastManager.getInstance(context!!).sendBroadcast(intentC)
     }
 }

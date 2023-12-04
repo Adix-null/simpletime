@@ -17,7 +17,7 @@ class ActivityUpload1 : AppCompatActivity() {
 
         continue_au1.setOnClickListener{
             val intent = Intent(this, ActivityUpload2::class.java)
-            startActivity(intent)
+            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
     }
 }

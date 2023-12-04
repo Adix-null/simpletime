@@ -78,7 +78,7 @@
                 android:drawableLeft="@drawable/info_s"
                 android:drawablePadding="5dp"
                 android:paddingStart="30dp"
-                android:text="Max 50 sec"
+                android:text="Video format"
                 android:textAppearance="@style/med_text" />
 
             <TextView
@@ -88,7 +88,7 @@
                 android:drawableLeft="@drawable/info_s"
                 android:drawablePadding="5dp"
                 android:paddingStart="30dp"
-                android:text="Video format"
+                android:text="Max 50 sec"
                 android:textAppearance="@style/med_text" />
 
             <TextView
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:paddingStart="30dp"
-                android:text="Upload thumbnail for trailer"
+                android:text="Upload thumbnail for trailer and fullie"
                 android:textAppearance="@style/big_text_b" />
 
             <TextView
@@ -149,29 +149,6 @@
                 android:paddingStart="30dp"
                 android:text="9:16 aspect ratio"
                 android:textAppearance="@style/med_text" />
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:paddingStart="30dp"
-                android:text="Describe trailer"
-                android:textAppearance="@style/big_text_b" />
-
-            <EditText
-                android:id="@+id/uploadDescription"
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:paddingStart="10dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/round_corner_apple"
-                android:textAppearance="@style/apple"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-                app:layout_constraintEnd_toEndOf="parent" />
 
         </LinearLayout>
 

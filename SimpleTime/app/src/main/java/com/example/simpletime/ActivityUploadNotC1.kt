@@ -1,5 +1,6 @@
 package com.example.simpletime
 
+import android.content.ContentResolver
 import android.content.Intent
 import android.database.Cursor
 import android.media.MediaMetadataRetriever
@@ -110,7 +111,7 @@ class ActivityUploadNotC1 : AppCompatActivity() {
         val account = auth.currentUser
         val currentDate = Date()
 
-        val datetimelong = "${currentDate.year}-${currentDate.month}-${currentDate.day} ${currentDate.hours}-${currentDate.minutes}-${currentDate.seconds}"
+        val datetimelong = "${currentDate.year}-${currentDate.month}-${currentDate.day} ${currentDate.hours}:${currentDate.minutes}:${currentDate.seconds}"
         val msq = MySqlCon()
         val connection = msq.connectToDatabase()
 
@@ -145,8 +146,10 @@ class ActivityUploadNotC1 : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
+        val msq = MySqlCon()
+
         if (data != null) {
-            if (getFileSize(data.data!!) <= maxSizeMB * 1000000) {
+            if (msq.getFileSize(data.data!!, contentResolver) <= maxSizeMB * 1000000) {
                 PostData[requestCode - 1] = data.data!!
             } else {
                 Toast.makeText(this, "File exceeds " + maxSizeMB + "MB", Toast.LENGTH_SHORT).show()
@@ -176,14 +179,7 @@ class ActivityUploadNotC1 : AppCompatActivity() {
         Toast.makeText(this, if (failed) "Failed to upload" else "Success!", Toast.LENGTH_SHORT).show()
     }
 
-    private fun getFileSize(fileUri: Uri): Long {
-        val returnCursor: Cursor? = contentResolver.query(fileUri, null, null, null, null)
-        val sizeIndex: Int? = returnCursor?.getColumnIndex(OpenableColumns.SIZE)
-        returnCursor?.moveToFirst()
-        val size: Long? = returnCursor?.getLong(sizeIndex!!)
-        returnCursor?.close()
-        return size!!
-    }
+
 
     private fun generateRandomString(length: Int): String {
         val charset = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
@@ -269,6 +265,15 @@ class MySqlCon{
             e.printStackTrace()
         }
         return connection
+    }
+
+    fun getFileSize(fileUri: Uri, cr: ContentResolver): Long {
+        val returnCursor: Cursor? = cr.query(fileUri, null, null, null, null)
+        val sizeIndex: Int? = returnCursor?.getColumnIndex(OpenableColumns.SIZE)
+        returnCursor?.moveToFirst()
+        val size: Long? = returnCursor?.getLong(sizeIndex!!)
+        returnCursor?.close()
+        return size!!
     }
 }
 
