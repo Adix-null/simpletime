@@ -1,41 +1,25 @@
 package com.example.simpletime
 
-import android.animation.Animator
 import android.animation.AnimatorSet
 import android.animation.ValueAnimator
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.animation.AnimationUtils
-import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import android.view.animation.Animation
-import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.MediaMetadata
 import com.google.android.exoplayer2.Player
-import com.google.android.exoplayer2.ui.AspectRatioFrameLayout
 import com.google.android.exoplayer2.ui.PlayerView
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.common.collect.ImmutableList
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.ListResult
-import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_donation.*
 import kotlinx.android.synthetic.main.activity_feed.*
-import kotlinx.android.synthetic.main.activity_video_page.*
 import kotlin.math.abs
-import kotlin.random.Random
 
 class ActivityFeed : AppCompatActivity(), Player.Listener {
     private lateinit var player3: ExoPlayer
@@ -53,9 +37,9 @@ class ActivityFeed : AppCompatActivity(), Player.Listener {
         val storage = FirebaseStorage.getInstance()
         val storageReference = storage.reference
 //        loadImagePlaceholder();
-        progressBar3 = findViewById(R.id.progressBar3)
+        /*progressBar3 = findViewById(R.id.progressBar3)
 
-        titleTv3 = findViewById(R.id.title3)
+        titleTv3 = findViewById(R.id.title3)*/
         fillFeed()
 
         //setupPlayer()
@@ -71,19 +55,16 @@ class ActivityFeed : AppCompatActivity(), Player.Listener {
             }
         }
 
-        backButton.setOnClickListener {
+        /*backButton.setOnClickListener {
             player3.release()
             val intent = Intent(this, ActivityUserHome::class.java);
             startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
-        }
+        }*/
         reportButton.setOnClickListener {
             val intent = Intent(this, ActivityReport::class.java);
             startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
-        imageButton16.setOnClickListener {
-            val intent = Intent(this, ActivityComments::class.java);
-            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
-        }
+
     }
 
     //swipe to change video
@@ -204,7 +185,7 @@ class ActivityFeed : AppCompatActivity(), Player.Listener {
 
     private fun setupPlayer() {
         player3 = ExoPlayer.Builder(this).build()
-        playerView3 = findViewById(R.id.videoFeed)
+        playerView3 = findViewById(R.id.imageFeed)
         playerView3.player = player3
         playerView3.hideController()
         player3.addListener(this)

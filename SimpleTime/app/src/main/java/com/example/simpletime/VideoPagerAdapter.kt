@@ -7,12 +7,16 @@ import android.animation.ValueAnimator
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.PorterDuff
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
@@ -21,10 +25,9 @@ import com.google.android.exoplayer2.ui.PlayerView
 import com.google.common.collect.ImmutableList
 import com.google.firebase.storage.*
 import kotlinx.android.synthetic.main.activity_feed.view.*
+import kotlinx.android.synthetic.main.activity_interests.*
 import kotlinx.android.synthetic.main.activity_video_page.*
-import org.json.JSONObject
 import java.io.*
-import java.sql.ResultSet
 import java.sql.Statement
 import java.util.*
 
@@ -38,7 +41,7 @@ class VideoPagerAdapter(
 ) : RecyclerView.Adapter<VideoPagerAdapter.VideoPagerViewHolder>(), Player.Listener, HolderSetCallback {
 
     companion object {
-        lateinit var player3: ExoPlayer
+        //lateinit var player3: ExoPlayer
         //var currentPageIndex: Int = 0
         private const val TAG = "VideoPlayerActivity"
         var plList: MutableList<ExoPlayer> = mutableListOf()
@@ -63,7 +66,6 @@ class VideoPagerAdapter(
     }
 
     lateinit var holder: VideoPagerViewHolder
-    private lateinit var playerView3: PlayerView
     private lateinit var view: View
     var loadedInfo = false
 
@@ -104,12 +106,30 @@ class VideoPagerAdapter(
     override fun onBindViewHolder(hold: VideoPagerViewHolder, position: Int) {
         holder = hold
         holderList.add(hold)
-        holder.itemView.categoryView.text = extras?.getString("sort")
-        holder.itemView.backButton.setOnClickListener{
+
+        holder.itemView.podcast_slider.thumb.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN)
+        holder.itemView.podcast_slider.progressDrawable.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN)
+        
+        val adapter = ListEntryProfile(mutableListOf("vardas"), pagerContext)
+
+        holder.itemView.profileFeedRecyclerView.layoutManager = LinearLayoutManager(pagerContext)
+        holder.itemView.profileFeedRecyclerView.adapter = adapter
+
+        holder.itemView.hostsFeedRecyclerView.layoutManager = LinearLayoutManager(pagerContext)
+        holder.itemView.hostsFeedRecyclerView.adapter = adapter
+
+        holder.itemView.guestsFeedRecyclerView.layoutManager = LinearLayoutManager(pagerContext)
+        holder.itemView.guestsFeedRecyclerView.adapter = adapter
+
+        fillFeed()
+
+
+        //holder.itemView.categoryView.text = extras?.getString("sort")
+        /*holder.itemView.backButton.setOnClickListener{
             player3.release()
             val intent = Intent(pagerContext, ActivityUserHome::class.java)
-            pagerContext.startActivity(intent);//overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
-            /*for(i in 0 until plList.size){
+            pagerContext.startActivity(intent)//;overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
+            *//*for(i in 0 until plList.size){
                 print("$i: ")
                 if(plList[i].isPlaying){
                     print("PLAYING")
@@ -121,29 +141,29 @@ class VideoPagerAdapter(
                     print("NEITHER")
                 }
                 println("")
-            }*/
-        }
+            }*//*
+        }*/
         holder.itemView.imageView5.setOnClickListener{
             if(loadedInfo){
-                player3.pause()
+                //player3.pause()
                 val intent = Intent(pagerContext, ActivityVideoPage::class.java)
                 pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
             }
         }
-        holder.itemView.uploaderPicture2.setOnClickListener{
+        /*holder.itemView.uploaderPicture2.setOnClickListener{
             val intent = Intent(pagerContext, CreatorsProfile2::class.java)
             pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
-        }
+        }*/
         holder.itemView.reportButton.setOnClickListener {
             val intent = Intent(pagerContext, ActivityReport::class.java)
             pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
-        holder.itemView.imageButton16.setOnClickListener {
+        /*holder.itemView.imageButton16.setOnClickListener {
             val intent = Intent(pagerContext, ActivityComments::class.java)
             pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
-        }
+        }*/
         holder.itemView.pauseBut.setOnClickListener {
-            try{
+            /*try{
                 if (!player3.isPlaying) {
                     holder.itemView.pauseIndicator.setImageResource(R.drawable.resumearrow)
                     if (!player3.isLoading) {
@@ -153,9 +173,9 @@ class VideoPagerAdapter(
                     holder.itemView.pauseIndicator.setImageResource(R.drawable.pausebar)
                     player3.pause()
                 }
-            }catch (e: java.lang.Exception ) { println(it) }
+            }catch (e: java.lang.Exception ) { println(it) }*/
 
-            animatorSet = AnimatorSet()
+            /*animatorSet = AnimatorSet()
 
             if(!isPl){
                 isPl = true
@@ -185,10 +205,10 @@ class VideoPagerAdapter(
                 override fun onAnimationEnd(animation: Animator) {
                     isPl = false
                 }
-            })
+            })*/
         }
 
-        fillFeed()
+        //fillFeed()
         //fakeVid()
         //curMediaItem = player3.currentMediaItem!!
     }
@@ -217,22 +237,23 @@ class VideoPagerAdapter(
             mediaItem
         )
 
-        player3.addMediaItems(newItems)
-        player3.prepare()
+        //player3.addMediaItems(newItems)
+        //player3.prepare()
     }
 
     private fun setupPlayer(callback: PlayerCallback) {
-        player3 = ExoPlayer.Builder(pagerContext).build()
-        playerView3 = holder.itemView.videoFeed
+        //video is no longer the priority
+        /*player3 = ExoPlayer.Builder(pagerContext).build()
+        //playerView3 = holder.itemView.imageFeed
         playerView3.player = player3
         player3.addListener(this)
         player3.playWhenReady = true
         plList.add(player3)
-        callback.onPlayerCallback()
+        callback.onPlayerCallback()*/
     }
 
     // handle loading
-    override fun onPlaybackStateChanged(state: Int) {
+    /*override fun onPlaybackStateChanged(state: Int) {
         when (state) {
             Player.STATE_BUFFERING -> {
                 holder.itemView.progressBar3.visibility = View.INVISIBLE
@@ -248,7 +269,7 @@ class VideoPagerAdapter(
                 holder.itemView.progressBar3.visibility = View.INVISIBLE
             }
         }
-    }
+    }*/
 
     private fun fillFeed() {
 
@@ -257,21 +278,21 @@ class VideoPagerAdapter(
         if(excludeVideo)
         {
             //faking video for bandwidth conservation reasons
-            setupPlayer(callbackP)
+            //setupPlayer(callbackP)
 
-            val filepath = "android.resource://" + pagerContext.packageName + "/" + R.raw.vid2
+            //val filepath = "android.resource://" + pagerContext.packageName + "/" + R.raw.vid2
 
-            val mediaItem: MediaItem =  MediaItem.fromUri(Uri.parse(filepath))
-            val newItems: List<MediaItem> = ImmutableList.of(mediaItem)
+            //val mediaItem: MediaItem =  MediaItem.fromUri(Uri.parse(filepath))
+            //val newItems: List<MediaItem> = ImmutableList.of(mediaItem)
 
-            player3.addMediaItems(newItems)
-            player3.prepare()
+            //player3.addMediaItems(newItems)
+            //player3.prepare()
         }
 
         //grab random video
         val itemList: MutableList<String> = ArrayList()
 
-        FireStorage.reference.child("videos/").listAll()
+        FireStorage.reference.child("thumbnails/").listAll()
             .addOnSuccessListener { listResult: ListResult ->
                 for (item in listResult.items) {
                     itemList.add(item.name)
@@ -286,7 +307,7 @@ class VideoPagerAdapter(
                 updateVideoInfo()
                 if(!excludeVideo)
                 {
-                    getUrlAsync(randomItem)
+                    //getUrlAsync(randomItem)
                 }
             }
             .addOnFailureListener { println(it) }
@@ -332,7 +353,10 @@ class VideoPagerAdapter(
         catch (e: Exception){ println(e) }
 
         thumbFile = File.createTempFile("tempthumb", "jpg")
-        FireStorage.reference.child("thumbnails/").child(videoId).getFile(thumbFile)
+        FireStorage.reference.child("thumbnails/").child(videoId).getFile(thumbFile).addOnSuccessListener{
+            holder.itemView.imageFeed.setImageDrawable(Drawable.createFromPath(thumbFile.path))
+        }
+
         //FireStorage.reference.child("thumbnails/").child(videoId).downloadUrl.addOnSuccessListener { thumbFileUri = it }
         println("thumbd")
         audioFile = File.createTempFile("tempthumb", "mp3")
@@ -348,7 +372,7 @@ class VideoPagerAdapter(
 
         holder.itemView.videopage_title2.text = "Lorem ipsum"
         holder.itemView.videopage_description.text = "Dolor sit amet"
-        holder.itemView.uploaderPicture2.setImageResource(R.drawable.logo_app_n)
+        //holder.itemView.uploaderPicture2.setImageResource(R.drawable.logo_app_n)
 
         setupPlayer(callbackP)
 
@@ -374,8 +398,8 @@ class VideoPagerAdapter(
         val newItems: List<MediaItem> = ImmutableList.of(mediaItem)
 
         thumbnail_id = vidSel
-        player3.addMediaItems(newItems)
-        player3.prepare()
+        //player3.addMediaItems(newItems)
+        //player3.prepare()
         vidSel = (vidSel + 1) % 3
     }
 

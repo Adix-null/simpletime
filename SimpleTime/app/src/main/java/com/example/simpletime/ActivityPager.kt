@@ -37,7 +37,7 @@ class ActivityPager :AppCompatActivity(), Player.Listener, PlayerCallback, EndSc
 
             //videoPager.setCurrentItem(pozz, true)
             //VideoPagerAdapter.hsc.onHolderSetCallback(pozz)
-            VideoPagerAdapter.player3 = VideoPagerAdapter.plList[pozz]
+            //VideoPagerAdapter.player3 = VideoPagerAdapter.plList[pozz]
         }
         debugButton2.setOnClickListener{
             val pozz: Int = parseInt(debugInputText.text.toString())
@@ -66,10 +66,10 @@ class ActivityPager :AppCompatActivity(), Player.Listener, PlayerCallback, EndSc
             pl.pause()
         }
         if(VideoPagerAdapter.plList.size > videoPager.currentItem){
-            VideoPagerAdapter.player3 = VideoPagerAdapter.plList[videoPager.currentItem]
+            /*VideoPagerAdapter.player3 = VideoPagerAdapter.plList[videoPager.currentItem]
             if(!VideoPagerAdapter.player3.isLoading){
                 VideoPagerAdapter.player3.play()
-            }
+            }*/
         }
         if(VideoPagerAdapter.holderList.size > videoPager.currentItem){
             VideoPagerAdapter.hsc.onHolderSetCallback(videoPager.currentItem)

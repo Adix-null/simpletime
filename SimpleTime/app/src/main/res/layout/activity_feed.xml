@@ -4,158 +4,174 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundimage"
+    android:background="@color/white"
     tools:context=".ActivityFeed">
 
-
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/title3"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/frameLay"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <FrameLayout
-        android:id="@+id/frameLay"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title3">
-
-        <Button
-            android:id="@+id/pauseBut"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha="0"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!--<com.google.android.exoplayer2.ui.PlayerView
-            android:id="@+id/videoFeed"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:resize_mode="zoom"
-            app:use_controller="false">
-
-            <ProgressBar
-                android:id="@+id/progressBar3"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent" />
-
-
-        </com.google.android.exoplayer2.ui.PlayerView>-->
-
-        <com.google.android.exoplayer2.ui.PlayerView
-            android:id="@+id/videoFeed"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:resize_mode="zoom"
-            app:use_controller="false">
-
-            <ProgressBar
-                android:id="@+id/progressBar3"
-                style="?android:attr/progressBarStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent" />
-
-        </com.google.android.exoplayer2.ui.PlayerView>
-
-    </FrameLayout>
-
-    <ImageView
-        android:id="@+id/pauseIndicator"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:alpha="0.0"
-        android:src="@drawable/resumearrow"
-        app:layout_constraintBottom_toBottomOf="@+id/frameLay"
-        app:layout_constraintEnd_toEndOf="@+id/frameLay"
-        app:layout_constraintStart_toStartOf="@+id/frameLay"
-        app:layout_constraintTop_toTopOf="@+id/frameLay" />
-
-    <TextView
-        android:id="@+id/videopage_description"
-        android:layout_width="0dp"
-        android:layout_height="44dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:fontFamily="@font/inter_medium"
-        android:paddingLeft="12dp"
-        android:paddingTop="4dp"
-        android:text="Description"
-        android:textColor="@color/full_white"
-        android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView5"
-        app:layout_constraintStart_toEndOf="@+id/uploaderPicture2"
-        app:layout_constraintTop_toBottomOf="@+id/videopage_title2" />
+        android:background="@null"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/videopage_title2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/inter_bold"
-        android:paddingLeft="12dp"
-        android:paddingTop="4dp"
-        android:shadowDx="5"
-        android:shadowDy="2"
-        android:text="Title"
-        android:textColor="@color/full_white"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/videopage_description"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/videopage_description"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton17" />
+        <TextView
+            android:id="@+id/videopage_title2"
+            style="@style/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/round_corner_option"
+            android:text="Title"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_corner_option"
+            android:baselineAligned="false"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp">
+
+                    <Button
+                        android:id="@+id/pauseBut"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:alpha="0"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/pauseIndicator"
+                        android:layout_width="64dp"
+                        android:layout_height="64dp"
+                        android:alpha="0.0"
+                        android:src="@drawable/resumearrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/imageFeed"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/thm1"
+                        app:shapeAppearanceOverlay="@style/squircle" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/profileFeedRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    tools:itemCount="1"/>
+
+            </LinearLayout>
+
+
+            <ScrollView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/big_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Hosts" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/hostsFeedRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        tools:itemCount="2" />
+
+                    <TextView
+                        style="@style/big_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:text="Guests" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/guestsFeedRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        tools:itemCount="2" />
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/round_corner_option"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/big_text_b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:text="About the episode" />
+
+            <TextView
+                android:id="@+id/videopage_description"
+                style="@style/small_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp"
+                android:text="@string/lorem100" />
+
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/podcast_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
+
+    </LinearLayout>
+
 
     <ImageButton
         android:visibility="invisible"
-        android:id="@+id/imageButton17"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:background="@null"
-        android:scaleX="1"
-        android:scaleY="1"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/uploaderPicture2"
-        app:layout_constraintStart_toStartOf="@+id/uploaderPicture2"
-        app:srcCompat="@drawable/message"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:visibility="invisible"
-        android:id="@+id/imageButton16"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="-5dp"
-        android:background="@null"
-        android:scaleX="1"
-        android:scaleY="1"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton17"
-        app:layout_constraintEnd_toEndOf="@+id/uploaderPicture2"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/uploaderPicture2"
-        app:srcCompat="@drawable/comment"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
         android:id="@+id/reportButton"
         android:layout_width="37dp"
         android:layout_height="37dp"
@@ -166,82 +182,32 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <Button
-        android:id="@+id/backButton"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/back_arrow"
-        android:backgroundTint="@color/full_white"
-        app:layout_constraintBottom_toBottomOf="@+id/reportButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/reportButton" />
 
     <ImageButton
         android:id="@+id/imageView5"
         android:layout_width="52dp"
         android:layout_height="52dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/play_full"
-        app:layout_constraintBottom_toBottomOf="@+id/uploaderPicture2"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageButton
-        android:id="@+id/uploaderPicture2"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
-        android:background="@null"
-        android:scaleType="fitXY"
-        android:scaleX="1"
-        android:scaleY="1"
-        android:src="@drawable/user_blank"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:visibility="gone"
-        android:id="@+id/backButtonOld"
-        android:layout_width="96dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="32dp"
-        android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.627"
-        app:layout_constraintStart_toEndOf="@+id/categoryView"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/backarrow"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:id="@+id/imageButton13"
-        android:layout_width="47dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="164dp"
-        android:background="@null"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/reportButton"
-        app:layout_constraintEnd_toEndOf="@+id/backButtonOld"
-        app:layout_constraintHorizontal_bias="0.714"
-        app:layout_constraintStart_toStartOf="@+id/backButtonOld"
-        app:layout_constraintTop_toBottomOf="@+id/backButtonOld"
-        app:srcCompat="@android:drawable/ic_media_ff" />
-
-    <TextView
-        android:visibility="gone"
-        android:id="@+id/categoryView"
-        android:text="Category"
-        android:textColor="#FFFFFF"
-        android:textSize="23sp"
-        android:layout_width="256dp"
-        android:layout_height="48dp"
-        android:gravity="center"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/filledbutton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
+    <!--<LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <fragment
+            android:id="@+id/bottomfrag_home"
+            android:name="com.example.simpletime.ActivityBottomNavbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_bottom_navbar" />
+    </LinearLayout>-->
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,7 @@
 package com.example.simpletime
 
 import android.content.Intent
+import android.media.MediaMetadataRetriever
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -140,4 +141,32 @@ class ActivityUploadProgress : AppCompatActivity() {
 
         return randomString.toString()
     }
+
+    private fun isBitrateExceedsLimit(filePath: Uri, limitKbps: Int): Boolean {
+        val retriever = MediaMetadataRetriever()
+        retriever.setDataSource(this, filePath)
+        val bitrate = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_BITRATE)
+        println("kbps: $bitrate")
+        return (bitrate != null && bitrate.toInt() > limitKbps * 1000)
+    }
+
+    // Convert audio file to 64kbps using FFmpeg
+    /*private fun convertTo64kbps(filePath: String): Uri {
+        val outputFileName = Environment.getExternalStorageDirectory().path + "/Download/converted.mp3"
+
+        val command = arrayOf(
+            "-i", filePath,
+            "-c:a", "mp3",
+            "-b:a", "64k", "-y",
+            outputFileName
+        )
+
+        println("executing")
+        FFmpeg.execute(command)
+
+        println("executed")
+
+        val outputFile = File(outputFileName)
+        return Uri.fromFile(outputFile)
+    }*/
 }

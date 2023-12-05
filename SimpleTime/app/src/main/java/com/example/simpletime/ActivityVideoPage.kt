@@ -1,7 +1,5 @@
 package com.example.simpletime
 
-//import com.example.simpletime.VideoPagerAdapter.Companion.curDocRef
-
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -79,8 +77,8 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_page)
 
-        podcast_slider.thumb.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN)
-        podcast_slider.progressDrawable.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN)
+        podcast_slider.thumb.setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
+        podcast_slider.progressDrawable.setColorFilter(resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
 
         videopage_title.text = titleI
         videoPage_uploaderName.text = usernameI
@@ -144,11 +142,11 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
             val intent = Intent(this, ActivityReport::class.java)
             startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
-        imageButton11.setOnClickListener {
+        /*imageButton11.setOnClickListener {
             audiopl.release()
             val intent = Intent(this, ActivityComments::class.java)
             startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
-        }
+        }*/
 
         for(s in 0..4){
             starIcons[s].setOnClickListener {
@@ -156,7 +154,7 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
             }
         }
 
-        imageButton18.setOnClickListener{
+        /*imageButton18.setOnClickListener{
             audiopl.release()
             val intent = Intent(this, ActivityDonation::class.java)
             startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
@@ -169,7 +167,7 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
                 true
             }
             popup.show()
-        }
+        }*/
         fullVideo.setOnClickListener{
             //player2.pause()
             //val intent = Intent(this, ActivityFullscreen::class.java)

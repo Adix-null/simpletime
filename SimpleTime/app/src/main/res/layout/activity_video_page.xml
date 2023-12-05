@@ -199,81 +199,6 @@
         app:layout_constraintTop_toTopOf="@+id/frameLayout"
         tools:ignore="SpeakableTextPresentCheck" />
 
-    <ImageButton
-        android:visibility="invisible"
-        android:id="@+id/imageButton11"
-        android:layout_width="52dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:scaleX="1.75"
-        android:scaleY="1.75"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/maskgroup"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:visibility="invisible"
-        android:id="@+id/imageButton14"
-        android:layout_width="52dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:scaleX="1.75"
-        android:scaleY="1.75"
-        app:layout_constraintStart_toEndOf="@+id/imageButton11"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/sraide"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:visibility="invisible"
-        android:id="@+id/imageButton15"
-        android:layout_width="60dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:scaleX="2"
-        android:scaleY="2"
-        app:layout_constraintStart_toEndOf="@+id/imageButton14"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/messagearrow"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:visibility="invisible"
-        android:id="@+id/imageButton19"
-        android:layout_width="55dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:scaleX="1.75"
-        android:scaleY="1.75"
-        app:layout_constraintStart_toEndOf="@+id/imageButton15"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/savebutton"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <ImageButton
-        android:visibility="invisible"
-        android:id="@+id/imageButton18"
-        android:layout_width="52dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:background="@null"
-        android:scaleX="1.75"
-        android:scaleY="1.75"
-        app:layout_constraintStart_toEndOf="@+id/imageButton19"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/donatebutton"
-        tools:ignore="SpeakableTextPresentCheck" />
-
     <Button
         android:visibility="invisible"
         android:id="@+id/Rating"
@@ -404,14 +329,6 @@
  -->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <fragment
-        android:id="@+id/bottomfrag_home"
-        android:name="com.example.simpletime.ActivityBottomNavbar"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout="@layout/fragment_bottom_navbar"
-        />
-
     <SeekBar
         android:id="@+id/podcast_slider"
         android:layout_width="0dp"
@@ -422,6 +339,21 @@
         app:layout_constraintEnd_toStartOf="@+id/fullVideo"
         app:layout_constraintStart_toStartOf="@+id/frameLayout"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <fragment
+            android:id="@+id/bottomfrag_home"
+            android:name="com.example.simpletime.ActivityBottomNavbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_bottom_navbar" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
