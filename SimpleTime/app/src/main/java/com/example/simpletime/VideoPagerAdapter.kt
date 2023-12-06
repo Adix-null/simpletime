@@ -7,17 +7,21 @@ import android.animation.ValueAnimator
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SeekBar
+import androidx.core.net.toUri
+import androidx.lifecycle.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.simpletime.VideoPagerAdapter.Companion.player3
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
@@ -25,8 +29,9 @@ import com.google.android.exoplayer2.ui.PlayerView
 import com.google.common.collect.ImmutableList
 import com.google.firebase.storage.*
 import kotlinx.android.synthetic.main.activity_feed.view.*
-import kotlinx.android.synthetic.main.activity_interests.*
-import kotlinx.android.synthetic.main.activity_video_page.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.io.*
 import java.sql.Statement
 import java.util.*
@@ -37,18 +42,19 @@ class VideoPagerAdapter(
     private var extras: Bundle?,
     private var callbackP: PlayerCallback,
     private var callbackS: EndScrollCallback,
-    private var FireStorage: FirebaseStorage
+    private var FireStorage: FirebaseStorage,
+    private var vmProvider: ViewModelStoreOwner,
+    private var lcOwner: LifecycleOwner
 ) : RecyclerView.Adapter<VideoPagerAdapter.VideoPagerViewHolder>(), Player.Listener, HolderSetCallback {
 
     companion object {
-        //lateinit var player3: ExoPlayer
+        lateinit var player3: MediaPlayer
         //var currentPageIndex: Int = 0
         private const val TAG = "VideoPlayerActivity"
-        var plList: MutableList<ExoPlayer> = mutableListOf()
+        var plList: MutableList<MediaPlayer> = mutableListOf()
         var holderList: MutableList<VideoPagerViewHolder> = mutableListOf()
         lateinit var hsc: HolderSetCallback
 
-        //lateinit var curMediaItem: MediaItem
         lateinit var curMediaItemLink: String
         var curMediaItemLinkList: MutableList<String> = mutableListOf()
 
@@ -60,7 +66,6 @@ class VideoPagerAdapter(
         lateinit var viewsI: String
         lateinit var usernameI: String
 
-        //lateinit var curDocRef: String
         var curDocRefList: MutableList<String> = mutableListOf()
         var thumbnail_id: Int = 0
     }
@@ -107,75 +112,39 @@ class VideoPagerAdapter(
         holder = hold
         holderList.add(hold)
 
-        holder.itemView.podcast_slider.thumb.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN)
-        holder.itemView.podcast_slider.progressDrawable.setColorFilter(Color.BLACK, PorterDuff.Mode.SRC_IN)
-        
-        val adapter = ListEntryProfile(mutableListOf("vardas"), pagerContext)
+        holder.itemView.podcast_slider.thumb.setColorFilter(holder.itemView.resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
+        holder.itemView.podcast_slider.progressDrawable.setColorFilter(holder.itemView.resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
 
         holder.itemView.profileFeedRecyclerView.layoutManager = LinearLayoutManager(pagerContext)
-        holder.itemView.profileFeedRecyclerView.adapter = adapter
+        holder.itemView.profileFeedRecyclerView.adapter = ListEntryProfile(30, pagerContext, mutableListOf("vardas"),
+            Uri.parse("android.resource://" + pagerContext.packageName + "/" + R.drawable.user_blank))
 
         holder.itemView.hostsFeedRecyclerView.layoutManager = LinearLayoutManager(pagerContext)
-        holder.itemView.hostsFeedRecyclerView.adapter = adapter
+        holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfile(50, pagerContext, mutableListOf("host"),
+            Uri.parse("android.resource://" + pagerContext.packageName + "/" + R.drawable.user_blank))
 
         holder.itemView.guestsFeedRecyclerView.layoutManager = LinearLayoutManager(pagerContext)
-        holder.itemView.guestsFeedRecyclerView.adapter = adapter
+        holder.itemView.guestsFeedRecyclerView.adapter = ListEntryProfile(50, pagerContext, mutableListOf("guest"),
+            Uri.parse("android.resource://" + pagerContext.packageName + "/" + R.drawable.user_blank))
 
         fillFeed()
 
-
-        //holder.itemView.categoryView.text = extras?.getString("sort")
-        /*holder.itemView.backButton.setOnClickListener{
-            player3.release()
-            val intent = Intent(pagerContext, ActivityUserHome::class.java)
-            pagerContext.startActivity(intent)//;overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
-            *//*for(i in 0 until plList.size){
-                print("$i: ")
-                if(plList[i].isPlaying){
-                    print("PLAYING")
-                }
-                else if(plList[i].isLoading){
-                    print("LOADING")
-                }
-                else{
-                    print("NEITHER")
-                }
-                println("")
-            }*//*
-        }*/
         holder.itemView.imageView5.setOnClickListener{
             if(loadedInfo){
-                //player3.pause()
+                player3.pause()
                 val intent = Intent(pagerContext, ActivityVideoPage::class.java)
                 pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
             }
         }
-        /*holder.itemView.uploaderPicture2.setOnClickListener{
-            val intent = Intent(pagerContext, CreatorsProfile2::class.java)
-            pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
-        }*/
         holder.itemView.reportButton.setOnClickListener {
             val intent = Intent(pagerContext, ActivityReport::class.java)
             pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
-        /*holder.itemView.imageButton16.setOnClickListener {
-            val intent = Intent(pagerContext, ActivityComments::class.java)
-            pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
-        }*/
         holder.itemView.pauseBut.setOnClickListener {
-            /*try{
-                if (!player3.isPlaying) {
-                    holder.itemView.pauseIndicator.setImageResource(R.drawable.resumearrow)
-                    if (!player3.isLoading) {
-                        player3.play()
-                    }
-                } else {
-                    holder.itemView.pauseIndicator.setImageResource(R.drawable.pausebar)
-                    player3.pause()
-                }
-            }catch (e: java.lang.Exception ) { println(it) }*/
 
-            /*animatorSet = AnimatorSet()
+            PauseAnim(holder.itemView.pauseIndicator, player3).animpause()
+
+            animatorSet = AnimatorSet()
 
             if(!isPl){
                 isPl = true
@@ -205,13 +174,15 @@ class VideoPagerAdapter(
                 override fun onAnimationEnd(animation: Animator) {
                     isPl = false
                 }
-            })*/
+            })
         }
+
 
         //fillFeed()
         //fakeVid()
-        //curMediaItem = player3.currentMediaItem!!
     }
+
+
 
     private fun getUrlAsync(name: String): String {
         var tempLink = "link"
@@ -248,7 +219,6 @@ class VideoPagerAdapter(
         playerView3.player = player3
         player3.addListener(this)
         player3.playWhenReady = true
-        plList.add(player3)
         callback.onPlayerCallback()*/
     }
 
@@ -304,7 +274,7 @@ class VideoPagerAdapter(
 
                 //videoId = "4vx8LXiG"
                 videoId = randomItem
-                updateVideoInfo()
+                updateVideoInfo(callbackP)
                 if(!excludeVideo)
                 {
                     //getUrlAsync(randomItem)
@@ -313,7 +283,7 @@ class VideoPagerAdapter(
             .addOnFailureListener { println(it) }
     }
 
-    private fun updateVideoInfo(){
+    private fun updateVideoInfo(callback: PlayerCallback){
         try {
             val msq = MySqlCon()
             val connection = msq.connectToDatabase()
@@ -356,12 +326,39 @@ class VideoPagerAdapter(
         FireStorage.reference.child("thumbnails/").child(videoId).getFile(thumbFile).addOnSuccessListener{
             holder.itemView.imageFeed.setImageDrawable(Drawable.createFromPath(thumbFile.path))
         }
-
-        //FireStorage.reference.child("thumbnails/").child(videoId).downloadUrl.addOnSuccessListener { thumbFileUri = it }
         println("thumbd")
+
         audioFile = File.createTempFile("tempthumb", "mp3")
-        FireStorage.reference.child("podcasts/").child(videoId).getFile(audioFile)
-        //FireStorage.reference.child("podcasts/").child(videoId).downloadUrl.addOnSuccessListener { audioFileUri = it }
+        FireStorage.reference.child("podcasts/").child(videoId).getFile(audioFile).addOnSuccessListener{
+            player3 = MediaPlayer.create(pagerContext, audioFile.toUri())
+            player3.start()
+            player3.isLooping = true
+            plList.add(player3)
+
+            val viewModel = ViewModelProvider(vmProvider).get(ProgressViewModelF::class.java)
+            holder.itemView.podcast_slider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                    if (fromUser) {
+                        val newPosition = (progress * player3.duration / 100)
+
+                        player3.seekTo(newPosition)
+                    }
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+            })
+
+            viewModel.startUpdatingPosition()
+            viewModel.currentPosition.observe(lcOwner) { position ->
+                holder.itemView.podcast_slider.progress = position
+                //notificationBuilder.setProgress(100, position, false)
+            }
+
+            callback.onPlayerCallback()
+        }
+
         println("audiod")
 
         loadedInfo = true
@@ -405,5 +402,36 @@ class VideoPagerAdapter(
 
     override fun onHolderSetCallback(hold: Int) {
         holder = holderList[hold]
+    }
+}
+
+class ProgressViewModelF : ViewModel() {
+    private val _currentPosition = MutableLiveData<Int>()
+    val currentPosition: LiveData<Int> get() = _currentPosition
+
+    private fun updateCurrentPosition(position: Int) {
+        _currentPosition.value = position
+    }
+
+    fun startUpdatingPosition() {
+        viewModelScope.launch(Dispatchers.Main) {
+            while (true) {
+                var k: Int = 0
+                var f: Int = 1
+                try {
+                    k = player3.currentPosition
+                    f = player3.duration
+                }
+                catch (_: java.lang.Exception){
+
+                }
+                if(f == 0) f = 1
+                val currentPosition = k * 100 / f
+
+                updateCurrentPosition(currentPosition)
+
+                delay(10)
+            }
+        }
     }
 }

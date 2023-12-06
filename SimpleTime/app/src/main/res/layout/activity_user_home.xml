@@ -89,7 +89,7 @@
                     android:layout_width="35dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:src="@drawable/userblank" />
+                    android:src="@drawable/user_blank" />
             </LinearLayout>
 
         </LinearLayout>
@@ -578,7 +578,7 @@
                                 <ImageView
                                     android:layout_width="100dp"
                                     android:layout_height="100dp"
-                                    android:src="@drawable/userblank" />
+                                    android:src="@drawable/user_blank" />
 
                                 <TextView
                                     style="@style/navbar_links"
@@ -598,7 +598,7 @@
                                 <ImageView
                                     android:layout_width="100dp"
                                     android:layout_height="100dp"
-                                    android:src="@drawable/userblank" />
+                                    android:src="@drawable/user_blank" />
 
                                 <TextView
                                     style="@style/navbar_links"
@@ -618,7 +618,7 @@
                                 <ImageView
                                     android:layout_width="100dp"
                                     android:layout_height="100dp"
-                                    android:src="@drawable/userblank" />
+                                    android:src="@drawable/user_blank" />
 
                                 <TextView
                                     style="@style/navbar_links"
@@ -638,7 +638,7 @@
                                 <ImageView
                                     android:layout_width="100dp"
                                     android:layout_height="100dp"
-                                    android:src="@drawable/userblank" />
+                                    android:src="@drawable/user_blank" />
 
                                 <TextView
                                     style="@style/navbar_links"
@@ -678,7 +678,7 @@
                                 <ImageView
                                     android:layout_width="100dp"
                                     android:layout_height="100dp"
-                                    android:src="@drawable/userblank" />
+                                    android:src="@drawable/user_blank" />
 
                                 <TextView
                                     style="@style/navbar_links"
@@ -698,7 +698,7 @@
                                 <ImageView
                                     android:layout_width="100dp"
                                     android:layout_height="100dp"
-                                    android:src="@drawable/userblank" />
+                                    android:src="@drawable/user_blank" />
 
                                 <TextView
                                     style="@style/navbar_links"
@@ -718,7 +718,7 @@
                                 <ImageView
                                     android:layout_width="100dp"
                                     android:layout_height="100dp"
-                                    android:src="@drawable/userblank" />
+                                    android:src="@drawable/user_blank" />
 
                                 <TextView
                                     style="@style/navbar_links"
@@ -738,7 +738,7 @@
                                 <ImageView
                                     android:layout_width="100dp"
                                     android:layout_height="100dp"
-                                    android:src="@drawable/userblank" />
+                                    android:src="@drawable/user_blank" />
 
                                 <TextView
                                     style="@style/navbar_links"

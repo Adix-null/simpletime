@@ -64,7 +64,7 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:alpha="0.0"
-                        android:src="@drawable/resumearrow"
+                        android:elevation="4dp"                        android:src="@drawable/resumearrow"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -81,12 +81,21 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+                <!--android:layout_marginTop="10dp"
+                   android:transformPivotX="0dp"
+                   android:scaleX="0.66"
+                   android:scaleY="0.66"-->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/profileFeedRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    tools:itemCount="1"/>
+
+                    tools:itemCount="1"
+                    android:clipToPadding="false"
+                    android:clipChildren="false"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"/>
 
             </LinearLayout>
 

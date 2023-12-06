@@ -1,6 +1,7 @@
 package com.example.simpletime
 
 import android.annotation.SuppressLint
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -25,7 +26,7 @@ class ActivityPager :AppCompatActivity(), Player.Listener, PlayerCallback, EndSc
             .build()
         FirebaseStorage.getInstance().reference.updateMetadata(metadata)
 
-        val adp = VideoPagerAdapter(this, intent.extras, this, this, FirebaseStorage.getInstance())
+        val adp = VideoPagerAdapter(this, intent.extras, this, this, FirebaseStorage.getInstance(), this, this)
         videoPager.adapter = adp
         //videoPager.offscreenPageLimit = ViewPager2.OFFSCREEN_PAGE_LIMIT_DEFAULT
 
@@ -49,14 +50,15 @@ class ActivityPager :AppCompatActivity(), Player.Listener, PlayerCallback, EndSc
 
         videoPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
+                videoPager.currentItem = position
                 super.onPageSelected(position)
+
                 println("CHPO: " + videoPager.currentItem)
 
                 fix()
                 if(VideoPagerAdapter.curDocRefList.size > videoPager.currentItem && VideoPagerAdapter.curMediaItemLinkList.size > videoPager.currentItem){
                     VideoPagerAdapter.curMediaItemLink = VideoPagerAdapter.curMediaItemLinkList[videoPager.currentItem]
                 }
-                println("CHPOe: " + videoPager.currentItem)
             }
         })
     }
@@ -66,10 +68,8 @@ class ActivityPager :AppCompatActivity(), Player.Listener, PlayerCallback, EndSc
             pl.pause()
         }
         if(VideoPagerAdapter.plList.size > videoPager.currentItem){
-            /*VideoPagerAdapter.player3 = VideoPagerAdapter.plList[videoPager.currentItem]
-            if(!VideoPagerAdapter.player3.isLoading){
-                VideoPagerAdapter.player3.play()
-            }*/
+            VideoPagerAdapter.player3 = VideoPagerAdapter.plList[videoPager.currentItem]
+            VideoPagerAdapter.player3.start()
         }
         if(VideoPagerAdapter.holderList.size > videoPager.currentItem){
             VideoPagerAdapter.hsc.onHolderSetCallback(videoPager.currentItem)
@@ -87,10 +87,7 @@ class ActivityPager :AppCompatActivity(), Player.Listener, PlayerCallback, EndSc
     }
 
     override fun onPlayerCallback() {
-        fix()
-        if(VideoPagerAdapter.curDocRefList.size> videoPager.currentItem && VideoPagerAdapter.curMediaItemLinkList.size > videoPager.currentItem){
-            VideoPagerAdapter.curMediaItemLink = VideoPagerAdapter.curMediaItemLinkList[0]
-        }
+        //fix()
     }
 
     override fun onEndScrollCallback() {

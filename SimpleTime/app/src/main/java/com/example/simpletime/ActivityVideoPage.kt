@@ -36,7 +36,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-
 lateinit var audiopl: MediaPlayer
 
 class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPageSetupCallback {
@@ -111,11 +110,9 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
                 }
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
 
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-            }
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
 
         buildNotification(true)
@@ -379,16 +376,6 @@ class ActivityVideoPage : AppCompatActivity(), Player.Listener, ActivityVideoPag
     //get Title from metadata
     override fun onMediaMetadataChanged(mediaMetadata: MediaMetadata) {
         videopage_title.text = mediaMetadata.title ?: mediaMetadata.displayTitle ?: "no title found"
-    }
-
-    // save details if Activity is destroyed
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        /*Log.d(TAG, "onSaveInstanceState: " + player2.currentPosition)
-        // current play position
-        outState.putLong("SeekTime", player2.currentPosition)
-        // current mediaItem
-        outState.putInt("mediaItem", player2.currentMediaItemIndex)*/
     }
 
     override fun onDestroy() {
