@@ -19,13 +19,10 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.core.net.toUri
 import androidx.lifecycle.*
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simpletime.VideoPagerAdapter.Companion.player3
-import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
-import com.google.android.exoplayer2.ui.PlayerView
 import com.google.common.collect.ImmutableList
 import com.google.firebase.storage.*
 import kotlinx.android.synthetic.main.activity_feed.view.*
@@ -73,6 +70,7 @@ class VideoPagerAdapter(
     lateinit var holder: VideoPagerViewHolder
     private lateinit var view: View
     var loadedInfo = false
+    private val msq = MySqlCon()
 
     inner class VideoPagerViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -115,17 +113,11 @@ class VideoPagerAdapter(
         holder.itemView.podcast_slider.thumb.setColorFilter(holder.itemView.resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
         holder.itemView.podcast_slider.progressDrawable.setColorFilter(holder.itemView.resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
 
-        holder.itemView.profileFeedRecyclerView.layoutManager = LinearLayoutManager(pagerContext)
-        holder.itemView.profileFeedRecyclerView.adapter = ListEntryProfile(30, pagerContext, mutableListOf("vardas"),
-            Uri.parse("android.resource://" + pagerContext.packageName + "/" + R.drawable.user_blank))
+        holder.itemView.profileFeedRecyclerView.adapter = ListEntryProfileAdapter(30, pagerContext, mutableListOf("vardas"), msq.intToUri(pagerContext, R.drawable.user_blank))
 
-        holder.itemView.hostsFeedRecyclerView.layoutManager = LinearLayoutManager(pagerContext)
-        holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfile(50, pagerContext, mutableListOf("host"),
-            Uri.parse("android.resource://" + pagerContext.packageName + "/" + R.drawable.user_blank))
+        holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, mutableListOf("host"), msq.intToUri(pagerContext, R.drawable.user_blank))
 
-        holder.itemView.guestsFeedRecyclerView.layoutManager = LinearLayoutManager(pagerContext)
-        holder.itemView.guestsFeedRecyclerView.adapter = ListEntryProfile(50, pagerContext, mutableListOf("guest"),
-            Uri.parse("android.resource://" + pagerContext.packageName + "/" + R.drawable.user_blank))
+        holder.itemView.guestsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, mutableListOf("guest"), msq.intToUri(pagerContext, R.drawable.user_blank))
 
         fillFeed()
 
@@ -213,33 +205,8 @@ class VideoPagerAdapter(
     }
 
     private fun setupPlayer(callback: PlayerCallback) {
-        //video is no longer the priority
-        /*player3 = ExoPlayer.Builder(pagerContext).build()
-        //playerView3 = holder.itemView.imageFeed
-        playerView3.player = player3
-        player3.addListener(this)
-        player3.playWhenReady = true
-        callback.onPlayerCallback()*/
-    }
 
-    // handle loading
-    /*override fun onPlaybackStateChanged(state: Int) {
-        when (state) {
-            Player.STATE_BUFFERING -> {
-                holder.itemView.progressBar3.visibility = View.INVISIBLE
-            }
-            Player.STATE_READY -> {
-                holder.itemView.progressBar3.visibility = View.INVISIBLE
-            }
-            Player.STATE_ENDED -> {
-                animatorSet.cancel()
-                callbackS.onEndScrollCallback()
-            }
-            Player.STATE_IDLE -> {
-                holder.itemView.progressBar3.visibility = View.INVISIBLE
-            }
-        }
-    }*/
+    }
 
     private fun fillFeed() {
 
@@ -285,7 +252,6 @@ class VideoPagerAdapter(
 
     private fun updateVideoInfo(callback: PlayerCallback){
         try {
-            val msq = MySqlCon()
             val connection = msq.connectToDatabase()
 
             if (connection != null) {

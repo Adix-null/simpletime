@@ -7,14 +7,24 @@
     android:background="@color/white"
     tools:context=".ActivityFeed">
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@color/teal_700"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout4"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout4"
+        app:shapeAppearanceOverlay="@style/squircle" />
+
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:background="@null"
+        android:layout_marginStart="10dp"
         android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -23,13 +33,13 @@
             style="@style/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:layout_marginStart="10dp"
+            android:layout_marginTop="30dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/round_corner_option"
-            android:text="Title"
-            android:textAlignment="center" />
+            android:paddingStart="10dp"
+            android:text="Title" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -64,7 +74,8 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:alpha="0.0"
-                        android:elevation="4dp"                        android:src="@drawable/resumearrow"
+                        android:elevation="4dp"
+                        android:src="@drawable/resumearrow"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -91,11 +102,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    tools:itemCount="1"
-                    android:clipToPadding="false"
                     android:clipChildren="false"
+                    android:clipToPadding="false"
                     android:overScrollMode="never"
-                    android:scrollbars="none"/>
+                    android:scrollbars="none"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:itemCount="1" />
 
             </LinearLayout>
 
@@ -122,6 +134,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:itemCount="2" />
 
                     <TextView
@@ -136,6 +149,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:itemCount="2" />
 
 
@@ -163,8 +177,9 @@
                 android:id="@+id/videopage_description"
                 style="@style/small_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="100dp"
                 android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:paddingBottom="10dp"
                 android:text="@string/lorem100" />
 
@@ -175,6 +190,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
+
+        <ImageButton
+            android:id="@+id/imageView5"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/play_full_n" />
 
     </LinearLayout>
 
@@ -192,17 +215,9 @@
         tools:ignore="SpeakableTextPresentCheck" />
 
 
-    <ImageButton
-        android:id="@+id/imageView5"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/play_full"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
-    <!--<LinearLayout
+
+    <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="65dp"
@@ -215,7 +230,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/fragment_bottom_navbar" />
-    </LinearLayout>-->
+    </LinearLayout>
 
 
 

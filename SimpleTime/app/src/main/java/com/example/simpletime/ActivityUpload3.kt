@@ -15,8 +15,8 @@ class ActivityUpload3 : AppCompatActivity() {
     var maxSizeMB: Int = 1000
 
     companion object{
-        var imageUriCreator: Uri? = null
-        lateinit var nameCreator: String
+        var imageUriList: MutableList<Uri?> = mutableListOf()
+        lateinit var nameCreatorList: String
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,24 +36,37 @@ class ActivityUpload3 : AppCompatActivity() {
         }
 
         uploadPic1.setOnClickListener {
-            val fileint = Intent()
-            maxSizeMB = 50
-            fileint.type = "image/*"
-            //fileint.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/jpeg", "image/png"))
-            fileint.action = Intent.ACTION_GET_CONTENT
-            startActivityForResult(fileint, 1)
+            startActivityForResult(picsIntent(), 1)
+        }
+        uploadPic2.setOnClickListener {
+            startActivityForResult(picsIntent(), 2)
+        }
+        uploadPic3.setOnClickListener {
+            startActivityForResult(picsIntent(), 3)
+        }
+        uploadPic4.setOnClickListener {
+            startActivityForResult(picsIntent(), 4)
         }
 
         host1.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                nameCreator = s.toString()
-                checkForVis(imageUriCreator, nameCreator)
+                nameCreatorList = s.toString()
+                //checkForVis(imageUriList, nameCreatorList)
             }
 
             override fun afterTextChanged(p0: Editable?) {}
         })
+    }
+
+    private fun picsIntent(): Intent{
+        val fileint = Intent()
+        maxSizeMB = 50
+        fileint.type = "image/*"
+        //fileint.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("image/jpeg", "image/png"))
+        fileint.action = Intent.ACTION_GET_CONTENT
+        return fileint
     }
 
     @Deprecated("Deprecated in Java")
@@ -64,9 +77,9 @@ class ActivityUpload3 : AppCompatActivity() {
 
         if (data != null) {
             if (msq.getFileSize(data.data!!, contentResolver) <= maxSizeMB * 1000000) {
+                imageUriList[requestCode - 1] = data.data!!
 
-                imageUriCreator = data.data!!
-                checkForVis(imageUriCreator, nameCreator)
+                //checkForVis(imageUriList, nameCreatorList)
             } else {
                 Toast.makeText(this, "File exceeds " + maxSizeMB + "MB", Toast.LENGTH_SHORT).show()
             }

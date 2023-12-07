@@ -1,15 +1,13 @@
 package com.example.simpletime
 
-import android.Manifest
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_user_home.*
-import kotlin.system.exitProcess
+import java.sql.Statement
 
 
 val user = Firebase.auth.currentUser
@@ -21,12 +19,48 @@ class ActivityUserHome : AppCompatActivity() {
         setContentView(R.layout.activity_user_home)
         var sortType = ""
 
-        cat_home_1.setOnClickListener{
+        val titles = mutableListOf<String>()
+        val msq = MySqlCon()
+
+        val connection = msq.connectToDatabase()
+
+        if (connection != null) {
+            try {
+                val statement: Statement = connection.createStatement()
+                var query = "SELECT title, descr FROM categories;"
+                var resultSet = statement.executeQuery(query)
+
+                while(resultSet.next()) {
+                    titles.add(resultSet.getString("title"))
+                }
+
+                statement.close()
+                connection.close()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        } else {
+            println("couldn't establish connection to db")
+        }
+
+        //msq.intToUri(this, R.drawable.thm2)
+        val i1 = Uri.parse("android.resource://" + this.packageName + "/" + R.drawable.thm2)
+
+        val defAdp = ListVerticalVideoAdapter(this, mutableListOf("Vytenis", "Jonas", "Danielius"), mutableListOf(i1, i1, i1))
+
+        val catAdp = ListEntryImgAdapter(titles, this){
             sortType = "mood"
             val intent = Intent(this, ActivityPager::class.java)
             intent.putExtra("sort", sortType)
             startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
+
+        userHomeRecyclerView1.adapter = defAdp
+        userHomeRecyclerView2.adapter = defAdp
+        userHomeRecyclerView3.adapter = defAdp
+
+        userHomeRecyclerView4.adapter = catAdp
+
         userHome_btnMoodFollowing.setOnClickListener {
             //4 debugging
             sortType = "mood"

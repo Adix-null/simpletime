@@ -78,6 +78,7 @@
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="@string/forgot_pass"
+                android:textColor="@color/black"
                 android:textAppearance="@style/forgot_pass"
                 app:backgroundTint="@null"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -105,7 +106,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:layout_marginTop="30dp"
-                android:src="@drawable/_or_"
+                android:background="@drawable/_or_"
+                android:backgroundTint="@color/black"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
@@ -129,6 +131,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:text="Don't have an account? Create one"
+                android:textColor="@color/black"
                 android:layout_marginTop="20dp"/>
 
         </LinearLayout>
