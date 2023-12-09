@@ -75,6 +75,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Enter the name"
+                        style="@style/small_text"
                         android:ellipsize="marquee"
                         android:singleLine="true"/>
 
@@ -103,6 +104,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Upload the picture"
+                        style="@style/small_text"
                         android:ellipsize="marquee"
                         android:singleLine="true"/>
 
@@ -138,6 +140,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Enter the name"
+                        style="@style/small_text"
                         android:ellipsize="marquee"
                         android:singleLine="true"/>
 
@@ -166,6 +169,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Upload the picture"
+                        style="@style/small_text"
                         android:ellipsize="marquee"
                         android:singleLine="true"/>
 
@@ -209,6 +213,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Enter the name"
+                        style="@style/small_text"
                         android:ellipsize="marquee"
                         android:singleLine="true"/>
 
@@ -237,6 +242,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Upload the picture"
+                        style="@style/small_text"
                         android:ellipsize="marquee"
                         android:singleLine="true"/>
 
@@ -272,6 +278,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Enter the name"
+                        style="@style/small_text"
                         android:ellipsize="marquee"
                         android:singleLine="true"/>
 
@@ -300,6 +307,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:text="Upload the picture"
+                        style="@style/small_text"
                         android:ellipsize="marquee"
                         android:singleLine="true"/>
 

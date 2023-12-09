@@ -54,6 +54,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/small_text"
                 android:paddingStart="30dp"
                 android:text="Attachments" />
 
@@ -113,6 +114,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/small_text"
                 android:paddingStart="30dp"
                 android:text="Attachments" />
 

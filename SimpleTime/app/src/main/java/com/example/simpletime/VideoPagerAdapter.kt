@@ -72,6 +72,9 @@ class VideoPagerAdapter(
     var loadedInfo = false
     private val msq = MySqlCon()
 
+    var hostNameList:  MutableList<String?> = mutableListOf(null, null)
+    var guestNameList:  MutableList<String?> = mutableListOf(null, null)
+
     inner class VideoPagerViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView)
 
     /* In case of swipe necessity in the future use this
@@ -104,6 +107,11 @@ class VideoPagerAdapter(
         return 10
     }
 
+    override fun onDetachedFromRecyclerView(recyclerView: RecyclerView) {
+        audiopl.release()
+        super.onDetachedFromRecyclerView(recyclerView)
+    }
+
     var isPl: Boolean = false
     private lateinit var animatorSet: AnimatorSet
     override fun onBindViewHolder(hold: VideoPagerViewHolder, position: Int) {
@@ -115,7 +123,7 @@ class VideoPagerAdapter(
 
         holder.itemView.profileFeedRecyclerView.adapter = ListEntryProfileAdapter(30, pagerContext, mutableListOf("vardas"), msq.intToUri(pagerContext, R.drawable.user_blank))
 
-        holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, mutableListOf("host"), msq.intToUri(pagerContext, R.drawable.user_blank))
+
 
         holder.itemView.guestsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, mutableListOf("guest"), msq.intToUri(pagerContext, R.drawable.user_blank))
 
@@ -277,6 +285,23 @@ class VideoPagerAdapter(
                         usernameI = resultSet.getString("username")
                     }
 
+                    query = "SELECT username, class FROM people WHERE (id=\"$videoId\") AND (class=\"host\");"
+                    resultSet = statement.executeQuery(query)
+
+                    while(resultSet.next()) {
+                        hostNameList.add(resultSet.getString("username"))
+                    }
+
+
+                    holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, hostNameList.filterNotNull().toMutableList(), msq.intToUri(pagerContext, R.drawable.user_blank))
+
+                    query = "SELECT username, class FROM people WHERE (id=\"$videoId\") AND (class=\"guest\");"
+                    resultSet = statement.executeQuery(query)
+
+                    while(resultSet.next()) {
+                        guestNameList.add(resultSet.getString("username"))
+                    }
+
                     statement.close()
                     connection.close()
                 } catch (e: Exception) {
@@ -370,6 +395,7 @@ class VideoPagerAdapter(
         holder = holderList[hold]
     }
 }
+
 
 class ProgressViewModelF : ViewModel() {
     private val _currentPosition = MutableLiveData<Int>()

@@ -9,6 +9,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.simpletime.ActivityUpload2.Companion.coverUri
 import com.example.simpletime.ActivityUpload2.Companion.videoUri
+import com.example.simpletime.ActivityUpload3.Companion.hostUriList
+import com.example.simpletime.ActivityUpload3.Companion.hostNameList
+import com.example.simpletime.ActivityUpload3.Companion.guestUriList
+import com.example.simpletime.ActivityUpload3.Companion.guestNameList
 import com.example.simpletime.ActivityUpload4.Companion.audioUri
 import com.example.simpletime.ActivityUpload4.Companion.descriptionVideo
 import com.example.simpletime.ActivityUpload4.Companion.nameVideo
@@ -29,7 +33,7 @@ class ActivityUploadProgress : AppCompatActivity() {
     private var auth: FirebaseAuth = FirebaseAuth.getInstance()
     lateinit var storageRef: StorageReference
 
-    var folders: MutableList<String> = mutableListOf("thumbnails", "podcasts", "videos")
+    var folders: MutableList<String> = mutableListOf("thumbnails", "podcasts", "videos", "profilepics")
 
     var postData: MutableList<Uri?> = mutableListOf(coverUri, audioUri, videoUri)
 
@@ -55,44 +59,71 @@ class ActivityUploadProgress : AppCompatActivity() {
                 val uid = account?.uid!!.substring(0, 16)
                 val hashId: String = generateRandomString(8)
 
+                var query = "INSERT into posts(id, user_uid_hash, views, title, description)\n" +
+                            "values (\n" +
+                            "\"$hashId\", " +
+                            "\"$uid\", " +
+                            //0 + ", " +
+                            0 + ", " +
+                            //"\"$datetimelong\", " +
+                            "\"$nameVideo\", " +
+                            "\"$descriptionVideo\"\n" +
+                            ");"
+                println(query)
+                statement.execute(query)
+
+                for (i in interests) {
+                    query = "INSERT into post_interests(post_id, category_id)\n" +
+                            "values (\n" +
+                            "\"$hashId\", " +
+                            "\"$i\"\n" +
+                            ");"
+                    println(query)
+                    statement.execute(query)
+                }
+
+                for (i in languages) {
+                    query = "INSERT into post_languages(post_id, language_id)\n" +
+                            "values (\n" +
+                            "\"$hashId\", " +
+                            "\"$i\"\n" +
+                            ");"
+                    println(query)
+                    statement.execute(query)
+                }
+
+                for (i in hostNameList) {
+                    if(i != null) {
+                        query = "INSERT into people(id, username, class)\n" +
+                                "values (\n" +
+                                "\"$hashId\", " +
+                                "\"$i\", " +
+                                "\"host\"" +
+                                ");"
+                        println(query)
+                        statement.execute(query)
+                    }
+                }
+
+                for (i in guestNameList) {
+                    if(i != null) {
+                        query = "INSERT into people(id, username, class)\n" +
+                                "values (\n" +
+                                "\"$hashId\", " +
+                                "\"$i\", " +
+                                "\"guest\"" +
+                                ");"
+                        println(query)
+                        statement.execute(query)
+                    }
+                }
+
                 uploadFile(hashId)
 
-                    var query =
-                        "INSERT into posts(id, user_uid_hash, views, title, description)\n" +
-                                "values (\n" +
-                                "\"$hashId\", " +
-                                "\"$uid\", " +
-                                //0 + ", " +
-                                0 + ", " +
-                                //"\"$datetimelong\", " +
-                                "\"$nameVideo\", " +
-                                "\"$descriptionVideo\"\n" +
-                                ");"
-                println(query)
-                    statement.execute(query)
+                continue_progress_upload.visibility = View.VISIBLE
 
-                    for (i in interests) {
-                        query = "INSERT into post_interests(post_id, category_id)\n" +
-                                "values (\n" +
-                                "\"$hashId\", " +
-                                "\"$i\"\n" +
-                                ");"
-                        statement.execute(query)
-                    }
-
-                    for (i in languages) {
-                        query = "INSERT into post_languages(post_id, language_id)\n" +
-                                "values (\n" +
-                                "\"$hashId\", " +
-                                "\"$i\"\n" +
-                                ");"
-                        statement.execute(query)
-                    }
-
-                    continue_progress_upload.visibility = View.VISIBLE
-
-                    statement.close()
-                    connection.close()
+                statement.close()
+                connection.close()
 
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -115,7 +146,7 @@ class ActivityUploadProgress : AppCompatActivity() {
     private fun uploadFile(hashId: String): Boolean {
         var failed = false
 
-        for (u in 0 until postData.size) {
+        for (u in postData.indices) {
             storageRef = storage.getReference(folders[u] + "/" + hashId)
 
             storageRef.putFile(postData[u]!!)
@@ -123,6 +154,30 @@ class ActivityUploadProgress : AppCompatActivity() {
                     failed = true
                     //storageRef.delete()
                 }
+        }
+
+        for(u in hostUriList.indices){
+            storageRef = storage.getReference(folders[3] + "/" + hashId + "_" + "host")
+
+            if(hostUriList[u] != null){
+                storageRef.putFile(hostUriList[u]!!)
+                    .addOnFailureListener {
+                        failed = true
+                        //storageRef.delete()
+                    }
+            }
+        }
+
+        for(u in guestUriList.indices){
+            storageRef = storage.getReference(folders[3] + "/" + hashId + "_" + "guest")
+
+            if(guestUriList[u] != null) {
+                storageRef.putFile(guestUriList[u]!!)
+                    .addOnFailureListener {
+                        failed = true
+                        //storageRef.delete()
+                    }
+            }
         }
 
         Toast.makeText(this, if (failed) "Fail" else "Success!", Toast.LENGTH_SHORT).show()
