@@ -44,7 +44,7 @@ class ActivityUserHome : AppCompatActivity() {
         }
 
         //msq.intToUri(this, R.drawable.thm2)
-        val i1 = Uri.parse("android.resource://" + this.packageName + "/" + R.drawable.thm2)
+        val i1 = Uri.parse("android.resource://" + this.packageName + "/" + R.drawable.thm3)
 
         val defAdp = ListVerticalVideoAdapter(this, mutableListOf("Vytenis", "Jonas", "Danielius"), mutableListOf(i1, i1, i1))
 

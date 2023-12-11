@@ -59,6 +59,8 @@ class ActivityUploadProgress : AppCompatActivity() {
                 val uid = account?.uid!!.substring(0, 16)
                 val hashId: String = generateRandomString(8)
 
+                uploadFile(hashId)
+
                 var query = "INSERT into posts(id, user_uid_hash, views, title, description)\n" +
                             "values (\n" +
                             "\"$hashId\", " +
@@ -92,35 +94,35 @@ class ActivityUploadProgress : AppCompatActivity() {
                     statement.execute(query)
                 }
 
-                for (i in hostNameList) {
-                    if(i != null) {
+                for (i in hostNameList.indices) {
+                    if(hostNameList[i] != null) {
                         query = "INSERT into people(id, username, class)\n" +
                                 "values (\n" +
                                 "\"$hashId\", " +
-                                "\"$i\", " +
-                                "\"host\"" +
+                                "\"${hostNameList[i]}\", " +
+                                "\"host_$i\"" +
                                 ");"
                         println(query)
                         statement.execute(query)
                     }
                 }
 
-                for (i in guestNameList) {
-                    if(i != null) {
+                for (i in guestNameList.indices) {
+                    if(guestNameList[i] != null) {
                         query = "INSERT into people(id, username, class)\n" +
                                 "values (\n" +
                                 "\"$hashId\", " +
-                                "\"$i\", " +
-                                "\"guest\"" +
+                                "\"${guestNameList[i]}\", " +
+                                "\"guest_$i\"" +
                                 ");"
                         println(query)
                         statement.execute(query)
                     }
                 }
-
-                uploadFile(hashId)
 
                 continue_progress_upload.visibility = View.VISIBLE
+
+
 
                 statement.close()
                 connection.close()

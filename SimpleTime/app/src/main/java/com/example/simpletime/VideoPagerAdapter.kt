@@ -72,8 +72,8 @@ class VideoPagerAdapter(
     var loadedInfo = false
     private val msq = MySqlCon()
 
-    var hostNameList:  MutableList<String?> = mutableListOf(null, null)
-    var guestNameList:  MutableList<String?> = mutableListOf(null, null)
+    var hostNameList:  MutableList<String?> = mutableListOf("null", "null")
+    var guestNameList:  MutableList<String?> = mutableListOf("null", "null")
 
     inner class VideoPagerViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -120,12 +120,6 @@ class VideoPagerAdapter(
 
         holder.itemView.podcast_slider.thumb.setColorFilter(holder.itemView.resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
         holder.itemView.podcast_slider.progressDrawable.setColorFilter(holder.itemView.resources.getColor(R.color.black), PorterDuff.Mode.SRC_IN)
-
-        holder.itemView.profileFeedRecyclerView.adapter = ListEntryProfileAdapter(30, pagerContext, mutableListOf("vardas"), msq.intToUri(pagerContext, R.drawable.user_blank))
-
-
-
-        holder.itemView.guestsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, mutableListOf("guest"), msq.intToUri(pagerContext, R.drawable.user_blank))
 
         fillFeed()
 
@@ -292,8 +286,40 @@ class VideoPagerAdapter(
                         hostNameList.add(resultSet.getString("username"))
                     }
 
+                    val blankPhoto = pagerContext.resources.getDrawable(R.drawable.user_blank)
 
-                    holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, hostNameList.filterNotNull().toMutableList(), msq.intToUri(pagerContext, R.drawable.user_blank))
+                    var sizeCountHost = 0
+
+                    var picIndexHost = 0
+                    val hostNotNullList: MutableList<String> = mutableListOf()
+                    val pathUriListHost: MutableList<Drawable> = mutableListOf()
+
+                    for(i in hostNameList.indices){
+                        if(hostNameList[i] != null && hostNameList[i] != "null"){
+                            sizeCountHost++
+                            val host0 = File.createTempFile("temph", ".jpg")
+                            val picPath = videoId + "_host_" + picIndexHost
+                            FireStorage.reference.child("profilepics/").child(picPath).getFile(host0).addOnSuccessListener{
+                                hostNotNullList.add(hostNameList[i]!!)
+                                pathUriListHost.add(Drawable.createFromPath(host0.path)!!)
+                                sizeCountHost--
+
+                                if(sizeCountHost == 0){
+                                    holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, hostNotNullList, pathUriListHost)
+                                }
+                            }
+                            FireStorage.reference.child("profilepics/").child("$picPath.jpg").getFile(host0).addOnSuccessListener{
+                                hostNotNullList.add(hostNameList[i]!!)
+                                pathUriListHost.add(Drawable.createFromPath(host0.path)!!)
+                                sizeCountHost--
+
+                                if(sizeCountHost == 0){
+                                    holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, hostNotNullList, pathUriListHost)
+                                }
+                            }
+                            picIndexHost++
+                        }
+                    }
 
                     query = "SELECT username, class FROM people WHERE (id=\"$videoId\") AND (class=\"guest\");"
                     resultSet = statement.executeQuery(query)
@@ -301,6 +327,39 @@ class VideoPagerAdapter(
                     while(resultSet.next()) {
                         guestNameList.add(resultSet.getString("username"))
                     }
+
+                    var sizeCountGuest = 0
+                    var picIndexGuest = 0
+                    val guestNotNullList: MutableList<String> = mutableListOf()
+                    val pathUriListGuest: MutableList<Drawable> = mutableListOf()
+
+                    for(i in guestNameList.indices){
+                        if(guestNameList[i] != null){
+                            val host0 = File.createTempFile("temp", ".jpg")
+                            val picPath = videoId + "_guest_" + picIndexGuest
+                            picIndexGuest++
+                            FireStorage.reference.child("profilepics/").child(picPath).getFile(host0).addOnSuccessListener{
+                                guestNotNullList.add(guestNameList[i]!!)
+                                pathUriListGuest.add(Drawable.createFromPath(host0.path)!!)
+                                sizeCountGuest--
+
+                                if(sizeCountGuest == 0){
+                                    holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, guestNotNullList, pathUriListGuest)
+                                }
+                            }
+                            FireStorage.reference.child("profilepics/").child("$picPath.jpg").getFile(host0).addOnSuccessListener{
+                                guestNotNullList.add(guestNameList[i]!!)
+                                pathUriListGuest.add(Drawable.createFromPath(host0.path)!!)
+                                sizeCountGuest--
+
+                                if(sizeCountGuest == 0){
+                                    holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, guestNotNullList, pathUriListGuest)
+                                }
+                            }
+                        }
+                    }
+
+                   /* holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, hostNameList.filterNotNull().toMutableList(), pathUriListGuest.filterNotNull().toMutableList())*/
 
                     statement.close()
                     connection.close()
@@ -316,8 +375,9 @@ class VideoPagerAdapter(
         thumbFile = File.createTempFile("tempthumb", "jpg")
         FireStorage.reference.child("thumbnails/").child(videoId).getFile(thumbFile).addOnSuccessListener{
             holder.itemView.imageFeed.setImageDrawable(Drawable.createFromPath(thumbFile.path))
+            println("thumbd")
         }
-        println("thumbd")
+
 
         audioFile = File.createTempFile("tempthumb", "mp3")
         FireStorage.reference.child("podcasts/").child(videoId).getFile(audioFile).addOnSuccessListener{

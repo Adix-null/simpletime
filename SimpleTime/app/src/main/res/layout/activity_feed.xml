@@ -135,7 +135,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:itemCount="2" />
+                        tools:itemCount="3" />
 
                     <TextView
                         style="@style/big_text"
@@ -150,7 +150,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:itemCount="2" />
+                        tools:itemCount="3" />
 
 
                 </LinearLayout>

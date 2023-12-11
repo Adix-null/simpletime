@@ -1,7 +1,7 @@
 package com.example.simpletime
 
 import android.content.Context
-import android.net.Uri
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ListEntryProfileAdapter (private val imgSize: Int, private val cont: Context, private val titleList: MutableList<String>, private val uri: Uri) : RecyclerView.Adapter<ListEntryProfileAdapter.YourViewHolder>() {
+class ListEntryProfileAdapter (private val imgSize: Int, private val cont: Context, private val titleList: MutableList<String>, private val drawableList: MutableList<Drawable>) : RecyclerView.Adapter<ListEntryProfileAdapter.YourViewHolder>() {
 
     inner class YourViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val profile: ImageView = itemView.findViewById(R.id.profilepic)
@@ -26,8 +26,14 @@ class ListEntryProfileAdapter (private val imgSize: Int, private val cont: Conte
         //holder.layParams.height = imgSize
         //holder.layParams.width = imgSize
         //holder.itemView.layoutParams = holder.layParams
-        holder.textName.text = titleList[position]
-        holder.profile.setImageURI(uri)
+        try {
+            holder.textName.text = titleList[position]
+            holder.profile.setImageDrawable(drawableList[position])
+        }
+        catch (e: java.lang.Exception)
+        {
+            println(e)
+        }
         //holder.textName.textSize = imgSize.toFloat()
     }
 
