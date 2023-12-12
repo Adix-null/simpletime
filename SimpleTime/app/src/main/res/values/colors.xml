@@ -29,10 +29,11 @@
     <color name="mid_blue">#3B56A6</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#04414F</color>
-    <color name="white">#1A1A1A</color>
+    <color name="white">#292929</color>
     <color name="full_white">#FF000000</color>
     <color name="dark_gray">#DFDFDF</color>
     <color name="light_gray">#4C4C4C</color>
+    <color name="mid_gray">#1A1A1A</color>
     <color name="black">#FFFFFF</color>
     <color name="main_purple_light">#C6A0D8</color>
     <color name="main_purple_dark">#25173A</color>

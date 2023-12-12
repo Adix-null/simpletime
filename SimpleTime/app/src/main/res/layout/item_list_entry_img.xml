@@ -17,7 +17,8 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView"
         android:layout_width="44dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
+        android:scaleType="centerCrop"
         android:background="@drawable/circle_cutoff"
         android:elevation="5dp"
         app:layout_constraintStart_toStartOf="parent"

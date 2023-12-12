@@ -12,7 +12,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/nav_bottom">
+        android:background="@drawable/round_corner_nav">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -25,14 +25,14 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="7dp"
-                android:background="@drawable/home"
+                android:background="@drawable/nav_home_blank"
                 android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Home"
-                android:textAppearance="@style/navbar_links"
+                android:textAppearance="@style/navbar_links_dark"
                 android:textAlignment="center"
                 android:layout_gravity="center"/>
 
@@ -46,17 +46,17 @@
 
             <Button
                 android:id="@+id/buttonSaved"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="7dp"
-                android:background="@drawable/heart"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/nav_heart_blank"
                 android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Liked"
-                android:textAppearance="@style/navbar_links"
+                android:textAppearance="@style/navbar_links_dark"
                 android:textAlignment="center"
                 android:layout_gravity="center"/>
 
@@ -70,17 +70,17 @@
 
             <Button
                 android:id="@+id/buttonSearch"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="7dp"
-                android:background="@drawable/bell"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/nav_bell_blank"
                 android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="New"
-                android:textAppearance="@style/navbar_links"
+                android:textAppearance="@style/navbar_links_dark"
                 android:textAlignment="center"
                 android:layout_gravity="center"/>
 
@@ -97,14 +97,14 @@
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginTop="7dp"
-                android:background="@drawable/upload"
+                android:background="@drawable/nav_upload_blank"
                 android:layout_gravity="center"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Upload"
-                android:textAppearance="@style/navbar_links"
+                android:textAppearance="@style/navbar_links_dark"
                 android:textAlignment="center"
                 android:layout_gravity="center"/>
 

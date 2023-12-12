@@ -7,7 +7,26 @@
     android:background="@color/white"
     tools:context=".ActivityFeed">
 
+    <ImageView
+        android:id="@+id/imageViewDec1"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:src="@drawable/round_corner_feed_top"
+        app:layout_constraintEnd_toEndOf="@+id/shapeableImageView"
+        app:layout_constraintStart_toStartOf="@+id/shapeableImageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageViewDec2"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:src="@drawable/round_corner_feed_bottom"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="@+id/shapeableImageView"
+        app:layout_constraintStart_toStartOf="@+id/shapeableImageView" />
+
     <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/shapeableImageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@color/teal_700"
@@ -20,34 +39,40 @@
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="40dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/imageViewDec1">
 
         <TextView
             android:id="@+id/videopage_title2"
             style="@style/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/round_corner_option"
+            android:elevation="5dp"
             android:paddingStart="10dp"
             android:text="Title" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/round_corner_option"
             android:baselineAligned="false"
-            android:padding="10dp">
+            android:elevation="5dp"
+            android:paddingStart="10dp"
+            android:paddingTop="15dp">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -101,10 +126,13 @@
                     android:id="@+id/profileFeedRecyclerView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:layout_gravity="center_horizontal"
                     android:clipChildren="false"
+
                     android:clipToPadding="false"
                     android:overScrollMode="never"
+                    android:paddingStart="2dp"
+                    android:paddingTop="9dp"
                     android:scrollbars="none"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:itemCount="1" />
@@ -126,14 +154,14 @@
                         style="@style/big_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginStart="10dp"
                         android:text="Hosts" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/hostsFeedRecyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginStart="12dp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:itemCount="3" />
 
@@ -141,14 +169,14 @@
                         style="@style/big_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginStart="10dp"
                         android:text="Guests" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/guestsFeedRecyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginStart="12dp"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:itemCount="3" />
 
@@ -162,8 +190,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
             android:background="@drawable/round_corner_option"
+            android:elevation="5dp"
             android:orientation="vertical">
 
             <TextView
@@ -177,7 +208,7 @@
                 android:id="@+id/videopage_description"
                 style="@style/small_text"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="150dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:paddingBottom="10dp"
@@ -185,19 +216,28 @@
 
         </LinearLayout>
 
-        <SeekBar
-            android:id="@+id/podcast_slider"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" />
+            android:layout_height="match_parent"
+            android:gravity="center|bottom"
+            android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/imageView5"
-            android:layout_width="52dp"
-            android:layout_height="52dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/play_full_n" />
+            <SeekBar
+                android:id="@+id/podcast_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp" />
+
+            <ImageButton
+                android:id="@+id/imageView5"
+                android:layout_width="84dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/play_full_n" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -214,9 +254,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="SpeakableTextPresentCheck" />
 
-
-
-
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
@@ -224,12 +261,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <fragment
+        <!--<fragment
             android:id="@+id/bottomfrag_home"
             android:name="com.example.simpletime.ActivityBottomNavbar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:layout="@layout/fragment_bottom_navbar" />
+            tools:layout="@layout/fragment_bottom_navbar" />-->
     </LinearLayout>
 
 

@@ -117,6 +117,12 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="navbar_links_dark">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/inter_medium</item>
+        <item name="android:textColor">@color/full_white</item>
+    </style>
+
     <style name="med_text">
         <item name="android:textSize">15sp</item>
         <item name="android:fontFamily">@font/inter_var</item>
