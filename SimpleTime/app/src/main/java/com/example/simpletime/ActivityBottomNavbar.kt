@@ -1,12 +1,12 @@
 package com.example.simpletime
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import android.content.Intent
 
 class ActivityBottomNavbar : Fragment() {
 
@@ -29,7 +29,9 @@ class ActivityBottomNavbar : Fragment() {
             else{
                 buttonList[i].setOnClickListener{
                     val intent = Intent(context, activityList[i])
-                    startActivity(intent);//overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK
+                    startActivity(intent);activity?.overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
+                    activity?.finish()
                 }
                 buttonList[i].setBackgroundResource(blankImageList[i])
             }

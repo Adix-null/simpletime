@@ -208,7 +208,7 @@
                 android:id="@+id/videopage_description"
                 style="@style/small_text"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:paddingBottom="10dp"
@@ -259,7 +259,8 @@
         android:layout_width="match_parent"
         android:layout_height="65dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal">
 
         <!--<fragment
             android:id="@+id/bottomfrag_home"

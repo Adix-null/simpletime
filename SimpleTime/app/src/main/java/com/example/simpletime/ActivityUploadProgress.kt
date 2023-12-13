@@ -96,11 +96,12 @@ class ActivityUploadProgress : AppCompatActivity() {
 
                 for (i in hostNameList.indices) {
                     if(hostNameList[i] != null) {
-                        query = "INSERT into people(id, username, class)\n" +
+                        query = "INSERT into people(id, username, class, pos)\n" +
                                 "values (\n" +
                                 "\"$hashId\", " +
                                 "\"${hostNameList[i]}\", " +
-                                "\"host_$i\"" +
+                                "\"host\", " +
+                                "\"$i\"" +
                                 ");"
                         println(query)
                         statement.execute(query)
@@ -109,11 +110,12 @@ class ActivityUploadProgress : AppCompatActivity() {
 
                 for (i in guestNameList.indices) {
                     if(guestNameList[i] != null) {
-                        query = "INSERT into people(id, username, class)\n" +
+                        query = "INSERT into people(id, username, class, pos)\n" +
                                 "values (\n" +
                                 "\"$hashId\", " +
                                 "\"${guestNameList[i]}\", " +
-                                "\"guest_$i\"" +
+                                "\"guest\", " +
+                                "\"$i\"" +
                                 ");"
                         println(query)
                         statement.execute(query)
@@ -121,8 +123,6 @@ class ActivityUploadProgress : AppCompatActivity() {
                 }
 
                 continue_progress_upload.visibility = View.VISIBLE
-
-
 
                 statement.close()
                 connection.close()

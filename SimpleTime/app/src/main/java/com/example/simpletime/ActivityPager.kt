@@ -3,6 +3,7 @@ package com.example.simpletime
 import android.annotation.SuppressLint
 import android.graphics.drawable.Drawable
 import android.os.Bundle
+import android.view.MotionEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
@@ -63,6 +64,7 @@ class ActivityPager :AppCompatActivity(), Player.Listener, PlayerCallback, EndSc
         })
     }
 
+
     fun fix(){
         for(pl in VideoPagerAdapter.plList){
             pl.pause()
@@ -84,6 +86,23 @@ class ActivityPager :AppCompatActivity(), Player.Listener, PlayerCallback, EndSc
         VideoPagerAdapter.plList.clear()
         VideoPagerAdapter.holderList.clear()
         return
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        for(pl in VideoPagerAdapter.plList){
+            pl.release()
+        }
+        VideoPagerAdapter.plList.clear()
+        VideoPagerAdapter.holderList.clear()
+        return
+    }
+
+    override fun onPause() {
+        super.onPause()
+        for(pl in VideoPagerAdapter.plList){
+            pl.pause()
+        }
     }
 
     override fun onPlayerCallback() {

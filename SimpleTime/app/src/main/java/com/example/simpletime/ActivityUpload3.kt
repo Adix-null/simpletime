@@ -127,12 +127,12 @@ class ActivityUpload3 : AppCompatActivity() {
         var good = true
 
         for(b in hostUriList.indices){
-            if(hostUriList[b] != null && hostNameList[b] == null)
+            if(hostUriList[b] == null || hostNameList[b] == null)
                 good = false
         }
 
         for(b in guestUriList.indices){
-            if(guestUriList[b] != null && guestNameList[b] == null)
+            if(guestUriList[b] == null || guestNameList[b] == null)
                 good = false
         }
 

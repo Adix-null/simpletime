@@ -272,97 +272,97 @@ class VideoPagerAdapter(
                         holder.itemView.videopage_description.text = descriptionI
                     }
 
-                    query = "SELECT user_uid, username FROM users WHERE (user_uid=\"$usernameI\");"
+                    query = "SELECT username FROM users WHERE (user_uid=\"$usernameI\");"
                     resultSet = statement.executeQuery(query)
 
                     while(resultSet.next()) {
                         usernameI = resultSet.getString("username")
                     }
 
-                    query = "SELECT username, class FROM people WHERE (id=\"$videoId\") AND (class=\"host\");"
-                    resultSet = statement.executeQuery(query)
-
-                    while(resultSet.next()) {
-                        hostNameList.add(resultSet.getString("username"))
-                    }
-
                     val blankPhoto = pagerContext.resources.getDrawable(R.drawable.user_blank)
 
                     var sizeCountHost = 0
-
-                    var picIndexHost = 0
                     val hostNotNullList: MutableList<String> = mutableListOf()
                     val pathUriListHost: MutableList<Drawable> = mutableListOf()
 
-                    for(i in hostNameList.indices){
-                        if(hostNameList[i] != null && hostNameList[i] != "null"){
-                            sizeCountHost++
-                            val host0 = File.createTempFile("temph", ".jpg")
-                            val picPath = videoId + "_host_" + picIndexHost
-                            FireStorage.reference.child("profilepics/").child(picPath).getFile(host0).addOnSuccessListener{
-                                hostNotNullList.add(hostNameList[i]!!)
-                                pathUriListHost.add(Drawable.createFromPath(host0.path)!!)
-                                sizeCountHost--
-
-                                if(sizeCountHost == 0){
-                                    holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, hostNotNullList, pathUriListHost)
-                                }
-                            }
-                            FireStorage.reference.child("profilepics/").child("$picPath.jpg").getFile(host0).addOnSuccessListener{
-                                hostNotNullList.add(hostNameList[i]!!)
-                                pathUriListHost.add(Drawable.createFromPath(host0.path)!!)
-                                sizeCountHost--
-
-                                if(sizeCountHost == 0){
-                                    holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, hostNotNullList, pathUriListHost)
-                                }
-                            }
-                            picIndexHost++
-                        }
-                    }
-
-                    query = "SELECT username, class FROM people WHERE (id=\"$videoId\") AND (class=\"guest\");"
-                    resultSet = statement.executeQuery(query)
-
-                    while(resultSet.next()) {
-                        guestNameList.add(resultSet.getString("username"))
-                    }
-
                     var sizeCountGuest = 0
-                    var picIndexGuest = 0
                     val guestNotNullList: MutableList<String> = mutableListOf()
                     val pathUriListGuest: MutableList<Drawable> = mutableListOf()
 
-                    for(i in guestNameList.indices){
-                        if(guestNameList[i] != null){
-                            val host0 = File.createTempFile("temp", ".jpg")
-                            val picPath = videoId + "_guest_" + picIndexGuest
-                            picIndexGuest++
-                            FireStorage.reference.child("profilepics/").child(picPath).getFile(host0).addOnSuccessListener{
-                                guestNotNullList.add(guestNameList[i]!!)
-                                pathUriListGuest.add(Drawable.createFromPath(host0.path)!!)
-                                sizeCountGuest--
+                    FireStorage.reference.child("profilepics/").listAll()
+                        .addOnSuccessListener { listResult ->
+                            for (item in listResult.items) {
+                                if(item.name.contains(videoId + "_host_" )){
+                                    sizeCountHost++
+                                    val host0 = File.createTempFile("temph${item.name}", ".jpg")
+                                    FireStorage.reference.child("profilepics/").child(item.name).getFile(host0).addOnSuccessListener {
+                                        sizeCountHost--
 
-                                if(sizeCountGuest == 0){
-                                    holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, guestNotNullList, pathUriListGuest)
-                                }
-                            }
-                            FireStorage.reference.child("profilepics/").child("$picPath.jpg").getFile(host0).addOnSuccessListener{
-                                guestNotNullList.add(guestNameList[i]!!)
-                                pathUriListGuest.add(Drawable.createFromPath(host0.path)!!)
-                                sizeCountGuest--
+                                        pathUriListHost.add(Drawable.createFromPath(host0.path)!!)
 
-                                if(sizeCountGuest == 0){
-                                    holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, guestNotNullList, pathUriListGuest)
+                                        val startIndex = item.name.lastIndexOf('_') + 1
+                                        val endIndex = item.name.lastIndexOf('.')
+                                        val number = item.name.substring(startIndex, endIndex).toIntOrNull()
+
+                                        query = "SELECT username FROM people WHERE (id=\"$videoId\") AND (class=\"host\") AND (pos=\"$number\");"
+                                        println(query)
+                                        resultSet = statement.executeQuery(query)
+
+                                        while(resultSet.next()) {
+                                            hostNotNullList.add(resultSet.getString("username"))
+                                        }
+
+                                        if(sizeCountHost == 0){
+                                            holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, hostNotNullList, pathUriListHost)
+                                        }
+
+                                        if(sizeCountGuest == 0 && sizeCountHost == 0){
+                                            statement.close()
+                                            connection.close()
+                                        }
+                                    }
                                 }
                             }
                         }
-                    }
+                        .addOnFailureListener {}
 
-                   /* holder.itemView.hostsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, hostNameList.filterNotNull().toMutableList(), pathUriListGuest.filterNotNull().toMutableList())*/
+                    FireStorage.reference.child("profilepics/").listAll()
+                        .addOnSuccessListener { listResult ->
+                            for (item in listResult.items) {
+                                if(item.name.contains(videoId + "_guest_" )){
+                                    sizeCountGuest++
+                                    val guest0 = File.createTempFile("temph${item.name}", ".jpg")
+                                    FireStorage.reference.child("profilepics/").child(item.name).getFile(guest0).addOnSuccessListener {
+                                        sizeCountGuest--
 
-                    statement.close()
-                    connection.close()
+                                        pathUriListGuest.add(Drawable.createFromPath(guest0.path)!!)
+
+                                        val startIndex = item.name.lastIndexOf('_') + 1
+                                        val endIndex = item.name.lastIndexOf('.')
+                                        val number = item.name.substring(startIndex, endIndex).toIntOrNull()
+
+                                        query = "SELECT username FROM people WHERE (id=\"$videoId\") AND (class=\"guest\") AND (pos=\"$number\");"
+                                        println(query)
+                                        resultSet = statement.executeQuery(query)
+
+                                        while(resultSet.next()) {
+                                            guestNotNullList.add(resultSet.getString("username"))
+                                        }
+
+                                        if(sizeCountGuest == 0){
+                                            holder.itemView.guestsFeedRecyclerView.adapter = ListEntryProfileAdapter(50, pagerContext, guestNotNullList, pathUriListGuest)
+                                        }
+
+                                        if(sizeCountGuest == 0 && sizeCountHost == 0){
+                                            statement.close()
+                                            connection.close()
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .addOnFailureListener {}
+
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
@@ -379,7 +379,7 @@ class VideoPagerAdapter(
         }
 
 
-        audioFile = File.createTempFile("tempthumb", "mp3")
+        audioFile = File.createTempFile("tempthumb", ".mp3")
         FireStorage.reference.child("podcasts/").child(videoId).getFile(audioFile).addOnSuccessListener{
             player3 = MediaPlayer.create(pagerContext, audioFile.toUri())
             player3.start()
