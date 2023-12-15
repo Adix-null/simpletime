@@ -292,7 +292,7 @@ class VideoPagerAdapter(
                     FireStorage.reference.child("profilepics/").listAll()
                         .addOnSuccessListener { listResult ->
                             for (item in listResult.items) {
-                                if(item.name.contains(videoId + "_host_" )){
+                                if(item.name.contains(videoId + "_host" )){
                                     sizeCountHost++
                                     val host0 = File.createTempFile("temph${item.name}", ".jpg")
                                     FireStorage.reference.child("profilepics/").child(item.name).getFile(host0).addOnSuccessListener {
@@ -329,7 +329,7 @@ class VideoPagerAdapter(
                     FireStorage.reference.child("profilepics/").listAll()
                         .addOnSuccessListener { listResult ->
                             for (item in listResult.items) {
-                                if(item.name.contains(videoId + "_guest_" )){
+                                if(item.name.contains(videoId + "_guest" )){
                                     sizeCountGuest++
                                     val guest0 = File.createTempFile("temph${item.name}", ".jpg")
                                     FireStorage.reference.child("profilepics/").child(item.name).getFile(guest0).addOnSuccessListener {
@@ -379,9 +379,10 @@ class VideoPagerAdapter(
         }
 
 
-        audioFile = File.createTempFile("tempthumb", ".mp3")
-        FireStorage.reference.child("podcasts/").child(videoId).getFile(audioFile).addOnSuccessListener{
-            player3 = MediaPlayer.create(pagerContext, audioFile.toUri())
+
+        val audioFileTrailer = File.createTempFile("tempaud", ".mp3")
+        FireStorage.reference.child("trailer_audio/").child(videoId + ".mp3").getFile(audioFileTrailer).addOnSuccessListener{
+            player3 = MediaPlayer.create(pagerContext, audioFileTrailer.toUri())
             player3.start()
             player3.isLooping = true
             plList.add(player3)
@@ -410,7 +411,38 @@ class VideoPagerAdapter(
             callback.onPlayerCallback()
         }
 
-        println("audiod")
+        FireStorage.reference.child("trailer_audio/").child(videoId).getFile(audioFileTrailer).addOnSuccessListener{
+            player3 = MediaPlayer.create(pagerContext, audioFileTrailer.toUri())
+            player3.start()
+            player3.isLooping = true
+            plList.add(player3)
+
+            val viewModel = ViewModelProvider(vmProvider).get(ProgressViewModelF::class.java)
+            holder.itemView.podcast_slider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                    if (fromUser) {
+                        val newPosition = (progress * player3.duration / 100)
+
+                        player3.seekTo(newPosition)
+                    }
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+            })
+
+            viewModel.startUpdatingPosition()
+            viewModel.currentPosition.observe(lcOwner) { position ->
+                holder.itemView.podcast_slider.progress = position
+                //notificationBuilder.setProgress(100, position, false)
+            }
+
+            callback.onPlayerCallback()
+        }
+
+        audioFile = File.createTempFile("tempaudfull", ".mp3")
+        FireStorage.reference.child("podcasts/").child(videoId).getFile(audioFile)
 
         loadedInfo = true
     }

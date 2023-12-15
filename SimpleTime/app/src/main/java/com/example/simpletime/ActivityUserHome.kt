@@ -3,6 +3,7 @@ package com.example.simpletime
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -40,7 +41,7 @@ class ActivityUserHome : AppCompatActivity() {
                 e.printStackTrace()
             }
         } else {
-            println("couldn't establish connection to db")
+            Toast.makeText(this, "can't show categories", Toast.LENGTH_SHORT).show()
         }
 
         //msq.intToUri(this, R.drawable.thm2)

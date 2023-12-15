@@ -13,7 +13,7 @@ class ActivityUpload2 : AppCompatActivity() {
     var maxSizeMB: Int = 1000
 
     companion object{
-        var videoUri: Uri? = null
+        var audioTrailerUri: Uri? = null
         var coverUri: Uri? = null
     }
 
@@ -34,10 +34,10 @@ class ActivityUpload2 : AppCompatActivity() {
             startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
 
-        uploadVideo.setOnClickListener {
+        uploadAudioTrailer.setOnClickListener {
             val fileint = Intent()
-            maxSizeMB = 1000
-            fileint.type = "video/*"
+            maxSizeMB = 100
+            fileint.type = "audio/*"
             //fileint.putExtra(Intent.EXTRA_MIME_TYPES, arrayOf("video/mp4", "video/avi"))
             fileint.action = Intent.ACTION_GET_CONTENT
             startActivityForResult(fileint, 0)
@@ -64,10 +64,10 @@ class ActivityUpload2 : AppCompatActivity() {
             if (msq.getFileSize(data.data!!, contentResolver) <= maxSizeMB * 1000000) {
 
                 when(requestCode){
-                    0 -> videoUri = data.data!!
+                    0 -> audioTrailerUri = data.data!!
                     1 -> coverUri = data.data!!
                 }
-                checkForVis(videoUri, coverUri)
+                checkForVis(audioTrailerUri, coverUri)
             } else {
                 Toast.makeText(this, "File exceeds " + maxSizeMB + "MB", Toast.LENGTH_SHORT).show()
             }

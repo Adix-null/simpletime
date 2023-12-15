@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.simpletime.ActivityUpload2.Companion.coverUri
-import com.example.simpletime.ActivityUpload2.Companion.videoUri
+import com.example.simpletime.ActivityUpload2.Companion.audioTrailerUri
 import com.example.simpletime.ActivityUpload3.Companion.hostUriList
 import com.example.simpletime.ActivityUpload3.Companion.hostNameList
 import com.example.simpletime.ActivityUpload3.Companion.guestUriList
@@ -21,7 +21,6 @@ import com.example.simpletime.ActivityUploadLanguage.Companion.languages
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.activity_upload_notc_1.*
 import kotlinx.android.synthetic.main.activity_upload_progress.*
 import java.security.SecureRandom
 import java.sql.Statement
@@ -33,9 +32,9 @@ class ActivityUploadProgress : AppCompatActivity() {
     private var auth: FirebaseAuth = FirebaseAuth.getInstance()
     lateinit var storageRef: StorageReference
 
-    var folders: MutableList<String> = mutableListOf("thumbnails", "podcasts", "videos", "profilepics")
+    var folders: MutableList<String> = mutableListOf("thumbnails", "podcasts", "trailer_audio", "profilepics")
 
-    var postData: MutableList<Uri?> = mutableListOf(coverUri, audioUri, videoUri)
+    var postData: MutableList<Uri?> = mutableListOf(coverUri, audioUri, audioTrailerUri)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         supportActionBar?.hide()
@@ -159,7 +158,7 @@ class ActivityUploadProgress : AppCompatActivity() {
         }
 
         for(u in hostUriList.indices){
-            storageRef = storage.getReference(folders[3] + "/" + hashId + "_" + "host")
+            storageRef = storage.getReference(folders[3] + "/" + hashId + "_host_" + u)
 
             if(hostUriList[u] != null){
                 storageRef.putFile(hostUriList[u]!!)
@@ -171,7 +170,7 @@ class ActivityUploadProgress : AppCompatActivity() {
         }
 
         for(u in guestUriList.indices){
-            storageRef = storage.getReference(folders[3] + "/" + hashId + "_" + "guest")
+            storageRef = storage.getReference(folders[3] + "/" + hashId + "_guest_" + u)
 
             if(guestUriList[u] != null) {
                 storageRef.putFile(guestUriList[u]!!)

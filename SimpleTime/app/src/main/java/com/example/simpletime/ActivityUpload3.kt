@@ -110,7 +110,7 @@ class ActivityUpload3 : AppCompatActivity() {
                 if(requestCode < hostTextBtnList.size)
                     hostUriList[requestCode] = data.data!!
                 else
-                    guestUriList[requestCode + hostTextBtnList.size] = data.data!!
+                    guestUriList[requestCode - hostTextBtnList.size] = data.data!!
 
                 checkForVis()
 
@@ -127,12 +127,12 @@ class ActivityUpload3 : AppCompatActivity() {
         var good = true
 
         for(b in hostUriList.indices){
-            if(hostUriList[b] == null || hostNameList[b] == null)
+            if((hostUriList[b] == null) xor (hostNameList[b].isNullOrBlank()))
                 good = false
         }
 
         for(b in guestUriList.indices){
-            if(guestUriList[b] == null || guestNameList[b] == null)
+            if((guestUriList[b] == null) xor (guestNameList[b].isNullOrBlank()))
                 good = false
         }
 
