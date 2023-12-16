@@ -110,7 +110,7 @@ class ActivityUpload3 : AppCompatActivity() {
                 if(requestCode < hostTextBtnList.size)
                     hostUriList[requestCode] = data.data!!
                 else
-                    guestUriList[requestCode - hostTextBtnList.size] = data.data!!
+                    guestUriList[requestCode - if(hostTextBtnList.isEmpty()) 2 else hostTextBtnList.size] = data.data!!
 
                 checkForVis()
 

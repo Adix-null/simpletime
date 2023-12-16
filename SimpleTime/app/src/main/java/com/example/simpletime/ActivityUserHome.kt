@@ -39,9 +39,10 @@ class ActivityUserHome : AppCompatActivity() {
                 connection.close()
             } catch (e: Exception) {
                 e.printStackTrace()
+                Toast.makeText(this, "can't show categories", Toast.LENGTH_LONG).show()
             }
         } else {
-            Toast.makeText(this, "can't show categories", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "can't show categories", Toast.LENGTH_LONG).show()
         }
 
         //msq.intToUri(this, R.drawable.thm2)

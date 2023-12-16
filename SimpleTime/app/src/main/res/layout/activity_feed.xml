@@ -208,7 +208,7 @@
                 android:id="@+id/videopage_description"
                 style="@style/small_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:paddingStart="10dp"
                 android:paddingEnd="10dp"
                 android:paddingBottom="10dp"
@@ -240,19 +240,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
-
-    <ImageButton
-        android:visibility="invisible"
-        android:id="@+id/reportButton"
-        android:layout_width="37dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/report"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"

@@ -124,15 +124,12 @@ class VideoPagerAdapter(
         fillFeed()
 
         holder.itemView.imageView5.setOnClickListener{
+            println("klk")
             if(loadedInfo){
                 player3.pause()
                 val intent = Intent(pagerContext, ActivityVideoPage::class.java)
                 pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
             }
-        }
-        holder.itemView.reportButton.setOnClickListener {
-            val intent = Intent(pagerContext, ActivityReport::class.java)
-            pagerContext.startActivity(intent);(pagerContext as Activity).overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }
         holder.itemView.pauseBut.setOnClickListener {
 
@@ -387,6 +384,8 @@ class VideoPagerAdapter(
             player3.isLooping = true
             plList.add(player3)
 
+            loadedInfo = true
+
             val viewModel = ViewModelProvider(vmProvider).get(ProgressViewModelF::class.java)
             holder.itemView.podcast_slider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -417,6 +416,8 @@ class VideoPagerAdapter(
             player3.isLooping = true
             plList.add(player3)
 
+            loadedInfo = true
+
             val viewModel = ViewModelProvider(vmProvider).get(ProgressViewModelF::class.java)
             holder.itemView.podcast_slider.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -444,7 +445,7 @@ class VideoPagerAdapter(
         audioFile = File.createTempFile("tempaudfull", ".mp3")
         FireStorage.reference.child("podcasts/").child(videoId).getFile(audioFile)
 
-        loadedInfo = true
+
     }
 
     private var vidSel: Int = 0

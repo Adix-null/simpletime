@@ -60,10 +60,6 @@ class ActivityFeed : AppCompatActivity(), Player.Listener {
             val intent = Intent(this, ActivityUserHome::class.java);
             startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
         }*/
-        reportButton.setOnClickListener {
-            val intent = Intent(this, ActivityReport::class.java);
-            startActivity(intent);overridePendingTransition(R.anim.enter_anim, R.anim.exit_anim)
-        }
 
     }
 

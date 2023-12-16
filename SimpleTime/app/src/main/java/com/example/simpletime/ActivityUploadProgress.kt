@@ -153,7 +153,8 @@ class ActivityUploadProgress : AppCompatActivity() {
             storageRef.putFile(postData[u]!!)
                 .addOnFailureListener {
                     failed = true
-                    //storageRef.delete()
+                    storageRef.delete()
+                    Toast.makeText(this,"Fail", Toast.LENGTH_SHORT).show()
                 }
         }
 
@@ -164,7 +165,8 @@ class ActivityUploadProgress : AppCompatActivity() {
                 storageRef.putFile(hostUriList[u]!!)
                     .addOnFailureListener {
                         failed = true
-                        //storageRef.delete()
+                        storageRef.delete()
+                        Toast.makeText(this,"Fail", Toast.LENGTH_SHORT).show()
                     }
             }
         }
@@ -176,7 +178,8 @@ class ActivityUploadProgress : AppCompatActivity() {
                 storageRef.putFile(guestUriList[u]!!)
                     .addOnFailureListener {
                         failed = true
-                        //storageRef.delete()
+                        storageRef.delete()
+                        Toast.makeText(this,"Fail", Toast.LENGTH_SHORT).show()
                     }
             }
         }

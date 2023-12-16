@@ -80,7 +80,6 @@ class ActivityUpload4 : AppCompatActivity() {
 
         if (data != null) {
             if (msq.getFileSize(data.data!!, contentResolver) <= maxSizeMB * 1000000) {
-
                 audioUri = data.data!!
                 checkForVis(audioUri, nameVideo, descriptionVideo)
             } else {
